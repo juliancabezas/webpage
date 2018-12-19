@@ -1,364 +1,5 @@
 [0m[0KMicrosoft Windows [Versión 10.0.10586][0K[?25l
 (c) 2015 Microsoft Corporation. Todos los derechos reservados.[0K
 [0K
-C:\comp\blogdown\juliancabezas_academic>[0K[?25hg[0Ki[0Kt[0K[45G[?25lC:\comp\blogdown\juliancabezas_academic>git a[0K[?25hd[0Kd[0K[49G[?25lC:\comp\blogdown\juliancabezas_academic>git add A[0K[?25h-[0K[?25l
-[0K[?25h]0;  - git  add A-fatal: pathspec 'A-' did not match any files[0K[?25l
-[0K[?25h]0; [?25l
-C:\comp\blogdown\juliancabezas_academic>[0K[?25hg[0Ki[0Kt[0K[45G[?25lC:\comp\blogdown\juliancabezas_academic>git a[0K[?25hd[0Kd[0K[49G[?25lC:\comp\blogdown\juliancabezas_academic>git add -[0K[?25hA[0K]0;  - git  add -A[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/.editorconfig.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/.github/PULL_REQUEST_TEMPLATE.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/.gitignore.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/LICENSE.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/README.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/default.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/docs.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/home.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/post/index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/project/index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/publication/index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/slides.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/archetypes/talk/index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/assets/css/reveal.css.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/assets/js/academic-search.js.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/assets/js/academic.js.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/assets/js/algolia-search.js.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/assets/js/mathjax-config.js.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/academic.toml.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/data/assets.toml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/fonts/classic.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/fonts/default.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/fonts/playfair.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/i18n/languages.yaml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/1950s.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/apogee.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/coffee.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/cupcake.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/dark.toml.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/default.toml.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/forest.toml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/data/themes/ocean.toml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/demo.sh.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/config.toml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/about.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/contact.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/experience.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/hero.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/hero_carousel.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/posts.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/projects.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/publications.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/publications_selected.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/skills.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/tags.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/talks.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/talks_selected.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/home/teaching.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/post/_index.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/post/getting-started/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/privacy.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/project/external-project/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/project/internal-project/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/publication/_index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/publication/clothing-search/cite.bib.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/publication/clothing-search/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/publication/person-re-id/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/slides/example-slides.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/talk/_index.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/talk/example/index.md.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/tutorial/_index.md.[0K
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/exampleSite/content/tutorial/example.md.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/ca.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/i18n/de.yaml.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/el.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/en.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/es.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/eu.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/fr.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/id.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/it.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/ja.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/ko.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/nl.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/pl.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/pt.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/ru.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/tr.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/vi.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/i18n/zh.yaml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/404.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/_default/list.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/_default/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/docs/list.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/docs/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/layouts/index.css.[0K
-The file will have its original line endings in your working directory[0K[2G[?25h[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/index.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/index.json.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/comments.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/cookie_consent.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/css/academic.css.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/css/parse_theme.css.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/docs_layout.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/docs_sidebar.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/footer.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/footer_container.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/footer_section.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/header.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/navbar.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25h[?25lw[0K[1G[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/page_author.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/page_header.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/page_links.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/page_links_div.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/page_metadata.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/pagination.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/post_li_detailed.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/post_li_simple.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/post_li_stream.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/project_li_card.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/project_li_showcase.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/project_li_simple.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/publication_li_apa.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/publication_li_detailed.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/publication_li_mla.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/publication_li_simple.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/publication_li_stream.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/search.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/section_pager.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/share.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/slides.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/tags.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/talk_li_detailed.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/talk_li_simple.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/talk_li_stream.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widget_page.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/about.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/contact.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/custom.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/experience.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/featurette.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/hero.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/hero_carousel.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/posts.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/projects.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-warning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/publications.html.[0K
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/publications_selected.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/tag_cloud.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/talks.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25h[?25lwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/partials/widgets/talks_selected.html.[0K[1G[?25h[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/project/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/publication/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/rss.xml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/section/post.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/section/publication.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/section/talk.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/alert.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/figure.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/fragment.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/gallery.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/gdocs.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/list_categories.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/list_tags.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/slide.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/speaker_note.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/toc.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/shortcodes/video.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/sitemap.xml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/slides/baseof.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/slides/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/layouts/talk/single.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/static/js/vendor/reveal.js/plugin/notes/notes.html.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/static/js/vendor/reveal.js/plugin/notes/notes.js.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/static/site.webmanifest.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25hwarning: LF will be replaced by CRLF in themes/hugo-academic/theme.toml.[0K[?25l
-The file will have its original line endings in your working directory[0K
-[0K[?25h]0; [?25l
-C:\comp\blogdown\juliancabezas_academic>[0K[?25h]0;  - git  remote add origin https://github.com/juliancabezas/webpage.gitgit remote add origin https://github.com/juliancabezas/webpage.git[0K[?25l
-[0K[?25h]0; [?25l
-C:\comp\blogdown\juliancabezas_academic>git push -u origin master[0K[41G[?25h[66G]0;  - git  push -u origin master[?25l
-[0K[?25h]0; fatal: unable to access 'https://github.com/juliancabezas/webpage.git/': Failed to connect to github.com port 443: Timed out[0K[?25l
-[0K
-C:\comp\blogdown\juliancabezas_academic>[0K
-C:\comp\blogdown\juliancabezas_academic>[0K
-C:\comp\blogdown\juliancabezas_academic>[0K
-C:\comp\blogdown\juliancabezas_academic>[0K
-C:\comp\blogdown\juliancabezas_academic>[0K
-C:\comp\blogdown\juliancabezas_academic>[0K[?25hgit config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080[0Kj[0Kc[0Ka[0Kb[0Ke[0Kz[0Ka[0K^Z[0K^Z[0K[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jcabeza^Z[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jcabeza[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jcabez[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jcabe[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jcab[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jca[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080jc[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080j[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:808[0K[?25h^Z[0K[118G[117G[116G[115G[114G[113G[112G[111G[110G[109G[108G[107G[106G[105G[104G[102G[101G[100G[99G[98G[97G[95G[94G[93G[92G[90G[89G[88G[87G[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyusr:proxypwd@proxy.server.com:808^Z[0K[86G[?25h[87G[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyus:proxypwd@proxy.server.com:808^Z[0K[86G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxyu:proxypwd@proxy.server.com:808^Z[0K[85G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://proxy:proxypwd@proxy.server.com:808^Z[0K[84G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://prox:proxypwd@proxy.server.com:808^Z[0K[83G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://pro:proxypwd@proxy.server.com:808^Z[0K[82G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://pr:proxypwd@proxy.server.com:808^Z[0K[81G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://p:proxypwd@proxy.server.com:808^Z[0K[80G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://:proxypwd@proxy.server.com:808^Z[0K[79G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://j:proxypwd@proxy.server.com:808^Z[0K[80G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://ju:proxypwd@proxy.server.com:808^Z[0K[81G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jul:proxypwd@proxy.server.com:808^Z[0K[82G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://juli:proxypwd@proxy.server.com:808^Z[0K[83G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julia:proxypwd@proxy.server.com:808^Z[0K[84G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julian:proxypwd@proxy.server.com:808^Z[0K[85G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julianc:proxypwd@proxy.server.com:808^Z[0K[86G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julianca:proxypwd@proxy.server.com:808^Z[0K[87G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://juliancab:proxypwd@proxy.server.com:808^Z[0K[88G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julianca:proxypwd@proxy.server.com:808^Z[0K[87G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julianc:proxypwd@proxy.server.com:808^Z[0K[86G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julian:proxypwd@proxy.server.com:808^Z[0K[85G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://julia:proxypwd@proxy.server.com:808^Z[0K[84G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://juli:proxypwd@proxy.server.com:808^Z[0K[83G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jul:proxypwd@proxy.server.com:808^Z[0K[82G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://ju:proxypwd@proxy.server.com:808^Z[0K[81G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://j:proxypwd@proxy.server.com:808^Z[0K[80G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jc:proxypwd@proxy.server.com:808^Z[0K[81G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jca:proxypwd@proxy.server.com:808^Z[0K[82G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcab:proxypwd@proxy.server.com:808^Z[0K[83G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabe:proxypwd@proxy.server.com:808^Z[0K[84G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabez:proxypwd@proxy.server.com:808^Z[0K[85G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabeza:proxypwd@proxy.server.com:808^Z[0K[86G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:proxypwd@proxy.server.com:808^Z[0K[87G[?25h[88G[89G[90G[91G[92G[93G[94G[95G[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:proxypd@proxy.server.com:808^Z[0K[94G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:proxyd@proxy.server.com:808^Z[0K[93G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:proxd@proxy.server.com:808^Z[0K[92G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:prod@proxy.server.com:808^Z[0K[91G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:prd@proxy.server.com:808^Z[0K[90G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:pd@proxy.server.com:808^Z[0K[89G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:d@proxy.server.com:808^Z[0K[88G[?25h[89G[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:@proxy.server.com:808^Z[0K[88G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:s@proxy.server.com:808^Z[0K[89G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sa@proxy.server.com:808^Z[0K[90G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sag@proxy.server.com:808^Z[0K[91G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagi@proxy.server.com:808^Z[0K[92G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagit@proxy.server.com:808^Z[0K[93G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagita@proxy.server.com:808^Z[0K[94G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitar@proxy.server.com:808^Z[0K[95G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitari@proxy.server.com:808^Z[0K[96G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:808^Z[0K[97G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitari@proxy.server.com:808^Z[0K[96G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:808^Z[0K[97G[?25h[98G[99G[100G[101G[102G[103G[104G[106G[107G[109G[111G[112G[113G[114G[115G[116G[117G[118G[120G[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:808[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:80[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:8[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com:[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.com[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.co[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.c[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server.[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.server[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.serve[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.serv[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.ser[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.se[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.s[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy.[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@proxy[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@prox[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@pro[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@pr[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@p[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@[0K[?25h^V[0K[?25lC:\comp\blogdown\juliancabezas_academic>git config --global http.proxy http://jcabezas:sagitario@[0K[?25h192.168.1.115:8080[0K]0;  - git  config --global http.proxy http://jcabezas:sagitario@192.168.1.115:8080[?25l
-[0K[?25h]0; [?25l
-C:\comp\blogdown\juliancabezas_academic>[0K[?25hgit config --global http.proxy http://jcabezas:sagitario@192.168.1.115:8080[0K[?25lC:\comp\blogdown\juliancabezas_academic>git push -u origin master[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git remote add origin https://github.com/juliancabezas/webpage.git[0K[?25h]0;  - git  remote add origin https://github.com/juliancabezas/webpage.git[?25l
-[0K[?25h]0; fatal: remote origin already exists.[0K[?25l
-[0K
-C:\comp\blogdown\juliancabezas_academic>[0K[?25hgit remote add origin https://github.com/juliancabezas/webpage.git[0K[?25lC:\comp\blogdown\juliancabezas_academic>git add -A[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git remote add origin https://github.com/juliancabezas/webpage.git[0K[?25h[?25lC:\comp\blogdown\juliancabezas_academic>git push -u origin master[0K[?25h]0;  - git  push -u origin master[?25l
-[0K[?25hEnumerating objects: 254, done.[0K[?25l
-Counting objects:  35% (89/254)[0K[1G[?25hCounting objects: 100% (254/254), done.[0K[?25l
-Delta compression using up to 8 threads[0K
-Compressing objects:  17% (40/231)[0K[1G[?25h[?25lCompressing objects:  90% (208/231)[0K[1G[?25h[?25lCompressing objects:  93% (215/231)[0K[1G[?25h[?25lCompressing objects:  95% (220/231)[0K[1G[?25hCompressing objects: 100% (231/231), done.[0K[?25l
-Writing objects:  11% (28/254)[0K[1G[?25h[?25lWriting objects:  17% (44/254)[0K[1G[?25h[?25lWriting objects:  19% (49/254)[0K[1G[?25h[?25lWriting objects:  19% (49/254), 984.00 KiB | 246.00 KiB/s[0K[1G[?25h[?25lWriting objects:  19% (49/254), 1.13 MiB | 247.00 KiB/s[0K[1G[?25h[?25lWriting objects:  20% (51/254), 1.13 MiB | 247.00 KiB/s[0K[1G[?25h[?25lWriting objects:  20% (52/254), 1.33 MiB | 262.00 KiB/s[0K[1G[?25h[?25lWriting objects:  23% (59/254), 1.33 MiB | 262.00 KiB/s[0K[1G[?25h[?25lWriting objects:  23% (60/254), 1.69 MiB | 270.00 KiB/s[0K[1G[?25h[?25lWriting objects:  27% (69/254), 1.88 MiB | 277.00 KiB/s[0K[1G[?25h[?25lWriting objects:  31% (79/254), 2.50 MiB | 300.00 KiB/s[0K[1G[?25h[?25lWriting objects:  56% (143/254), 2.75 MiB | 353.00 KiB/s[0K[1G[?25h[?25lWriting objects:  57% (145/254), 2.75 MiB | 353.00 KiB/s[0K[1G[?25h[?25lWriting objects:  93% (237/254), 2.75 MiB | 353.00 KiB/s[0K[1G[?25h[?25lWriting objects:  98% (249/254), 2.75 MiB | 353.00 KiB/s[0K[1G[?25hWriting objects: 100% (254/254), 2.99 MiB | 316.00 KiB/s, done.[0K[?25l
-Total 254 (delta 40), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (40/40), done.[0K[?25l
-[0K[?25hTo https://github.com/juliancabezas/webpage.git[0K[?25l
- * [new branch]      master -> master[0K
-[0K[?25hBranch 'master' set up to track remote branch 'master' from 'origin'.[0K[?25l
-[0K[?25h]0; [?25l
-C:\comp\blogdown\juliancabezas_academic>[0K[?25h
+C:\comp\blogdown\juliancabezas_academic>[0K[1A[?25h[?25l
+[41G[?25h[?25lC:\comp\blogdown\juliancabezas_academic>g[0K[?25hi[0Kt[0K[45G[?25lC:\comp\blogdown\juliancabezas_academic>git a[0K[?25hd[0Kd[0K[49G[?25lC:\comp\blogdown\juliancabezas_academic>git add -[0K[?25hA[0K
