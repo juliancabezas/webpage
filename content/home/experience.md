@@ -3,7 +3,7 @@
 widget = "experience"  # Do not modify this line!
 active = true  # Activate this widget? true/false
 
-title = "Experience"
+title = "Experiencia"
 subtitle = ""
 
 # Order that this section will appear in.
@@ -11,7 +11,7 @@ weight = 8
 
 # Date format for experience
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format
-date_format = "January 2006"
+date_format = "01-2006"
 
 # Experiences.
 #   Add/remove as many `[[experience]]` blocks below as you like.
@@ -19,27 +19,39 @@ date_format = "January 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
+  title = "Analísta Estadístico"
+  company = "Instituto Nacional de Estadística"
   company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  location = "Santiago, Chile"
+  date_start = "2018-05-01"
   date_end = ""
   description = """
-  Responsibilities include:
-  
-  * Analysing
-  * Modelling
-  * Deploying
+  * Analisis de encuestas y diseños de muestreo
+  * Implementación y optimización de algoritmos en R
   """
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
+  title = "Remote Sensing Scientist"
+  company = "Karlsruhe Institut for Technology (KIT)"
   company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  location = "Kalrsruhe, Alemania"
+  date_start = "2016-05-01"
+  date_end = "2017-10-31"
+  description = """
+  * Proyecto SaMovar: Detección de perturbaciones en la vegetación natural utilizando información satelital
+  * Implementación y optimización de algoritmo BFAST para analisis de series de tiempo
+  * Conducción y analisis de imágenes de UAV (drones)
+  """
+  
+[[experience]]
+  title = "Asistente en SIG"
+  company = "Universidad de Chile"
+  company_url = ""
+  location = "Santiago de Chile"
+  date_start = "2015-06-01"
+  date_end = "2015-12-31"
+  description = """
+  * Proyecto PNUD: "Estudio para la definición de áreas de protección natural y/o patrimonial en el piedemonte del sector oriente"
+  """
 
 +++
