@@ -6,7 +6,7 @@ date = 2017-09-20T00:00:00
 # Activate this widget? true/false
 active = true
 
-title = "Skills"
+title = "Habilidades"
 subtitle = ""
 
 # Order that this section will appear in.
@@ -25,18 +25,24 @@ weight = 7
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "90%"
+  description = "80%"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
-  name = "Statistics"
-  description = "100%"  
+  name = "Estadísticas"
+  description = "60%"  
   
 [[feature]]
-  icon = "camera-retro"
+  icon = "satellite"
   icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "Análisis Espacial"
+  description = "70%"
+  
+[[feature]]
+  icon = "music"
+  icon_pack = "fas"
+  name = "Música"
+  description = "25%"
 
 +++

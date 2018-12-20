@@ -32,8 +32,8 @@ weight = 5
 
 # Perfil profesional
 
-Ingeniero en Recursos Naturales Renovables de la Universidad de Chile, con alta capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando investigación e implementación de metodologías y algoritmos que permitan apoyar la toma de decisiones. Mi perfil se basa en el aprendizaje continuo y la adaptación a desafíos de diversa índole.
+Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando investigación e implementación de algoritmos que permitan apoyar la toma de decisiones.
 
-A lo largo de mi desarrollo profesional he trabajado en la generación de productos como informes de diagnóstico de sistemas ambientales para privados y para causas judiciales, implementación de algoritmos de análisis de información satelital y en propuestas de planificación territorial y de mejoras en metodologías estadísticas, utilizando para este fin análisis de datos de percepción remota, de campo y de encuestas. 
+A lo largo de mi desarrollo profesional he trabajado generando de algoritmos de análisis de información satelital y en propuestas de planificación territorial y de mejoras en metodologías estadísticas, utilizando datos satélitales, de campo y de encuestas. 
 
-Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur.
+Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:.
