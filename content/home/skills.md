@@ -1,16 +1,16 @@
 +++
 # Feature/Skill widget.
 widget = "featurette"  # Do not modify this line!
-date = 2017-09-20T00:00:00
+date = 2018-12-20T00:00:00
 
 # Activate this widget? true/false
 active = true
 
-title = "Habilidades"
+title = "Habilidades e Intereses"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 7
+weight = 8
 
 # Showcase personal skills or business features.
 # 
@@ -38,7 +38,19 @@ weight = 7
   icon_pack = "fas"
   name = "Análisis Espacial"
   description = "70%"
+
+[[feature]]
+  icon = "map"
+  icon_pack = "fas"
+  name = "ArcGis & QGis"
+  description = "50%"
   
+[[feature]]
+  icon = "leaf"
+  icon_pack = "fas"
+  name = "Ecología y Medio Ambiente"
+  description = "50%"
+
 [[feature]]
   icon = "music"
   icon_pack = "fas"
