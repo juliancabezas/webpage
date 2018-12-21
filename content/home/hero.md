@@ -24,4 +24,4 @@ weight = 3
 #  label = '<i class="fas fa-download"></i> Install Now'
 +++
 
-Un sitio web sobre mi trabajo, principalmente lo referido a data science y análisis espacial :rocket:. Sitio en construcción
+Un sitio web sobre mi trabajo, principalmente lo referido a data science y análisis espacial :rocket:. Sitio en construcción :hammer:

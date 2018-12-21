@@ -26,14 +26,14 @@ date_format = "01-2006"
   date_start = "2018-05-01"
   date_end = ""
   description = """
-  * Analisis de encuestas y diseños de muestreo
+  * Análisis de encuestas y diseños de muestreo
   * Implementación y optimización de algoritmos en R
   """
 
 [[experience]]
   title = "Remote Sensing Scientist"
   company = "Karlsruhe Institut for Technology (KIT)"
-  company_url = ""
+  company_url = "https://www.ifgg.kit.edu/vegetation/mitarbeiter_cabezas.php"
   location = "Kalrsruhe, Alemania"
   date_start = "2016-05-01"
   date_end = "2017-10-31"

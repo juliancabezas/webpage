@@ -10,18 +10,16 @@ type = "docs"  # Do not modify.
 
 # Add menu entry to sidebar.
 [menu.tutorial]
-  name = "Overview"
+  name = "Sitio en construcción"
   weight = 1
 +++
 
-This feature can be used for publishing content such as:
+Aqui pondría un tutorial!
 
-* **Project or software documentation**
-* **Online courses**
-* **Tutorials**
+* **SI TUVIERA UNO ESCRITO EN RMARKDOWN!**
+
 
 The parent folder may be renamed, for example, to `docs` for project documentation or `course` for creating an online course.
 
 To disable this feature, either delete the parent folder, or set `draft = true` in the front matter of all its pages. 
-
 After renaming or deleting the parent folder, you may wish to update any `[[menu.main]]` menu links to it in the `config.toml`. 

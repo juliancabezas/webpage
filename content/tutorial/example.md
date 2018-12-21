@@ -15,7 +15,7 @@ linktitle = "Example Page"
   weight = 1
 +++
 
-In this tutorial, I'll share my top 10 tips for getting started with Academic:
+PAGINA EN CONSTRUCCION
 
 ## Tip 1
 
