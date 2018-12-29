@@ -12,7 +12,7 @@ weight = 5
   interests = [
     "Data science",
     "Estadística",
-    "Analisis espacial",
+    "Análisis espacial",
     "Ecología"
   ]
 
@@ -32,6 +32,6 @@ weight = 5
 
 # Perfil profesional
 
-Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando algoritmos de análisis de información satelital, propuestas de planificación territorial y de mejoras en metodologías estadísticas, utilizando datos de teledetección, de campo y de encuestas. 
+Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando algoritmos de análisis de información satelital, propuestas de planificación territorial y mejoras en metodologías estadísticas, utilizando datos de teledetección, de campo y de encuestas. 
 
 Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:.
