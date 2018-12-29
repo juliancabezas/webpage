@@ -32,8 +32,6 @@ weight = 5
 
 # Perfil profesional
 
-Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando investigación e implementación de algoritmos que permitan apoyar la toma de decisiones.
-
-A lo largo de mi desarrollo profesional he trabajado generando de algoritmos de análisis de información satelital y en propuestas de planificación territorial y de mejoras en metodologías estadísticas, utilizando datos satélitales, de campo y de encuestas. 
+Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando algoritmos de análisis de información satelital, propuestas de planificación territorial y de mejoras en metodologías estadísticas, utilizando datos de teledetección, de campo y de encuestas. 
 
 Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:.
