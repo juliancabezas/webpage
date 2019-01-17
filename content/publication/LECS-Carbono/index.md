@@ -18,7 +18,7 @@ authors = ["Julian Cabezas", "Mauricio Galleguillos","Ariel Valdés","Juan P.Fue
 publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "In *Ecosphere*, IEEE."
+publication = "In *Ecosphere*, ESA."
 publication_short = "In *Ecosphere*"
 
 # Abstract and optional shortened version.
@@ -73,7 +73,7 @@ math = true
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
-  caption = "Realizando el muestreo de carbono en Chiloé (Chile)"
+  caption = "Vestido de explorador y realizando el muestreo de carbono en Chiloé (Chile)"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
