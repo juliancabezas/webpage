@@ -12,13 +12,24 @@ categories:
   - machine learning
   - SVM
   - tune
-tags: []
-image:
-  caption: ''
-  focal_point: ''
+tags:
+  - parallel
+  - windows
+  - R
+  - tutoriales
+summary: "Un pequeño tutorial de como acelerar tus procesos utilizando multiples nucleos en R"
+header:
+  image: ""
+  caption: ""
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: false
+    toc_depth: 2
+image_preview: "headers/parallel.png"
 ---
 
-# ¿Por que Paralelizar?
+## ¿Por que Paralelizar?
 
 En tu trabajo te pidieron correr un código que se demora 20 horas en ejecutarse, consiste en ejecutar la misma función con distintos parámetros o datos muchas pero **muchas** veces. 
 
@@ -31,7 +42,7 @@ En este tutorial (**¡el primero de esta pagina!**), vamos a realizar una peque�
 #### Nivel de este tutorial:
 Al escribir este tutorial estoy asumiendo que eres un usuario intermedio o avanzado de R.
 
-## Convertir tu loop en una función y usar lapply
+## Convertir tu loop en una función
 
 En este ejemplo vamos a utilizar la base de datos **iris**, una de las más conocidas entre los usuarios de R, esta base de datos tiene mediciones del largo y ancho de pétalos y sépalos de 3 especies de flores
 
@@ -42,48 +53,54 @@ knitr::kable(head(iris))
 
 
 
-A alguien le interesa generar un modelo lineal entre los pétalos y los sépalos. Debido a que la muestra es pequeña (150 individuos) te mandan a hacer un bootstrap de 20000 iteraciones para ver como se comporta el R^2^ y los coeficientes del modelo.
+Supongamos que a alguien de tu equipo le interesa generar un modelo lineal entre los pétalos (Petal) y los sépalos (Sepal). Debido a que la muestra es pequeña (150 individuos) te mandan a hacer un bootstrap de 20000 iteraciones para ver como se comporta el R^2^ y los coeficientes del modelo.
 
-Para poder lograr esto hacemos un loop, que hace lo siguiente:
+Para poder lograr esto hacemos un loop, que ejecuta lo siguiente:
 - Saca una muestra de 100 individuos (dos tercios del total)
 - Genera el modelo lineal
 - Guarda el R^2^ y los coeficientes en una dataframe
 
 ```{r,warning=FALSE}
-results <- data.frame() #Hacemos una dataframe vacia para guardar los resultados
+# Hacemos una dataframe vacia para guardar los resultados
+results <- data.frame()
 
 system.time({
-for (i in 1:20000) {
-  ind <- sample(1:nrow(iris), size=100) # Saco una muestra de 100 numeros entre 1 y 150
-  iris_sample <- iris[ind,] # Saco la muestra de iris
-  model1 <- lm(iris_sample[,"Sepal.Length"]~iris_sample[,"Petal.Length"]) # Hago un lm con el petalo y el sepalo
-  R2 <- summary(model1)$r.squared # Extraigo el R2
-  coef <- coefficients(model1) # Extraigo los coeficientes
-  results <- rbind(results, c(R2,coef)) # lo junto todo en la data.frame de resultados
-}
+  for (i in 1:20000) {
+    # Saco una muestra de 100 numeros entre 1 y 150
+    ind <- sample(1:nrow(iris), size = 100)
+    iris_sample <- iris[ind, ]
+    # Hago un lm con el petalo y el sepalo
+    model1 <- lm(iris_sample[, "Sepal.Length"] ~ iris_sample[, "Petal.Length"])
+
+    # Extraigo el R2 y los coeficientes
+    R2 <- summary(model1)$r.squared
+    coef <- coefficients(model1)
+    # lo junto todo en la data.frame de resultados
+    results <- rbind(results, c(R2, coef))
+  }
 })
 ```
 
 
 El algoritmo se demora un poco más de 20 segundos en funcionar, tal vez esto no signifique un problema, pero ¿que pasa si el día de mañana te piden hacer lo mismo con una base de datos de medio millón de observaciones?.
 
-El loop ocupa un núcleo de tu procesador para ejecutar la operación una iteración tras otra, lo que no es muy eficiente
+El problema es que el loop ocupa solo un núcleo de tu procesador para ejecutar la operación una iteración tras otra, lo que no es muy eficiente
 
 El primer paso para aprovechar los beneficios de la paralelización en convertir tu loop en una función, este caso el único argumento de nuestra función será un vector "iter", que es el que nos dará la opción de realizar más iteraciones
 
 ```{r}
 lm_boot_fun <- function(iter) {
-  ind <- sample(1:nrow(iris),size=100) # Saco una muestra de 100 numeros entre 1 y 150
-  iris_sample <- iris[ind,] # Saco la muestra de iris
-  model1 <- lm(iris_sample[,"Sepal.Length"]~iris_sample[,"Petal.Length"]) # Hago un lm con el petalo y el sepalo
-  R2 <- summary(model1)$r.squared # Extraigo el R2
-  coef <- coefficients(model1) # Extraigo los coeficientes
-  results <- c("R2"=R2,coef) # Creo un vector de resultados
-  return(results) # El output de mi función
+  ind <- sample(1:nrow(iris), size = 100)
+  iris_sample <- iris[ind, ]
+  model1 <- lm(iris_sample[, "Sepal.Length"] ~ iris_sample[, "Petal.Length"])
+  R2 <- summary(model1)$r.squared
+  coef <- coefficients(model1)
+  # Creo un vector con los resultados
+  results <- c("R2" = R2, coef)
+  # El output de mi función
+  return(results)
 }
 ```
-
-Fácil ¿no?, bueno, este lo fue, en otros casos nos gustaría que los argumentos incluyeran la base de datos, el tamaño de la muestra y un largo etc. Pero lo estamos manteniendo simple
 
 !Ahora probemos nuestra función!. Como podemos ver en el siguiente código, la función da resultados independiente del argumento que le pongamos
 
@@ -95,15 +112,21 @@ result <- lm_boot_fun(56876)
 result
 ```
 
-Si le pusiéramos un vector nos daría solo valor, por que "results" se sobrescribe en cada iteración
+Si le pusiéramos un vector nos daría solo un valor, por que "results" se sobrescribe en cada iteración
 
 ```{r}
 result <- lm_boot_fun(1:10)
 result
 ```
 
-¿Como hacemos para que nos guarde todos los resultados?:
-¡Recurriendo a la función lapply!. La función lapply pertenece a la familia de funciones apply (apply, sapply, vapply, lapply y mapply), una de las herramientas más potentes de R (y que me habría gustado aprender mucho antes), este tutorial no se trata sobre ellas, por lo que solo ocuparemos lapply, esta función aplica otra función (como la que construimos), sobre una lista o vector de argumentos, y retorna una lista del mismo tamaño que los argumentos
+
+## Usando la funcion lapply
+
+Para que nos guarde todos los resultados podemos recurrir a la Recurriendo a la función lapply
+
+La función lapply pertenece a la familia de funciones apply (apply, sapply, vapply, lapply y mapply), una de las herramientas más potentes de R (y que me habría gustado aprender mucho antes), este tutorial no se trata sobre ellas, por lo que solo ocuparemos lapply por ahora
+
+La funcion lapply aplica otra función (como la que construimos), sobre una lista o vector de argumentos, y retorna una lista del mismo tamaño que los argumentos
 
 ```{r}
 iter <- seq(1, 20000)
@@ -114,21 +137,21 @@ system.time({
 Bueno, como podemos ver, ya bajamos un poco los tiempos de procesamiento, pero queremos hacerlo mucho más rápido aún. El único problema es que la función lapply te da como resultado una lista
 
 ```{r}
-head(results, n=3)
+head(results, n = 3)
 ```
 
 Para convertir esta lista en una dataframe, utilizamos la función unlist para generar una matriz que se convierte en una dataframe. especificamos que queremos 3 columnas
 
 ```{r}
-results <- data.frame(matrix(unlist(results), ncol=3, byrow=T))
-head(results, n=3)
+results <- data.frame(matrix(unlist(results), ncol = 3, byrow = T))
+head(results, n = 2)
 ```
 
 Otras soluciones más elegantes para este problema pueden ser encontradas en [este post de stackoverflow](https://stackoverflow.com/questions/4227223/r-list-to-data-frame)
 
-## Usando el paquete parallel
+## El paquete parallel
 
-El paquete parallel, desde hace algunas versiones, viene incluido con R. Este increíble paquete contiene versiones en paralelo para todas las funciones de la familia apply, para utilizar esta función necesitamos saber primero con cuantos núcleos contamos
+El paquete parallel, desde hace algunas versiones viene incluido con R. Este increíble paquete contiene versiones en paralelo para todas las funciones de la familia apply, para utilizar este tipo de función necesitamos saber primero con cuantos núcleos contamos
 
 ```{r}
 library(parallel)
@@ -136,7 +159,7 @@ numCores <- detectCores()
 numCores
 ```
 
-¡Tenemos 8 núcleos lógicos!. En este caso, como regla general, vamos a dejar un núcleo disponible para que el computador no se nos quede inservible. Si tuviéramos un sistema tipo Unix (linux o mac, por ejemplo), podríamos utilizar la función mclapply. Sin embargo, mclapply utiliza _forking_, una útil función que simplemente crea una copia del sistema y realiza la operación, solo disponible en sistemas tipo Unix
+¡Tenemos 8 núcleos lógicos!. En este caso, como regla general, vamos a a ocupar la mitad (4 nucleos). Si tuviéramos un sistema tipo Unix (linux o mac, por ejemplo), podríamos utilizar la función mclapply. Sin embargo, mclapply utiliza _forking_, una útil función que simplemente crea una copia del sistema y realiza la operación, solo disponible en sistemas tipo Unix
 
 ```{r, error=TRUE}
 iter <- seq(1, 20000)
@@ -145,49 +168,55 @@ system.time({
 })
 ```
 
-En nuestro caso, lo que haremos es crear un cluster manualmente, para eso, utilizamos la función makeCluster, lo que creara un objeto que utilizaremos como argumento en la función parlapply
+En nuestro caso, lo que haremos es crear un cluster manualmente, para eso, utilizamos la función makeCluster, lo que creara un objeto que utilizaremos como argumento en la función parlapply, en este caso vamos a ocupar 4 nucleos
 
 ```{r}
-cl <- makeCluster(2) # Hacemos el cluster
+cl <- makeCluster(4) # Hacemos el cluster
 system.time(
-results<-parLapply(cl,iter,lm_boot_fun)
+  results <- parLapply(cl, iter, lm_boot_fun)
 )
 stopCluster(cl) # Cerramos el cluster, NO OLVIDAR
 ```
 
-**Wow**, bajamos MUCHO el tiempo de procesamiento de nuestro bootstrap, ya podemos ir a tomarnos un matecito con tranquilidad, no sin antes destruir el cluster con la función stopCluster
+**Wow**, bajamos MUCHO el tiempo de procesamiento de nuestro bootstrap, ya podemos ir a tomarnos un matecito con tranquilidad, no sin antes destruir el cluster con la función stopCluster.
+
 **¡Bien!**
-![¡BIEN!](https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif)
+![](https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif)
 
 
 Podríamos dejar este tutorial aquí, pero este ejemplo es muy simple, en general utilizamos bases de datos que tenemos en nuestro computador, y 5-10 librerías.
+
+### Complejizando la funcion
 
 Probemos simulando que iris es una base de datos que tenemos en nuestra computador, adicionalmente, a nuestra función le agregaremos dos argumentos referidos a la base de datos y al tamaño de la muestra
 
 
 ```{r}
+# Escribo la base de datos iris en mi computador
+write.csv(iris, file = "iris.csv")
 
-write.csv(iris,file="iris.csv")
+# Leo la base de datos que creé
+datos_pc <- read.csv("iris.csv")
 
-datos_pc<-read.csv("iris.csv")
+lm_boot_fun2 <- function(iter, data, n_sample) {
+  # Ahora data y n_sample son argumentos de la función
 
-lm_boot_fun2 <- function(iter,data,n_sample) {
-  ind <- sample(1:nrow(data),size=n_sample) # Saco una muestra
-  data_sample <- data[ind,] # Saco la muestra de iris
-  model1 <- lm(data_sample[,"Sepal.Length"]~data_sample[,"Petal.Length"]) # Hago un lm con el petalo y el sepalo
-  R2 <- summary(model1)$r.squared # Extraigo el R2
-  coef <- coefficients(model1) # Extraigo los coeficientes
-  results <- c("R2"=R2,coef) # Creo un vector de resultados
-  return(results) # El output de mi función
+  ind <- sample(1:nrow(data), size = n_sample)
+  data_sample <- data[ind, ]
+  model1 <- lm(data_sample[, "Sepal.Length"] ~ data_sample[, "Petal.Length"])
+  R2 <- summary(model1)$r.squared
+  coef <- coefficients(model1)
+  results <- c("R2" = R2, coef)
+  return(results)
 }
 ```
 
 Ahora vamos a hacer lo mismo pero con los argumentos adicionales de parlapply
 
 ```{r}
-cl <- makeCluster(2) # Hacemos el cluster
+cl <- makeCluster(4) # Hacemos el cluster
 system.time(
-results<-parLapply(cl,iter,lm_boot_fun2,data=datos_pc,n_sample=100)
+  results <- parLapply(cl, iter, lm_boot_fun2, data = datos_pc, n_sample = 100)
 )
 stopCluster(cl) # Cerramos el cluster, NO OLVIDAR
 ```
@@ -197,159 +226,164 @@ Ahora pensemos que entra nuestro jefe diciendo que el cliente quiere un Random F
 ```{r,message=FALSE,warning=FALSE}
 library(randomForest)
 
-
-rf_boot_fun <- function(iter,data,n_sample) {
-  ind <- sample(1:nrow(data),size=n_sample) # Saco una muestra de numeros
-  data_sample <- data[ind,] # Saco la muestra
-  model1 <- randomForest(Sepal.Length~Petal.Length,data=data_sample) # Hago un RF con el petalo y el sepalo
-  R2 <- model1$rsq[length(model1$rsq)]  # Extraigo el pseudo-R2
-  MSE <- model1$mse[length(model1$mse)]  # Extraigo el MSE
-  results <- c("R2"=R2,"MSE"=MSE) # Creo un vector de resultados
-  return(results) # El output de mi función
+rf_boot_fun <- function(iter, data, n_sample) {
+  ind <- sample(1:nrow(data), size = n_sample)
+  data_sample <- data[ind, ]
+  # Ejecuto el modelo Random Forest
+  model1 <- randomForest(Sepal.Length ~ Petal.Length, data = data_sample)
+  # Extraigo el pseudo-R2
+  R2 <- model1$rsq[length(model1$rsq)]
+  # Extraigo el MSE
+  MSE <- model1$mse[length(model1$mse)]
+  results <- c("R2" = R2, "MSE" = MSE)
+  return(results)
 }
 ```
 
 
-Ahora usemos parLapply
+Ahora usemos _parLapply_
 
 ```{r, error=TRUE}
 library(randomForest)
 cl <- makeCluster(4) # Hacemos el cluster
 system.time(
-results<-parLapply(cl,iter,rf_boot_fun,data=datos_pc,n_sample=100)
+  results <- parLapply(cl, iter, rf_boot_fun, data = datos_pc, n_sample = 100)
 )
 stopCluster(cl) # Cerramos el cluster, NO OLVIDAR
 ```
 
-**¿¿QUE PASÓ??** se preguntarán, ¡ya llamé a library(randomForest)!
+**¿¿QUE PASÓ??** ¡ya llamé a _library(randomForest)_!
 
-![QUEEEE](https://media.giphy.com/media/DVkZv0SltX1h6/giphy.gif)
+![](https://media.giphy.com/media/DVkZv0SltX1h6/giphy.gif)
 
+Lo que pasó es lo siguiente: ya tenemos cargado el paquete _randomForest_ en nuestra sesión, sin embargo, en el momento que ocupamos la función _makeCluster_, se abren _n_ nuevas sesiones de R, cada una desde cero, por lo que lo que debemos hacer es cargar los paquetes en todas estas sesiones, en algunos casos, también es necesario exportar las bases de datos y funciones.
 
-Lo que pasó es lo siguiente: ya tenemos cargado el paquete randomForest en nuestra sesión, sin embargo, en el momento que ocupamos la función makeCluster, se abren _n_ nuevas sesiones de R, cada una desde cero, por lo que lo que debemos hacer es cargar los paquetes en todas estas sesiones, en algunos casos, también es necesario exportar las bases de datos y funciones.
+Para cargar el paquete _randomForest_ en los nodos del cluster ocupamos la función _clusterCall_, que nos permite ejecutar una función en todos los clusters, en este caso la utilizamos para cargar la librería randomForest en todos los cluster
 
-Para cargar el paquete randomForest en los nodos del cluster ocupamos la función clusterCall, que nos permite ejecutar una función en todos los clusters, en este caso la utilizamos para cargar la librería randomForest en todos los cluster
+```{r, results = 'hide'}
+cl <- makeCluster(4) # Hacemos el cluster
+clusterCall(cl, function() library(randomForest))
+```
 
 
 ```{r,warning=FALSE}
-cl <- makeCluster(4) # Hacemos el cluster
-clusterCall(cl, function() library(randomForest))
 system.time(
-results<-parLapply(cl,iter,rf_boot_fun,data=datos_pc,n_sample=100)
+  results <- parLapply(cl, iter, rf_boot_fun, data = datos_pc, n_sample = 100)
 )
 stopCluster(cl) # Cerramos el cluster, NO OLVIDAR
 ```
 
 ## Un ejemplo más realista (usando Machine Learning)
 
-Ok, mucho jugar y poca acción, vamos a presentar un ejemplo más realista, en este caso, el _tuning_ de un modelo. "tunear" un modelo se refiere muchas veces a escoger el valor optimo de uno o más parámetros, de acuerdo a algún estadístico de rendimiento del modelo (como el R^2^o el RMSE), este tuneo se hace en la base de datos de entrenamiento o calibración, y el modelo se valida en los datos de validación.
-
-**Tunear un modelo siempre me ha sonado como a "enchular" un auto**
-![](https://media.giphy.com/media/xmf00ANvBCTzG/giphy.gif)
+Ok, mucho jugar y poca acción, vamos a presentar un ejemplo más realista, en este caso, el _tuning_ de un modelo. "tunear" un modelo se refiere muchas veces a escoger el valor optimo de uno o más parámetros, de acuerdo a algún estadístico de rendimiento del modelo (como el _R^2^o_ el _RMSE_), este tuneo se hace en la base de datos de entrenamiento o calibración, y el modelo se valida en los datos de validación.
 
 Vamos a simular que la base de datos "iris" es nuestra base de datos de entrenamiento, vamos a suponer que solo tenemos información sobre los sépalos (para hacerlo un poco más difícil)
 
-En este caso utilizaremos un Support Vector Machine (SVM) para intentar predecir la especie en base al largo y ancho de los pétalos y sépalos, este modelo es muy bueno y funciona genial para tareas de clasificación, sin embargo, a ratos es bastante dependiente del parámetro de costo y el parámetro de gamma (en el caso que utilicemos la función radial), vamos a intentar optimizar ambos parámetros
+En este caso utilizaremos un _Support Vector Machine_ (SVM) para intentar predecir la especie en base al largo y ancho de los pétalos y sépalos, este modelo es muy bueno y funciona genial para tareas de clasificación, sin embargo, a ratos es bastante dependiente del parámetro de costo y el parámetro de gamma (en el caso que utilicemos la función radial), vamos a intentar optimizar ambos parámetros
 
-En este caso, el paquete **e1071** ya trae una función "tune", que permite usar _cross validation_ para tunear el parámetro. En este caso se utilizaremos _10-fold_ con 3 repeticiones, pero podríamos ocupar un _bootstrap_ por ejemplo. Este ejemplo lo saco de un caso real de un trabajo, en el que debíamos construir un modelo con una matriz de datos gigante, cada ejecución del modelo se tardaba aproximadamente 1 hora y media en ejecutarse, ahora imagínense las 30 ejecuciones de la cross validation propuesta...
+En este caso, el paquete **e1071** ya trae una función _tune_, que permite usar _cross validation_ para tunear el parámetro. En este caso se utilizaremos _10-fold_ con 3 repeticiones. Este ejemplo lo saqué de un caso real de un trabajo, en el que debíamos construir un modelo con una matriz de datos gigante, cada ejecución del modelo se tardaba aproximadamente 1 hora y media en ejecutarse, por lo que el tuneo iba a durar varios dias sin paralelizar
 
 ¡Basta de hablar, veamos el modelo!
 
 ```{r}
 library(e1071)
-svm_model <- svm(Species ~ Sepal.Length+Sepal.Width, data=iris)
+svm_model <- svm(Species ~ Sepal.Length + Sepal.Width, data = iris)
 summary(svm_model)
 ```
 
 Como podemos ver, por defecto el costo que se utiliza es 1 y el gamma 0.5, veamos algo de las _performances_
 
-```{r}
+```{r,warning=FALSE,message=FALSE}
 library(caret)
 confusionMatrix(iris$Species, predict(svm_model))
 ```
 
 Tenemos un _Accuracy_ de 0.82, en muchos casos eso no es suficiente, tratemos de mejorarlo tuneando los parámetros
 
-Creamos una función que con los argumentos costo y gamma me de el rendimiento del modelo, como se puede observar, solo utilizo la función "tune" con un parámetro a la vez, se podría utilizar con una lista de parámetros, pero sería más difícil de paralelizar
+Creamos una función que con los argumentos costo y gamma me de el rendimiento del modelo, como se puede observar, solo utilizo la función _tune_ con un parámetro a la vez, se podría utilizar con una lista de parámetros, pero sería más difícil de paralelizar
 
 ```{r}
 
-tune_svm_par<- function (costo,gamma) {
+tune_svm_par <- function(costo, gamma) {
+  control <- tune.control(
+    nrepeat = 3, repeat.aggregate = mean,
+    sampling = "cross", sampling.aggregate = mean,
+    sampling.dispersion = sd,
+    cross = 10
+  )
 
-  control<-tune.control(nrepeat = 3, repeat.aggregate = mean,
-                        sampling = "cross", sampling.aggregate = mean,
-                        sampling.dispersion = sd,
-                        cross = 10)
-  
-  svm_cv <- tune("svm", train.x =  iris[,c("Sepal.Length","Sepal.Width")],
-                 train.y = iris$Species,
-                 kernel = "radial", 
-                 scale = TRUE,
-                 type = "C-classification",
-                 tunecontrol = control,
-                 ranges = list(cost = costo,gamma=gamma))
+  svm_cv <- tune("svm",
+    train.x = iris[, c("Sepal.Length", "Sepal.Width")],
+    train.y = iris$Species,
+    kernel = "radial",
+    scale = TRUE,
+    type = "C-classification",
+    tunecontrol = control,
+    ranges = list(cost = costo, gamma = gamma)
+  )
 
-return(svm_cv$performances)
+  return(svm_cv$performances)
 }
 
 ```
 
 
-Y ahora, para paralelizarla, vamos a tener que utilizar la función "clusterMap", que nos permite poner más de un argumento variable (es el equivalente a "mapply")
+Y ahora, para paralelizarla, vamos a tener que utilizar la función _clusterMap_, que nos permite poner más de un argumento variable (es el equivalente a _mapply_ en la familia *apply)
 
 ```{r}
-costos.test<-seq(0.2,4,by=0.1)
-gammas.test<-seq(0.2,4,by=0.1)
+costos.test <- seq(0.2, 4, by = 0.1)
+gammas.test <- seq(0.2, 4, by = 0.1)
 
-grilla<-expand.grid("costos"=costos.test,"gammas"=gammas.test)
+grilla <- expand.grid("costos" = costos.test, "gammas" = gammas.test)
 nrow(grilla)
 ```
 
+1521 valores, esto _deberia_ tardarse
 
-```{r,message=FALSE,warning=FALSE}
+```{r,results='hide',message=FALSE, warning=FALSE}
 
-t1<-Sys.time()
+t1 <- Sys.time()
 
 cl <- makeCluster(4) # Hacemos el cluster
 clusterCall(cl, function() library(e1071))
 
-list.errores = clusterMap(cl=cl,fun=tune_svm_par,
-                    costo= grilla$costos, 
-                    gamma= grilla$gammas,
-                    SIMPLIFY = FALSE,RECYCLE=FALSE)
+list.errores <- clusterMap(
+  cl = cl, fun = tune_svm_par,
+  costo = grilla$costos,
+  gamma = grilla$gammas,
+  SIMPLIFY = FALSE, RECYCLE = FALSE
+)
 
 library(dplyr)
-errores.bind<-bind_rows(list.errores)
+errores.bind <- bind_rows(list.errores)
 
 stopCluster(cl)
 
-t2<-Sys.time()
-
-print(t2-t1)
+t2 <- Sys.time()
 
 ```
 
-Vamos a buscar la combinación de costo y gamma que nos da un menor error
+```{r}
+print(t2 - t1)
+```
+
+¡Nos demoramos casi nada!. Ahora a buscar la combinación de costo y gamma que nos da un menor error
 
 ```{r}
-
-knitr::kable(subset(errores.bind,errores.bind$error==min(errores.bind$error)))
-
-
+knitr::kable(subset(errores.bind, errores.bind$error == min(errores.bind$error)))
 ```
 
 Ahora probemos nuestro svm con esos parámetros
 
 ```{r}
 library(e1071)
-svm_model <- svm(Species ~ Sepal.Length+Sepal.Width, data=iris,cost=2.6,gamma=2)
+svm_model <- svm(Species ~ Sepal.Length + Sepal.Width, data = iris, cost = 2.6, gamma = 2)
 library(caret)
 confusionMatrix(iris$Species, predict(svm_model))
-
 ```
 
 
-Como podemos observar, en este caso logramos subir la accuracy en el entrenamiento de 0.82 a 0.84, esto no parece tanto, pero un 2% de incremento por un procedimiento que nos tardó 55 segundos (¡gracias a la paralelización!) es bastante bueno
+Como podemos observar, en este caso logramos subir la accuracy en el entrenamiento de 0.82 a 0.84, esto no parece tanto, pero un 2% de incremento por un procedimiento que nos tardó menos de un minuto (¡gracias a la paralelización!) es bastante bueno
 
 **¡Muchas gracias por llegar hasta el final de este tutorial!**
 **Espero sus comentariós y dudas**
