@@ -18,6 +18,19 @@ date_format = "01-2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+[[experience]]
+  title = "Profesional de apoyo - Unidad de Cambio Climatico y Servicios Ambientales - CONAF"
+  company = "Food and Agriculture Organization (FAO)"
+  company_url = ""
+  location = "Santiago, Chile"
+  date_start = "2019-02-01"
+  date_end = ""
+  description = """
+  * Apoyo en la implementación de la ENCCRV
+  * Contribución tecnica en la mejora del sistema de monitoreo forestal de la ENCCRV
+  """
+
 [[experience]]
   title = "Analísta Estadístico"
   company = "Instituto Nacional de Estadística"
