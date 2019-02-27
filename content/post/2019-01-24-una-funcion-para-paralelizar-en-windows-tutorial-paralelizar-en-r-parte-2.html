@@ -1,0 +1,137 @@
+---
+title: Una función para paralelizar en Windows o en servidores (Tutorial paralelizar en R parte 2)
+author: Julián Cabezas
+date: '2019-01-24'
+slug: una-funcion-para-paralelizar-en-windows-tutorial-paralelizar-en-r-parte-2
+categories:
+  - parallel
+  - R
+  - Tutoriales
+  - windows
+  - servers
+tags:
+  - parallel
+  - windows
+  - R
+  - tutoriales
+  - servers
+image:
+  caption: ''
+  focal_point: ''
+summary: 'Una función para crear clusters en Windows, Segunda parte del tutorial "Paralelizando R en Windows"'
+header:
+  image: ""
+  caption: ""
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: false
+    toc_depth: 2
+image_preview: "headers/parallel.png"
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#el-problema-crear-clusters-es-tedioso">El problema: Crear clusters es tedioso</a></li>
+<li><a href="#la-solucion-una-funcion-para-clear-clusters">La solucion: Una función para clear clusters</a></li>
+<li><a href="#un-pequeno-y-reciclado-ejemplo">Un pequeño y reciclado ejemplo</a></li>
+</ul>
+</div>
+
+<p>Este mini-tutorial es la segunda parte de mi primer tutorial sobre paralelizar R en Windows, <a href="https://www.juliancabezas.com/post/paralelizando-r-en-windows-usando-el-paquete-parallel/">te recomendo leerlo primero</a></p>
+<div id="el-problema-crear-clusters-es-tedioso" class="section level2">
+<h2>El problema: Crear clusters es tedioso</h2>
+<p>Ya nos dimos cuenta de que el tema de crear los clusters y todas esas cosas puede ser muy tedioso, cargar los paquetes uno por uno y exportar las bases de datos es lento, olvidar un paquete crucial es pan de cada día y la idea es hacerlo más conveniente, además existe la posibilidad de que estemos usando un servidor sin acceso a Internet, lo que complica la instalación de paquetes</p>
+</div>
+<div id="la-solucion-una-funcion-para-clear-clusters" class="section level2">
+<h2>La solucion: Una función para clear clusters</h2>
+<p>así que cree una función, que mantengo en esta <a href="https://github.com/juliancabezas/random_functions/blob/master/create_cluster">Carpeta en Github</a>, para ser justo, la función esta inspirada en el paquete <a href="https://github.com/nathanvan/parallelsugar">parallelsugar</a>, pero con algunas modificaciones</p>
+<p>La función crea un cluster de <em>n</em> nodos (argumento <em>nnodes</em>)</p>
+<p>create_cluster esta diseñada para funcionar en servidores, ya que en general estos no tienen conexión a Internet es posible instalar los paquetes en una carpeta compartida local y usarlos dentro de nuestra función. en <em>libroute</em> podemos especificar la ruta a la librería de nuestra conveniencia.</p>
+<pre class="r"><code>create_cluster &lt;- function(nnodes, libroute = NULL) {
+
+  # nnodes: Number of nodes
+  # libroute: Provided library route (different of the default library)
+
+  tryCatch({
+    cl &lt;- parallel::makeCluster(nnodes) # Create an empty cluster with n nodes
+
+    loaded.package.names &lt;- c( # Find the loaded packages in the session
+      sessionInfo()$basePkgs, # base packages
+      names(sessionInfo()$otherPkgs)
+    ) # aditional loaded packages
+    # Send the packages and the complete environment to the cluster
+    parallel::clusterExport(cl,
+      &quot;loaded.package.names&quot;, # loaded packages
+      envir = environment()
+    ) # &quot;Environment&quot;
+
+    ## Charge the packages in all nodes
+    if (is.null(libroute)) { # Use default library location
+      parallel::parLapply(cl, 1:length(cl), function(xx) {
+        lapply(loaded.package.names, function(yy) {
+          library(yy, character.only = TRUE)
+        })
+      })
+    } else {
+      # If we provide a library location use it (useful when working in remote machines)
+      parallel::parLapply(cl, 1:length(cl), function(xx) {
+        lapply(loaded.package.names, function(yy) {
+          library(yy, character.only = TRUE, lib.loc = libroute)
+        })
+      })
+    }
+  })
+  return(cl) # The result is the cluster
+}</code></pre>
+</div>
+<div id="un-pequeno-y-reciclado-ejemplo" class="section level2">
+<h2>Un pequeño y reciclado ejemplo</h2>
+<p>Para ejemplificar, en este problema (sacado del tutorial anterior), teníamos que ocupar <em>clusterCall</em> para llamar al paquete <em>randomForest</em>, acá, si ya tenemos el paquete cargado en la sesión (y varios paquetes más, los exportamos a los nodos todo de una sola vez</p>
+<p>Cargo el paquete y creo la función:</p>
+<pre class="r"><code>library(randomForest)
+
+rf_boot_fun &lt;- function(iter, data, n_sample) {
+  ind &lt;- sample(1:nrow(data), size = n_sample)
+  data_sample &lt;- data[ind, ]
+  # Ejecuto el modelo Random Forest
+  model1 &lt;- randomForest(Sepal.Length ~ Petal.Length, data = data_sample)
+  # Extraigo el pseudo-R2
+  R2 &lt;- model1$rsq[length(model1$rsq)]
+  # Extraigo el MSE
+  MSE &lt;- model1$mse[length(model1$mse)]
+  results &lt;- c(&quot;R2&quot; = R2, &quot;MSE&quot; = MSE)
+  return(results)
+}</code></pre>
+<p>Ahora puedo aplicar esta función con <em>parLapply</em></p>
+<pre class="r"><code>library(parallel)
+
+# Defino una ruta para mi libreria (opcional)
+ruta_libreria &lt;- &quot;C:/Users/Julian/Documents/R/win-library/3.5&quot;
+
+# Esto puede ser simplemente nuevoclus&lt;-create_cluster(4)
+nuevoclus &lt;- create_cluster(4, ruta_libreria)
+
+# 10000 iteraciones de nuestra funcion con la base de datos &quot;iris&quot;
+results &lt;- parLapply(nuevoclus, 1:10000, rf_boot_fun, data = iris, n_sample = 100)
+
+stopCluster(nuevoclus) # Cerramos el cluster, NO OLVIDAR
+
+# Los primeros dos resultados
+head(results, n = 2)</code></pre>
+<pre><code>## [[1]]
+##         R2        MSE 
+## 0.85639434 0.09975122 
+## 
+## [[2]]
+##        R2       MSE 
+## 0.8138460 0.1365289</code></pre>
+<p>¡Listo, paralelizamos mucho mas fácil!</p>
+<div class="figure">
+<img src="https://media.giphy.com/media/uTuLngvL9p0Xe/giphy.gif" />
+
+</div>
+<p><strong>Espero les sirva!</strong></p>
+<p><strong>Espero sus comentarios y dudas!</strong></p>
+</div>
