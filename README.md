@@ -1,4 +1,2 @@
 # webpage
-Testing Hugo and blogdown for to create a webpage for myself
-
-My webpage is www.juliancabezas.com
+My webpage is www.juliancabezas.com (Spanish only for the moment)
