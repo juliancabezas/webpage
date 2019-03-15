@@ -1,0 +1,103 @@
+---
+title: Trabajar con un base de datos en .csv o .txt más grande que tu memoria RAM en R utilizando SQLite
+author: Julián Cabezas
+date: '2019-03-20'
+slug: tutorial
+categories:
+  - R
+  - Tutoriales
+tags:
+  - R
+  - Tutoriales
+  - SQL
+  - SQLite
+  - bigdata
+  - RAM
+  - memory
+  - memoria
+  - csv
+  - txt
+image:
+  caption: ''
+  focal_point: ''
+summary: '¿Cansado del mensaje "out of memory" cuando intentas abrir una base de datos en R?, '
+header:
+  image: ""
+  caption: ""
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: false
+    toc_depth: 2
+---
+
+Este mini-tutorial es la segunda parte de mi primer tutorial sobre paralelizar R en Windows, [te recomendo leerlo primero](https://www.juliancabezas.com/post/paralelizando-r-en-windows-usando-el-paquete-parallel/)
+
+##El problema: Crear clusters es tedioso
+
+Ya nos dimos cuenta de que el tema de crear los clusters y todas esas cosas puede ser muy tedioso, cargar los paquetes uno por uno y exportar las bases de datos es lento, olvidar un paquete crucial es pan de cada día y la idea es hacerlo más conveniente, además existe la posibilidad de que estemos usando un servidor sin acceso a Internet, lo que complica la instalación de paquetes
+
+##La solucion: Una función para clear clusters
+
+así que cree una función, que mantengo en esta [Carpeta en Github](https://github.com/juliancabezas/random_functions/blob/master/create_cluster), para ser justo, la función esta inspirada en el paquete [parallelsugar](https://github.com/nathanvan/parallelsugar), pero con algunas modificaciones
+
+La función crea un cluster de _n_ nodos (argumento _nnodes_)
+
+create_cluster esta diseñada para funcionar en servidores, ya que en general estos no tienen conexión a Internet es posible instalar los paquetes en una carpeta compartida local y usarlos dentro de nuestra función. en _libroute_ podemos especificar la ruta a la librería de nuestra conveniencia.
+
+```{r}
+
+create_cluster <- function(nnodes, libroute = NULL) {
+
+  # nnodes: Number of nodes
+  # libroute: Provided library route (different of the default library)
+
+  tryCatch({
+    cl <- parallel::makeCluster(nnodes) # Create an empty cluster with n nodes
+
+    loaded.package.names <- c( # Find the loaded packages in the session
+      sessionInfo()$basePkgs, # base packages
+      names(sessionInfo()$otherPkgs)
+    ) # aditional loaded packages
+    # Send the packages and the complete environment to the cluster
+    parallel::clusterExport(cl,
+      "loaded.package.names", # loaded packages
+      envir = environment()
+    ) # "Environment"
+
+    ## Charge the packages in all nodes
+    if (is.null(libroute)) { # Use default library location
+      parallel::parLapply(cl, 1:length(cl), function(xx) {
+        lapply(loaded.package.names, function(yy) {
+          library(yy, character.only = TRUE)
+        })
+      })
+    } else {
+      # If we provide a library location use it (useful when working in remote machines)
+      parallel::parLapply(cl, 1:length(cl), function(xx) {
+        lapply(loaded.package.names, function(yy) {
+          library(yy, character.only = TRUE, lib.loc = libroute)
+        })
+      })
+    }
+  })
+  return(cl) # The result is the cluster
+}
+```
+
+
+##Un pequeño y reciclado ejemplo
+
+Para ejemplificar, en este problema (sacado del tutorial anterior), teníamos que ocupar _clusterCall_ para llamar al paquete _randomForest_, acá, si ya tenemos el paquete cargado en la sesión (y varios paquetes más, los exportamos a los nodos todo de una sola vez
+
+Cargo el paquete y creo la función:
+
+
+¡Listo, paralelizamos mucho mas fácil!
+
+![](https://media.giphy.com/media/uTuLngvL9p0Xe/giphy.gif)
+
+**Espero les sirva!**
+
+**Espero sus comentarios y dudas!**
+

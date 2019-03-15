@@ -37,7 +37,7 @@ date_format = "01-2006"
   company_url = ""
   location = "Santiago, Chile"
   date_start = "2018-05-01"
-  date_end = ""
+  date_end = "2019-02-01"
   description = """
   * Análisis de encuestas y diseños de muestreo
   * Implementación y optimización de algoritmos en R
