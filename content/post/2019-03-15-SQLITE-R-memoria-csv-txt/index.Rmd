@@ -2,7 +2,7 @@
 title: Trabajar con un base de datos en .csv o .txt más grande que tu memoria RAM en R utilizando SQLite
 author: Julián Cabezas
 date: '2019-03-20'
-slug: tutorial
+slug: tutorial-2
 categories:
   - R
   - Tutoriales
