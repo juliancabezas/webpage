@@ -36,17 +36,182 @@ No se si es el caso de todos, pero por mi parte, cada vez que llego a un nuevo t
 En este tutorial vamos a revisar cuanta memoria RAM tiene asignada R en el sistema, y a crear una base de datos SQLite de la cual vamos a poder ir extrayendo datos y realizando analisis que pueden ser manejados en nuestra memoria RAM, todo con la ayuda de una función que adapte de este [gist de vnijs](https://gist.github.com/vnijs/e53a68c957747e82c2e3)
 
 
-## Primero lo primero: ¿Cuanta memoria tengo?
+### Primero lo primero: ¿Cuanta memoria tengo disponible?
 
-## CSV o TXT a SQLlite
+Para ver cuanta memoria tiene R disponible vamos a usar el comando memory.size()
 
-### Crear la base de datos
+```{r message=TRUE, warning=TRUE, paged.print=TRUE}
+memory.limit()
+```
 
-### La proemtida funcion
 
-### Mover la csv o txt a la base de datos SQLlite
 
-## Analizar y recoger datos con dplyr
+Como podemos ver, tengo un total de Gb Mb de memoria disponible (aprox. 8000 Mb), que es lo que tiene el computador que estoy utilizando.
+
+**Nota:** Si estas ocupando un sistema operativo de 32 bits, tu limite de memoría no podrá exceder los 2-3 Gb, no importa cuanto RAM tengas instalado.
+
+### CSV o TXT a SQLlite
+
+Ahora supongamos que tenemos una base de datos en un csv o txt **ENORME**, para efectos de este tutorial voy a ocupar la base de datos del censo de población y vivienda de Chile (año 2017), no es una base de datos tan enorme pero para efectos de este tutorial servirá, la pueden descargar de [esta pagina web del INE](http://www.ine.cl/docs/default-source/censos/censo-2017/base-de-datos/csv/microdatos-persona/microdato_censo2017-personas.rar?sfvrsn=3)
+```{r}
+
+```
+
+Adentro viene un .rar que descomprimiremos para obtener la base de datos en .csv, como podemso ver, pesa XXXX mb, no es tanto, pero si estuvieramos ocupando un computador realmente malo no podríamos ni abrirla en excel, ni hablar de una abse de datos de 30 Gb o más
+
+La base de datos la voy a descomprimir en una carpeta llamada "Censo" en el disco C:/
+
+#### Los benditos paquetes
+
+
+-Para leer el archivo delimitado por comas (csv) por tabulaciones o por el limite que sea, vamos a ocupar el paquete "readr"
+-Para comunicarnos con las bases de datos y usar SQLite vamos a usar los paquetes "DBI" y "RSQLite"
+-Para sacar información de la base de datos usaremos el paquete "dplyr"
+
+```{r}
+library(readr)
+library(DBI)
+library(RSQLite)
+library(dplyr)
+```
+
+#### ¿Que tan grande es mi base de datos? ¿Cuales son sus características?
+
+Para tener una aproximación de la magnitud del número de filas en una base de datos grande R no nos va a servir, ya que no la vamos a poder cargar, así que utilizaremos un comando de Powershell "get content" en el caso de estar en windows o un comando de sistema en el caso de estar en Linux
+
+Primero definimos la ruta de nuestra base de datos:
+
+```{r}
+
+```
+
+
+delim_file<-""
+
+Windows:
+
+```{r}
+total_records <- system2("powershell", args = c("Get-content", delim_file, "|", "Measure-Object", "–Line"),
+                         stdout = TRUE)
+total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = ""))) - 1
+```
+
+
+En Linux:
+
+```{r}
+total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
+sub(normalizePath(delim_file), "", .) %>%
+as.integer() %>%
+      {
+        . - 1
+      }
+```
+
+
+Para ver sus características vamos a leer sus primeras 5 lineas, para eso vamos a usar la funcion __readLines__
+
+```{r}
+readLines(delim_file, n=5)
+```
+
+
+#### Crear la ruta a la base de datos
+
+Para crear la base de datos vamos a generar una ruta a un futuro archivo de extensión .sqlite3, Vamos a ocupar en este tutorial el formato de base de datos sqlite por que es facil de configurar y usar, y puede ser implementado localmente en simples pasos
+
+Definimos la ruta y el nombre de la tabla dentro de la base de datos, necesitaremos este nombre para extraer datos en el futuro, otra gracia de estas bases de datos es que pueden contener varias tablas
+
+```{r}
+table_name <- "censo2017"
+sqlite_file <- "C:/Censo/censo2017.sqlite3"
+```
+
+
+#### La prometida funcion
+
+Teniendo el numero total de filas del archivo, las rutas definidas y claro cual es el delimitador (comma, punto y coma, espacio etc), podremos usar la siguiente función:
+
+```{r}
+read_delim2sqlite <- function(delim_file, delim, sqlite_file, table_name, batch_size = 10000, OS = "Windows") {
+
+  ## establish a connection to the database
+  condb <- dbConnect(SQLite(), sqlite_file)
+
+  ## get the total number of records in the file
+  # in Unix
+  if (OS == "Unix") {
+    total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
+      sub(normalizePath(delim_file), "", .) %>%
+      as.integer() %>%
+      {
+        . - 1
+      }
+  } else {
+    # In windows
+    total_records <- system2("powershell", args = c("Get-content", delim_file, "|", "Measure-Object", "–Line"), stdout = TRUE)
+    total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = ""))) - 1
+  }
+
+  message("Total records: ", total_records)
+
+  ## find the number of passes needed based on size of each batch
+  passes <- total_records %/% batch_size
+  remaining <- total_records %% batch_size
+
+  message("Total Passes to complete: ", passes)
+
+  ## first pass determines header and column types
+  dat <- read_delim(delim_file, delim, n_max = batch_size, progress = FALSE) %>% as.data.frame()
+  if (nrow(problems(dat)) > 0) print(problems(dat))
+  col_names <- colnames(dat)
+  col_types <- c(character = "c", numeric = "d", integer = "i", logical = "l", Date = "c") %>%
+    .[sapply(dat, class)] %>%
+    paste0(collapse = "")
+
+  ## write to database table
+  dbWriteTable(condb, table_name, dat, overwrite = TRUE)
+
+  ## multiple passes
+  for (p in 2:passes) {
+    message("Pass number: ", p, ", Progress:", round(p / passes, 2) * 100, "%")
+    read_delim(delim_file, delim,
+      col_names = col_names, col_types = col_types,
+      skip = (p - 1) * batch_size + 1, n_max = batch_size, progress = FALSE
+    ) %>%
+      as.data.frame() %>%
+      dbWriteTable(condb, table_name, ., append = TRUE)
+  }
+
+  if (remaining) {
+    read_delim(delim_file, delim,
+      col_names = col_names, col_types = col_types,
+      skip = p * batch_size + 1, n_max = remaining, progress = FALSE
+    ) %>%
+      as.data.frame() %>%
+      dbWriteTable(condb, table_name, ., append = TRUE)
+  }
+
+  ## close the database connection
+  dbDisconnect(condb)
+}
+
+```
+
+Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es utilizar
+
+Los argumentos son los siguientes
+
+**delim file**: Ruta al archivo delimitado (en este caso la BD del censo)
+**delim**: Caracter delimitador, en este caso un punto y coma
+**sqlite_file**: Ruta a la base de datos de SQLite, debe terminar con ".sqlite3"
+**table_name**: Nombre de la tabla dentro de la base de datos de SQLite
+**batch_size**: Numero de registros que va a leer en cada iteración
+**OS**: Sistema operativo que estamos utilizando, puede ser "Windows" o "Unix" (Solo probado en Linux, no en Mac)
+
+#### Mover la csv o txt a la base de datos SQLlite
+
+### Analizar y recoger datos con dplyr
 
 
 
