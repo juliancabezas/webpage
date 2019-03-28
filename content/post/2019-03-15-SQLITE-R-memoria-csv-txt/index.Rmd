@@ -45,7 +45,6 @@ memory.limit()
 ```
 
 
-
 Como podemos ver, tengo un total de Gb Mb de memoria disponible (aprox. 8000 Mb), que es lo que tiene el computador que estoy utilizando.
 
 **Nota:** Si estas ocupando un sistema operativo de 32 bits, tu limite de memoría no podrá exceder los 2-3 Gb, no importa cuanto RAM tengas instalado.
@@ -53,13 +52,12 @@ Como podemos ver, tengo un total de Gb Mb de memoria disponible (aprox. 8000 Mb)
 ### CSV o TXT a SQLlite
 
 Ahora supongamos que tenemos una base de datos en un csv o txt **ENORME**, para efectos de este tutorial voy a ocupar la base de datos del censo de población y vivienda de Chile (año 2017), no es una base de datos tan enorme pero para efectos de este tutorial servirá, la pueden descargar de [esta pagina web del INE](http://www.ine.cl/docs/default-source/censos/censo-2017/base-de-datos/csv/microdatos-persona/microdato_censo2017-personas.rar?sfvrsn=3)
-```{r}
 
-```
-
-Adentro viene un .rar que descomprimiremos para obtener la base de datos en .csv, como podemso ver, pesa XXXX mb, no es tanto, pero si estuvieramos ocupando un computador realmente malo no podríamos ni abrirla en excel, ni hablar de una abse de datos de 30 Gb o más
+Adentro viene un .rar que descomprimiremos para obtener la base de datos en .csv, como podemos ver, pesa aproximada 2.5 Gb, no es tanto, pero si estuvieramos ocupando un computador realmente malo no podríamos trabajarla en R, y abrirla en excel puede ser algo dificil.
 
 La base de datos la voy a descomprimir en una carpeta llamada "Censo" en el disco C:/
+
+![Archivo de microdatos del censo](img/archivo_censo.JPG)
 
 #### Los benditos paquetes
 
@@ -68,7 +66,7 @@ La base de datos la voy a descomprimir en una carpeta llamada "Censo" en el disc
 -Para comunicarnos con las bases de datos y usar SQLite vamos a usar los paquetes "DBI" y "RSQLite"
 -Para sacar información de la base de datos usaremos el paquete "dplyr"
 
-```{r}
+```{r,message=FALSE}
 library(readr)
 library(DBI)
 library(RSQLite)
@@ -79,22 +77,25 @@ library(dplyr)
 
 Para tener una aproximación de la magnitud del número de filas en una base de datos grande R no nos va a servir, ya que no la vamos a poder cargar, así que utilizaremos un comando de Powershell "get content" en el caso de estar en windows o un comando de sistema en el caso de estar en Linux
 
-Primero definimos la ruta de nuestra base de datos:
+Primero definimos la ruta de nuestra base de datos, le vamos a poner delim_file:
 
 ```{r}
-
+delim_file<-"C:/Censo/Microdato_Censo2017-Viviendas.csv"
 ```
 
 
-delim_file<-""
+Para saber cuantas filas tiene mi archivo (esto se demora un poco):
 
-Windows:
+En Windows:
 
 ```{r}
 total_records <- system2("powershell", args = c("Get-content", delim_file, "|", "Measure-Object", "–Line"),
                          stdout = TRUE)
 total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = ""))) - 1
+total_records
 ```
+
+Nota: Si tienes windows 10 no debería haber problemas, pero si tiene windows 7 u 8 te recomiendo chequear que versiones de powershell tienes siguiendo  [estas instrucciones de Microsoft](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1) e instalarlo siguiendo [este link tambien de Microsoft]( https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-6)
 
 
 En Linux:
@@ -198,9 +199,9 @@ read_delim2sqlite <- function(delim_file, delim, sqlite_file, table_name, batch_
 
 ```
 
-Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es utilizar
+Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es leer el archivo por partes de cierto tamaño (batch_size), utilizando la función read_delim del paquete "readr" para leer rapidamente el archivo, luego inserta la parte leida en la base de datos SQLite, y repite el proceso hasta la ultima linea del archivo
 
-Los argumentos son los siguientes
+Los argumentos de la función son los siguientes
 
 **delim file**: Ruta al archivo delimitado (en este caso la BD del censo)
 **delim**: Caracter delimitador, en este caso un punto y coma
