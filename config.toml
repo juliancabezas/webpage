@@ -68,8 +68,8 @@ enableGitInfo = false
   office_hours = """
   ¡Contactame cualquier duda u oferta de trabajo!
   """
-  phone = "+56 988678357"
-  skype = "juliancabezas"
+  phone = ""
+  skype = "JulianCabezasP"
   telegram = ""
   keybase = ""  # Your keybase.io username.
 
@@ -120,7 +120,7 @@ enableGitInfo = false
   sharing_image = ""
 
   # Twitter username (without @). Used when a vistor shares your site on Twitter.
-  twitter = ""
+  twitter = "juliancabezasp"
 
   # Diplay a logo in navigation bar rather than title (optional).
   #   To enable, place an image in `static/img/` and reference its filename below. To disable, set the value to "".

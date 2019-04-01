@@ -25,36 +25,36 @@ weight = 8
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "80%"
+  description = "**Nivel alto, ¡esta pagina web la hice en R!**"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Estadísticas"
-  description = "60%"  
+  description = "Analisis de datos, machine learning, diseños muestrales"  
   
 [[feature]]
   icon = "satellite"
   icon_pack = "fas"
   name = "Análisis Espacial"
-  description = "70%"
+  description = "SIG y Teledetección, principalmente utilizando series de tiempo Landsat"
 
 [[feature]]
   icon = "map"
   icon_pack = "fas"
-  name = "ArcGis & QGis"
-  description = "50%"
+  name = "ArcGis, QGis, Photoscan y UAV"
+  description = "Manejo los softwares y hardware necesarios para el analisis espacial"
   
 [[feature]]
   icon = "leaf"
   icon_pack = "fas"
   name = "Ecología y Medio Ambiente"
-  description = "50%"
+  description = "Analisis del medioambiente a través de datos"
 
 [[feature]]
-  icon = "music"
+  icon = "language"
   icon_pack = "fas"
-  name = "Música"
-  description = "25%"
+  name = "Idiomas"
+  description = "Hablo y escribo en ingles (nivel alto), balbuceo alemán también"
 
 +++
