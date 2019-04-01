@@ -1,7 +1,7 @@
 ---
 title: Trabajar con un base de datos en .csv o .txt más grande que tu memoria RAM en R utilizando SQLite
 author: Julián Cabezas
-date: '2019-03-20'
+date: '2019-04-01'
 slug: tutorial-2
 categories:
   - R
@@ -17,10 +17,14 @@ tags:
   - memoria
   - csv
   - txt
+  - microdatos
+  - censo
+  - 2017
+  - Chile
 image:
   caption: ''
   focal_point: ''
-summary: '¿Cansado del mensaje "out of memory" cuando intentas abrir una base de datos en R?, '
+summary: '¿Cansado del mensaje "out of memory" cuando intentas abrir una base de datos en R?, en este tutorial aprenderás a manejar el poder de SQLite, usando como ejemplo los microdatos del censo 2017 de Chile'
 header:
   image: ""
   caption: "La idea es alcanzar a lograr este nivel de equilibrio espiritual"
@@ -28,13 +32,18 @@ output:
   blogdown::html_page:
     toc: true
     number_sections: false
-    toc_depth: 2
+    toc_depth: 4
 ---
 
-No se si es el caso de todos, pero por mi parte, cada vez que llego a un nuevo trabajo, me pasan **el peor computador de la oficina**, usualmente 4 Gb de RAM a lo sumo (y con Windows de 32 bits si tienes muy mala suerte, como me pasó a mi). Como ocupo R para todo, se me hace muy dificil trabajar con bases de datos grandes, a veces mayores a la memoría asignada a R. Este tutorial sirve tambien si tenemos una base de datos MUY grande
+### El problema del maldito RAM y las bases de datos enormes
 
-En este tutorial vamos a revisar cuanta memoria RAM tiene asignada R en el sistema, y a crear una base de datos SQLite de la cual vamos a poder ir extrayendo datos y realizando analisis que pueden ser manejados en nuestra memoria RAM, todo con la ayuda de una función que adapte de este [gist de vnijs](https://gist.github.com/vnijs/e53a68c957747e82c2e3)
+No se si es el caso de todos, pero por mi parte, cada vez que llego a un nuevo trabajo, me pasan **el peor computador de la oficina**, usualmente 4 Gb de RAM a lo sumo (y con Windows de 32 bits si tienes muy mala suerte, como me pasó a mi una vez). Como ocupo R para todo, se me hace muy difícil trabajar con bases de datos grandes, a veces mayores a la memoria asignada a R. Este tutorial sirve también si tenemos una base de datos **enorme**
 
+A continuación vamos a revisar cuanta memoria RAM tiene asignada R en el sistema, y a crear una base de datos SQLite de la cual vamos a poder extraer datos y realizar análisis que pueden ser manejados en nuestra memoria RAM, todo con la ayuda de una función que adapté de este [gist de vnijs](https://gist.github.com/vnijs/e53a68c957747e82c2e3)
+
+En este tutorial vamos a usar el formato de base de datos [SQLite](https://www.sqlite.org/index.html) por que es fácil de configurar y usar, y puede ser implementado localmente en simples pasos. Otros formatos posibles serian PostgreSQL y MySQL, pero sería un poco más complicado
+
+Para poder usar este tutorial se requiere de un conocimiento intermedio-avanzado de R, y entender un poco el mundo del SQL
 
 ### Primero lo primero: ¿Cuanta memoria tengo disponible?
 
@@ -44,45 +53,53 @@ Para ver cuanta memoria tiene R disponible vamos a usar el comando memory.size()
 memory.limit()
 ```
 
+Como podemos ver, tengo un total de 16 Gb de memoria disponible (aprox. 16000 Mb), que es lo que tiene el computador que estoy utilizando.
 
-Como podemos ver, tengo un total de Gb Mb de memoria disponible (aprox. 8000 Mb), que es lo que tiene el computador que estoy utilizando.
-
-**Nota:** Si estas ocupando un sistema operativo de 32 bits, tu limite de memoría no podrá exceder los 2-3 Gb, no importa cuanto RAM tengas instalado.
+**Nota:** Si estas ocupando un sistema operativo de 32 bits, tu limite de memoria no podrá exceder los 2-3 Gb, no importa cuanto RAM tengas instalado.
 
 ### CSV o TXT a SQLlite
 
-Ahora supongamos que tenemos una base de datos en un csv o txt **ENORME**, para efectos de este tutorial voy a ocupar la base de datos del censo de población y vivienda de Chile (año 2017), no es una base de datos tan enorme pero para efectos de este tutorial servirá, la pueden descargar de [esta pagina web del INE](http://www.ine.cl/docs/default-source/censos/censo-2017/base-de-datos/csv/microdatos-persona/microdato_censo2017-personas.rar?sfvrsn=3)
+Ahora supongamos que tenemos una base de datos en un csv o txt **ENORME**. Para efectos de este tutorial voy a ocupar la base de datos del censo de población y vivienda de Chile (año 2017), no es una base de datos tan grande pero para efectos de este tutorial servirá, la pueden descargar de [esta pagina web del Instituto Nacional de Estadísticas de Chile](http://www.ine.cl/docs/default-source/censos/censo-2017/base-de-datos/csv/microdatos-persona/microdato_censo2017-personas.rar?sfvrsn=3).
 
-Adentro viene un .rar que descomprimiremos para obtener la base de datos en .csv, como podemos ver, pesa aproximada 2.5 Gb, no es tanto, pero si estuvieramos ocupando un computador realmente malo no podríamos trabajarla en R, y abrirla en excel puede ser algo dificil.
+Adentro viene un .rar que descomprimiremos para obtener la base de datos en .csv, como podemos ver, pesa aproximadamente 2.5 Gb, no es tanto, pero si estuviéramos ocupando un computador realmente malo no podríamos trabajarla en R, y abrirla en excel puede ser algo difícil.
 
 La base de datos la voy a descomprimir en una carpeta llamada "Censo" en el disco C:/
 
-![Archivo de microdatos del censo](img/archivo_censo.JPG)
+![](/img/archivo_censo.JPG)
 
 #### Los benditos paquetes
 
+Asegúrate de instalar estos 5 paquetes:
 
--Para leer el archivo delimitado por comas (csv) por tabulaciones o por el limite que sea, vamos a ocupar el paquete "readr"
--Para comunicarnos con las bases de datos y usar SQLite vamos a usar los paquetes "DBI" y "RSQLite"
--Para sacar información de la base de datos usaremos el paquete "dplyr"
+- **readr**: Para leer el archivo delimitado por comas (csv) por tabulaciones o por el limite que sea 
+- **DBI, RSQLite**: Para comunicarnos con las bases de datos y usar SQLite
+- **dplyr y dbplyr**: Para sacar información de la base de datos
 
-```{r,message=FALSE}
+```{r,message=FALSE,warning=FALSE}
 library(readr)
 library(DBI)
 library(RSQLite)
 library(dplyr)
+library(dbplyr)
 ```
 
 #### ¿Que tan grande es mi base de datos? ¿Cuales son sus características?
 
-Para tener una aproximación de la magnitud del número de filas en una base de datos grande R no nos va a servir, ya que no la vamos a poder cargar, así que utilizaremos un comando de Powershell "get content" en el caso de estar en windows o un comando de sistema en el caso de estar en Linux
-
 Primero definimos la ruta de nuestra base de datos, le vamos a poner delim_file:
 
 ```{r}
-delim_file<-"C:/Censo/Microdato_Censo2017-Viviendas.csv"
+delim_file <- "C:/Censo/Microdato_Censo2017-Personas.csv"
 ```
 
+Para ver sus características vamos a leer sus primeras 2 lineas, para eso vamos a usar la función __readLines__
+
+```{r}
+readLines(delim_file, n=2)
+```
+
+Ya con esta información podemos ver los nombres de los encabezados y ver que el separador (delim) es un punto y coma (;)
+
+Para obtener el número de filas de una base de datos grande R no nos va a servir, ya que no la vamos a poder cargar, así que utilizaremos un comando de Powershell (get content) en el caso de estar en Windows o un comando de sistema (wc) en el caso de estar en Linux.
 
 Para saber cuantas filas tiene mi archivo (esto se demora un poco):
 
@@ -95,43 +112,39 @@ total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = "
 total_records
 ```
 
-Nota: Si tienes windows 10 no debería haber problemas, pero si tiene windows 7 u 8 te recomiendo chequear que versiones de powershell tienes siguiendo  [estas instrucciones de Microsoft](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1) e instalarlo siguiendo [este link tambien de Microsoft]( https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-6)
+17574003 registros o lineas (dejando fuera el encabezado), ese el numero de personas que registró el censo del año 2017, así que estamos bien.
+
+Nota: Si tienes Windows 10 no debería haber problemas, pero si tienes Windows 7 u 8 te recomiendo ver que versión de powershell tienes instalada  [estas instrucciones de Microsoft](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1) e instalar powershell 5.1 siguiendo [este link tambien de Microsoft]( https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-6)
 
 
-En Linux:
+En Linux sería algo así:
 
-```{r}
-total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
-sub(normalizePath(delim_file), "", .) %>%
-as.integer() %>%
-      {
-        . - 1
-      }
-```
-
-
-Para ver sus características vamos a leer sus primeras 5 lineas, para eso vamos a usar la funcion __readLines__
-
-```{r}
-readLines(delim_file, n=5)
+```{r,error=FALSE,eval=FALSE}
+ total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
+ sub(normalizePath(delim_file), "", .) %>%
+ as.integer() %>%
+       {
+         . - 1
+       }
 ```
 
 
 #### Crear la ruta a la base de datos
 
-Para crear la base de datos vamos a generar una ruta a un futuro archivo de extensión .sqlite3, Vamos a ocupar en este tutorial el formato de base de datos sqlite por que es facil de configurar y usar, y puede ser implementado localmente en simples pasos
 
-Definimos la ruta y el nombre de la tabla dentro de la base de datos, necesitaremos este nombre para extraer datos en el futuro, otra gracia de estas bases de datos es que pueden contener varias tablas
+Para crear la base de datos vamos a generar una ruta a un futuro archivo de extensión .sqlite3, 
+
+Definimos la ruta y el nombre de la tabla dentro de la base de datos, necesitaremos este nombre para extraer datos en el futuro, otra gracia de estas bases de datos es que pueden contener varias tablas dentro de ellas.
 
 ```{r}
-table_name <- "censo2017"
-sqlite_file <- "C:/Censo/censo2017.sqlite3"
+table_name_censo <- "censo2017"
+sqlite_file_censo <- "C:/Censo/censo2017.sqlite3"
 ```
 
 
 #### La prometida funcion
 
-Teniendo el numero total de filas del archivo, las rutas definidas y claro cual es el delimitador (comma, punto y coma, espacio etc), podremos usar la siguiente función:
+Teniendo el numero total de filas del archivo, las rutas definidas y el delimitador (coma, punto y coma, espacio etc), podremos usar la siguiente función:
 
 ```{r}
 read_delim2sqlite <- function(delim_file, delim, sqlite_file, table_name, batch_size = 10000, OS = "Windows") {
@@ -199,24 +212,112 @@ read_delim2sqlite <- function(delim_file, delim, sqlite_file, table_name, batch_
 
 ```
 
-Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es leer el archivo por partes de cierto tamaño (batch_size), utilizando la función read_delim del paquete "readr" para leer rapidamente el archivo, luego inserta la parte leida en la base de datos SQLite, y repite el proceso hasta la ultima linea del archivo
+Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es leer el archivo por partes de cierto tamaño (batch_size), utilizando la función read_delim del paquete "readr" para leer rápidamente el archivo, luego inserta la parte leída en la base de datos SQLite, y repite el proceso hasta la ultima linea del archivo.
 
-Los argumentos de la función son los siguientes
+Los argumentos de la función son los siguientes:
 
-**delim file**: Ruta al archivo delimitado (en este caso la BD del censo)
-**delim**: Caracter delimitador, en este caso un punto y coma
-**sqlite_file**: Ruta a la base de datos de SQLite, debe terminar con ".sqlite3"
-**table_name**: Nombre de la tabla dentro de la base de datos de SQLite
-**batch_size**: Numero de registros que va a leer en cada iteración
-**OS**: Sistema operativo que estamos utilizando, puede ser "Windows" o "Unix" (Solo probado en Linux, no en Mac)
+**delim file**: Ruta al archivo delimitado (en este caso la BD del censo).
+**delim**: Caracter delimitador, en este caso un punto y coma.
+**sqlite_file**: Ruta a la base de datos de SQLite, debe terminar con ".sqlite3".
+**table_name**: Nombre de la tabla dentro de la base de datos de SQLite.
+**batch_size**: Numero de registros que va a leer en cada iteración.
+**OS**: Sistema operativo que estamos utilizando, puede ser "Windows" o "Unix" (Solo probado en Linux, no en Mac).
 
 #### Mover la csv o txt a la base de datos SQLlite
 
+Con lo que ya tenemos preparado podemos usar la función, en este caso, para asegurarme de no quedarme sin RAM, voy a pasar la base de datos en conjuntos de un millon de lineas (batch_size), por lo que debería terminarse en 18 iteraciones. 
+
+**Advertencia, esto tardará unos cuantos minutos, vayan a cebarse un mate**
+
+```{r}
+read_delim2sqlite(delim_file, delim=";", sqlite_file = sqlite_file_censo, 
+                  table_name = table_name_censo, batch_size=1000000)
+```
+
+Este proceso tan demoroso solo lo haremos una vez. Como podemos ver se crea un archivo .sqlite3, que incluso es un poco más pequeño que nuestro .csv
+
+![Archivo SQLite creado](/img/archivo_censo_sqlite.JPG)
+
 ### Analizar y recoger datos con dplyr
 
+Para empezar a colectar datos de la tabla en primer lugar tengo que hacer una conexión con la base de datos
+
+```{r}
+con <- dbConnect(SQLite(), sqlite_file_censo)
+con
+```
+
+Podemos ver las características de la conexión y el nombre que le asignamos a la base de datos
+
+```{r}
+dbListTables(con)
+```
+
+Creamos un objeto que va a representar a los datos, este objeto no está en nuestro RAM, es solo una conexión, por eso no salen las filas de la base de datos.
+
+```{r}
+datos_db <- tbl(con, "censo2017")
+datos_db
+```
+
+Ahora podemos ocupar los verbos de dplyr!, por ejemplo, digamos que queremos obtener un vector con las edades simples para hacer un histograma o algo así (la edad en la base de datos del censo es el campo P09).
+
+```{r}
+edades <- datos_db %>%
+  select(P09)
+
+edades
+
+```
+
+Pareciera que todo estuviera bien, sin embargo, el objeto sigue siendo una "conexión", lo que hace R es un "lazy loading" (lazy de perezoso o flojo), es decir, solo realiza una parte de la operación para no demorarse mucho.
+
+Lo podemos confirmar en el environment también:
+
+![](/img/archivo_censo_con.JPG)
+
+Como podemos ver, el numero de filas ni siquiera esta disponible:
+
+```{r}
+nrow(edades)
+```
+
+Para traer esta columna a nuestro RAM necesitamos usar la función __collect__, recomiendo utilizar esta función **siempre**, para asegurarnos que estamos trabajando con objetos completos y no con conexiones
+
+```{r}
+edades<-collect(edades)
+
+nrow(edades)
+```
+
+```{r}
+edades
+```
 
 
+Ahora si!
+
+Otro ejemplo, el campo "P09" se refiere a la edad y el campo "P08" al sexo, supongamos que queremos saber la edad promedio por región de los hombres (Sexo=1). ¡No nos olvidemos del __collect__!
 
 
-**Espero sus comentarios y dudas!**
+```{r}
+hombres_edad <- datos_db %>%
+  filter(P08==1) %>%
+  group_by(REGION) %>%
+  summarise(Edad_media = mean(P09))
+
+hombres_edad <- collect(hombres_edad)
+
+hombres_edad
+
+```
+
+
+Listo, ya podemos trabajar con gran parte de las base de datos estructuradas, extraer datos y realizar análisis.
+
+¡Ojala les haya gustado el tutorial, no duden en contactarme!
+
+![](https://media.giphy.com/media/3hvmlYNsOTFWE/giphy.gif)
+
+
 

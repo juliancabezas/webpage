@@ -25,7 +25,7 @@ weight = 8
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "**¡Esta pagina web la hice en R!**"
+  description = "**Nivel alto, ¡esta pagina web la hice en R!**"
   
 [[feature]]
   icon = "chart-line"
@@ -52,9 +52,9 @@ weight = 8
   description = "Analisis del medioambiente a través de datos"
 
 [[feature]]
-  icon = "music"
+  icon = "language"
   icon_pack = "fas"
-  name = "Música"
-  description = "En mis tiempos libres me creo músico"
+  name = "Idiomas"
+  description = "Hablo y escribo en ingles (nivel alto), balbuceo alemán también"
 
 +++
