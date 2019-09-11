@@ -10,9 +10,9 @@ image:
   focal_point: ''
 ---
 
+Disclaimer: This is not an offitial release and is only meant for development and feed-back purposes
 
-
-### Disturbances included
+### Included disturbances
 
 In this run, we are only including the Deforestation and Substitution activities, we are using two default disturbances for their representation
 
