@@ -10,7 +10,7 @@ image:
   focal_point: ''
 ---
 
-Disclaimer: This is not an offitial release and is only meant for development and feed-back purposes
+**Disclaimer**: This is not an offitial release and is only meant for development and feed-back purposes
 
 ### Included disturbances
 
