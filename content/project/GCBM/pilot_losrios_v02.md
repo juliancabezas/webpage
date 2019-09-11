@@ -2,7 +2,7 @@
 title: GCBM Implementation in Los Rios Region (Chile) - Pilot project (version 0.2)
 author: Julián Cabezas
 date: '2019-09-11'
-slug: pilot_losrios_v2
+slug: pilot_losrios_v02
 categories: []
 tags: []
 image:
