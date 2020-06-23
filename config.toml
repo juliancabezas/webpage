@@ -375,6 +375,46 @@ title = "Julian Cabezas Pena"
 #[languages.en.params]
 #name = "Your name in Chinese..."
 #role = "Your role in Chinese..."
+
+
+[[languages.en.menu.main]]
+  name = "Home"
+  url = "#about"
+  weight = 1
+
+[[languages.en.menu.main]]
+  name = "Publications"
+  url = "#publications"
+  weight = 2
+
+#[[languages.en.menu.main]]
+#  name = "Posts y Tutoriales"
+#  url = "#posts"
+#  weight = 3
+
+#[[menu.main]]
+#  name = "Proyectos"
+#  url = "#projects"
+#  weight = 4
+
+#[[menu.main]]
+#  name = "Tutoriales"
+#  url = "/tutorial/"
+#  weight = 5
+
+[[languages.en.menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 6
+
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+[[languages.en.menu.main]]
+    name = "CV"
+   url = "files/CV_Julian_Cabezas_Spanish_04_2019.pdf"
+    weight = 7
+
+
 #[[languages.zh.menu.main]]
 #name = "Wo"
 #url = "#about"
