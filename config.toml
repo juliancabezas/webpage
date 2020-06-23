@@ -13,7 +13,7 @@ title = "Julián Cabezas Peña"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2018"
+copyright = "&copy; 2020"
 
 theme = "hugo-academic"
 enableEmoji = true
@@ -53,11 +53,11 @@ enableGitInfo = false
 
   # Your details.
   name = "Julián Cabezas"
-  role = "Profesional de apoyo en la UCCSA-CONAF"
+  role = "Environmental Data Science Consultant"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "Food and Agriculture Organization (FAO)", url = "" } ]
+  organizations = [ { name = "Independent", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "foto_computadores.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
@@ -369,13 +369,13 @@ enableGitInfo = false
   languageCode = "es"
 
 # Uncomment the lines below to configure your website in a second language.
-#[languages.zh]
-#  languageCode = "zh-Hans"
-#  title = "Chinese website title..."
-#  [languages.zh.params]
-#    name = "Your name in Chinese..."
-#    role = "Your role in Chinese..."
-#  [[languages.zh.menu.main]]
-#    name = "Wo"
-#    url = "#about"
-#    weight = 1
+[languages.en]
+languageCode = "en-us"
+title = "Julian Cabezas Pena"
+#[languages.en.params]
+#name = "Your name in Chinese..."
+#role = "Your role in Chinese..."
+#[[languages.zh.menu.main]]
+#name = "Wo"
+#url = "#about"
+#weight = 1
