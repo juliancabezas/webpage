@@ -19,19 +19,19 @@ weight = 5
 # List your qualifications (such as academic degrees).
 [[education.courses]]
   course = "Ingeniería en Recursos Naturales Renovables"
-  institution = "Universidad de Chile"
+  institution = "Universidad de Chile, Chile"
   year = 2015
 
 [[education.courses]]
-  course = "Licenciado en Ciencias de los Recursos Naturales Renovables"
-  institution = "Universidad de Chile"
-  year = 2014
+  course = "Master of Data Science (Estudiante)"
+  institution = "University of Adelaide, Australia"
+  year = 2020
 
  
 +++
 
 # Perfil profesional
 
-Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando algoritmos de análisis de información satelital, propuestas de planificación territorial y mejoras en metodologías estadísticas.
+Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando modelos de machine learning, analisis estadisticos y algoritmos de análisis de información geoespacial.
 
 Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:

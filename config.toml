@@ -53,18 +53,18 @@ enableGitInfo = false
 
   # Your details.
   name = "Julián Cabezas"
-  role = "Profesional de apoyo en la UCCSA-CONAF"
+  role = "Environmental Data Scientist / Spatial Analyst"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "Food and Agriculture Organization (FAO)", url = "" } ]
+  #organizations = [ { name = "Food and Agriculture Organization (FAO)", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "foto_computadores.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
 
   # Details for the Contact Widget
   email = "juliancabezas@gmail.com"
-  address = "Santiago de Chile"
+  address = "Adelaide, Australia"
   office_hours = """
   ¡Contactame cualquier duda u oferta de trabajo!
   """

@@ -21,30 +21,31 @@ weight = 8
 # * fab - Font Awesome brand icons (see https://fontawesome.com/icons)
 # * ai - academic icons (see https://jpswalsh.github.io/academicons/)
 
+
+[[feature]]
+  icon = "python"
+  icon_pack = "fab"
+  name = "Programacion en Python"
+  description = "Uso Python para implementar modelos de machine learning (scikit-learn) y deep learning (Pytorch) "
+
 [[feature]]
   icon = "r-project"
   icon_pack = "fab"
-  name = "R"
-  description = "**Nivel alto, ¡esta pagina web la hice en R!**"
-  
+  name = "Programacion en R"
+  description = "Nivel alto, ¡esta pagina web la hice usando R!"
+
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
-  name = "Estadísticas"
-  description = "Analisis de datos, machine learning, diseños muestrales"  
+  name = "Estadísticas y Data science"
+  description = "Analisis y limpieza de datos, machine learning, diseños muestrales"  
   
-[[feature]]
-  icon = "satellite"
-  icon_pack = "fas"
-  name = "Análisis Espacial"
-  description = "SIG y Teledetección, principalmente utilizando series de tiempo Landsat"
-
 [[feature]]
   icon = "map"
   icon_pack = "fas"
-  name = "ArcGis, QGis, Photoscan y UAV"
-  description = "Manejo los softwares y hardware necesarios para el analisis espacial"
-  
+  name = "Análisis Espacial"
+  description = "SIG y Teledetección, manejo ArcGis, QGis, Photoscan y UAV"
+
 [[feature]]
   icon = "leaf"
   icon_pack = "fas"

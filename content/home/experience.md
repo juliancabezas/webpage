@@ -20,21 +20,33 @@ date_format = "01-2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "Consultor"
+  company = "The Mullion Group"
+  company_url = "www.mulliongroup.com.au"
+  location = "Canberra, Australia"
+  date_start = "2020-02-01"
+  date_end = ""
+  description = """
+  * Modelamiento de emissiones de CO2 en Chile utilizando el modelo GCBM
+  """
+
+
+[[experience]]
   title = "Profesional de apoyo - Unidad de Cambio Climatico y Servicios Ambientales - CONAF"
   company = "Food and Agriculture Organization (FAO)"
   company_url = ""
   location = "Santiago, Chile"
   date_start = "2019-02-01"
-  date_end = ""
+  date_end = "2019-11-01"
   description = """
-  * Apoyo en la implementación de la ENCCRV
+  * Apoyo en la implementación de la Estrategia nacional de Cambio CLimatico y Recursos vegetacionales (ENCCRV)
   * Contribución tecnica en la mejora del sistema de monitoreo forestal de la ENCCRV
   """
 
 [[experience]]
   title = "Analísta Estadístico"
   company = "Instituto Nacional de Estadística"
-  company_url = ""
+  company_url = "www.ine.cl"
   location = "Santiago, Chile"
   date_start = "2018-05-01"
   date_end = "2019-02-01"
