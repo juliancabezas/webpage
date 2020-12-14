@@ -20,63 +20,62 @@ date_format = "01-2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Consultor"
+  title = "Consultant"
   company = "The Mullion Group"
   company_url = "www.mulliongroup.com.au"
   location = "Canberra, Australia"
   date_start = "2020-02-01"
   date_end = ""
   description = """
-  * Modelamiento de emissiones de CO2 en Chile utilizando el modelo GCBM
+  * Developing of a proof of concept of the implementation of the Generic Carbon Budget Model (GCBM) for forest carbon modelling in Chile
   """
 
 
 [[experience]]
-  title = "Profesional de apoyo - Unidad de Cambio Climatico y Servicios Ambientales - CONAF"
+  title = "National Project Personnel - Clamate Change Unit - National Forestry Corporation (CONAF)"
   company = "Food and Agriculture Organization (FAO)"
   company_url = ""
   location = "Santiago, Chile"
   date_start = "2019-02-01"
   date_end = "2019-11-01"
   description = """
-  * Apoyo en la implementación de la Estrategia nacional de Cambio CLimatico y Recursos vegetacionales (ENCCRV)
-  * Contribución tecnica en la mejora del sistema de monitoreo forestal de la ENCCRV
+  * Support for the Monitoring and Measurement System of the National Strategy of Climate Change and Vegetation Resources. REDD+ Technical
+Annex elaboration and reviewing process
   """
 
 [[experience]]
-  title = "Analísta Estadístico"
-  company = "Instituto Nacional de Estadística"
+  title = "Statistical Analyst"
+  company = "National Statistics Institute"
   company_url = "www.ine.cl"
   location = "Santiago, Chile"
   date_start = "2018-05-01"
   date_end = "2019-02-01"
   description = """
-  * Análisis de encuestas y diseños de muestreo
-  * Implementación y optimización de algoritmos en R
+  * Development of statistic analysis algorithms and sampling designs
+  * Text mining algorithms for automatic classification of labor sector in national surveys
   """
 
 [[experience]]
   title = "Remote Sensing Scientist"
   company = "Karlsruhe Institut for Technology (KIT)"
   company_url = "https://www.ifgg.kit.edu/vegetation/mitarbeiter_cabezas.php"
-  location = "Kalrsruhe, Alemania"
+  location = "Kalrsruhe, Germany"
   date_start = "2016-05-01"
   date_end = "2017-10-31"
   description = """
-  * Proyecto SaMovar: Detección de perturbaciones en la vegetación natural utilizando información satelital
-  * Implementación y optimización de algoritmo BFAST para analisis de series de tiempo
-  * Conducción y analisis de imágenes de UAV (drones)
+  * Implementation of disturbance detection algorithms using R and Landsat data (SaMovar Project)
+  * UAV operation and image analysis
   """
   
 [[experience]]
-  title = "Asistente en SIG"
+  title = "GIS Assistant"
   company = "Universidad de Chile"
   company_url = ""
   location = "Santiago de Chile"
   date_start = "2015-06-01"
   date_end = "2015-12-31"
   description = """
-  * Proyecto PNUD: "Estudio para la definición de áreas de protección natural y/o patrimonial en el piedemonte del sector oriente"
+  * GIS elaborations and spatial analysis in the Study for the definition of protection areas in the east piedmont of Santiago project, financed by the United Nations Development Programme (UNDP)
   """
 
 +++

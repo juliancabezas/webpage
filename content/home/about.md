@@ -11,27 +11,27 @@ weight = 5
 [interests]
   interests = [
     "Data science",
-    "Estadística",
-    "Análisis espacial",
-    "Ecología"
+    "Statistics",
+    "Spatial Analysis",
+    "Environmental Sciences"
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "Ingeniería en Recursos Naturales Renovables"
+  course = "Renewable Natural Resources Engineering"
   institution = "Universidad de Chile, Chile"
   year = 2015
 
 [[education.courses]]
-  course = "Master of Data Science (Estudiante)"
+  course = "Master of Data Science (Student)"
   institution = "University of Adelaide, Australia"
   year = 2020
 
  
 +++
 
-# Perfil profesional
+# Professional Profile
 
-Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando modelos de machine learning, analisis estadisticos y algoritmos de análisis de información geoespacial.
+My approach to work is based on my ability to deal with data analysis from several sources, generating machine learning models, statistical analysis and geospatial information analysis algorithms.
 
-Mi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:
+My research vocation allowed me to generate high quality products, which have been translated into publications in international journals and presentations at conferences. Besides my professional life, I am enthusiastic about music, as an amateur trumpet player: trumpet:

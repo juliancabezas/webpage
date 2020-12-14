@@ -4,7 +4,7 @@ widget = "hero"
 active = true
 date = 2017-10-15T00:00:00
 
-title = "Datos más cerca"
+title = "Closer data"
 
 # Order that this section will appear in.
 weight = 3
@@ -24,4 +24,4 @@ weight = 3
 #  label = '<i class="fas fa-download"></i> Install Now'
 +++
 
-Un sitio web sobre mi trabajo, principalmente lo referido a data science y análisis espacial :rocket:. 
+A website about my work, with emphasis in data science and spatial analysis :rocket:. 

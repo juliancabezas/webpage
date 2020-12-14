@@ -9,7 +9,7 @@
 baseurl = "/"
 
 # Title of your site
-title = "Julián Cabezas Pena"
+title = "Julian Cabezas Pena"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
@@ -29,7 +29,7 @@ disqusShortname = "www-juliancabezas-com"
 googleAnalytics = "UA-131527925-1"
 
 # Default language to use (if you setup multilingual support)
-defaultContentLanguage = "es"
+defaultContentLanguage = "en"
 hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
 defaultContentLanguageInSubdir = false
 
@@ -288,7 +288,7 @@ enableGitInfo = false
    [[params.social]]
      icon = "cv"
      icon_pack = "ai"
-     link = "files/CV_Julian_Cabezas_Spanish_04_2019.pdf"
+     link = "files/CV_Julian_Cabezas_English.pdf"
 
 # Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
@@ -304,14 +304,14 @@ enableGitInfo = false
   weight = 1
 
 [[menu.main]]
-  name = "Publicaciones"
+  name = "Publications"
   url = "#publications"
   weight = 2
 
-[[menu.main]]
-  name = "Posts y Tutoriales"
-  url = "#posts"
-  weight = 3
+#[[menu.main]]
+#  name = "Posts y Tutoriales"
+#  url = "#posts"
+#  weight = 3
 
 #[[menu.main]]
 #  name = "Proyectos"
@@ -324,7 +324,7 @@ enableGitInfo = false
 #  weight = 5
 
 [[menu.main]]
-  name = "Contacto"
+  name = "Contact"
   url = "#contact"
   weight = 6
 
@@ -332,8 +332,13 @@ enableGitInfo = false
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 [[menu.main]]
     name = "CV"
-   url = "files/CV_Julian_Cabezas_Spanish_04_2019.pdf"
+   url = "files/CV_Julian_Cabezas_English.pdf"
     weight = 7
+    
+[[menu.main]]
+    name = "*Spanish site*"
+    url = "https://www.juliancabezas.com"
+    weight = 8
 
 # Search.
 [params.search]
@@ -365,8 +370,8 @@ enableGitInfo = false
 #[languages.en]
 #  languageCode = "en-us"
   
-[languages.es]
-  languageCode = "es"
+[languages.en]
+  languageCode = "en"
 
 # Uncomment the lines below to configure your website in a second language.
 #[languages.zh]
