@@ -334,6 +334,11 @@ enableGitInfo = false
     name = "CV"
    url = "files/CV_Julian_Cabezas_Spanish_04_2019.pdf"
     weight = 7
+    
+[[menu.main]]
+    name = "*ENGLISH SITE*"
+    url = "https://en.juliancabezas.com"
+    weight = 8
 
 # Search.
 [params.search]
