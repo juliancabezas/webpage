@@ -336,7 +336,7 @@ enableGitInfo = false
     weight = 7
     
 [[menu.main]]
-    name = "*Spanish site*"
+    name = "*SPANISH SITE*"
     url = "https://www.juliancabezas.com"
     weight = 8
 
