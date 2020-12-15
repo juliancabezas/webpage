@@ -71,7 +71,7 @@ Annex elaboration and reviewing process
   title = "GIS Assistant"
   company = "Universidad de Chile"
   company_url = ""
-  location = "Santiago de Chile"
+  location = "Santiago, Chile"
   date_start = "2015-06-01"
   date_end = "2015-12-31"
   description = """

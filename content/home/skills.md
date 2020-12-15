@@ -26,7 +26,7 @@ weight = 8
   icon = "python"
   icon_pack = "fab"
   name = "Python programming"
-  description = "Python for de machine learning (scikit-learn) and deep learning (Pytorch) "
+  description = "Python for machine learning (scikit-learn) and deep learning (Pytorch) "
 
 [[feature]]
   icon = "r-project"
@@ -44,7 +44,7 @@ weight = 8
   icon = "map"
   icon_pack = "fas"
   name = "Spatial analysis"
-  description = "GIS and Remote sensing. I can use ArcGis, QGis, Photoscan and drive UAVs"
+  description = "GIS and Remote sensing. I can use ArcGis, QGis, Photoscan and UAVs driving"
 
 [[feature]]
   icon = "leaf"
