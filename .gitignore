@@ -1,2 +1,18 @@
-public
-.Rproj.user
+# Build output and dependencies
+public/
+resources/
+node_modules/
+.hugo_build.lock
+hugo_stats.json
+assets/jsconfig.json
+# Portable tools, downloaded template and migration scratch files
+.migration/
+# Local editor and environment state
+.Rproj.user/
+.Rhistory
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log

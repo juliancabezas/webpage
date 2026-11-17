@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.170.1"
+  NODE_VERSION = "22.23.5"
+  GO_VERSION = "1.27.4"
+  NPM_FLAGS = "--include=optional"
+  HUGO_ENVIRONMENT = "production"
+
+[context.deploy-preview.environment]
+  HUGO_ENVIRONMENT = "preview"
+
+[context.branch-deploy.environment]
+  HUGO_ENVIRONMENT = "preview"

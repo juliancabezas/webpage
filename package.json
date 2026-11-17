@@ -1,0 +1,20 @@
+{
+  "name": "juliancabezas-webpage",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sitio personal de Julián Cabezas con HugoBlox Academic CV",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "node scripts/build.mjs",
+    "pagefind": "pagefind --site public",
+    "verify": "node scripts/verify-build.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "4.2.4",
+    "@tailwindcss/typography": "0.5.19",
+    "pagefind": "1.5.2",
+    "preact": "10.29.1",
+    "tailwindcss": "4.2.4"
+  }
+}

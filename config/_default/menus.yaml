@@ -1,0 +1,33 @@
+main:
+  -
+    name: "Inicio"
+    url: "/#about"
+    weight: 1
+  -
+    name: "Experiencia"
+    url: "/experience/"
+    weight: 2
+  -
+    name: "Publicaciones"
+    url: "/#publications"
+    weight: 3
+  -
+    name: "Posts y tutoriales"
+    url: "/#posts"
+    weight: 4
+  -
+    name: "Proyectos"
+    url: "/project/"
+    weight: 5
+  -
+    name: "Contacto"
+    url: "/#contact"
+    weight: 6
+  -
+    name: "CV"
+    url: "/files/cv.pdf"
+    weight: 7
+  -
+    name: "English site"
+    url: "https://en.juliancabezas.com"
+    weight: 8

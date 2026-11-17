@@ -1,0 +1,11 @@
+# Netlify headers. Keep newlines and indentation: this is not HTML.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+{{ if eq hugo.Environment "preview" }}  X-Robots-Tag: noindex, nofollow
+{{ end }}
+/index.webmanifest
+  Content-Type: application/manifest+json
+/index.xml
+  Content-Type: application/rss+xml

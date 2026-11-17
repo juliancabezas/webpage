@@ -1,0 +1,66 @@
+hugoblox:
+  schema: "2.0"
+  identity:
+    name: "Julián Cabezas Peña"
+    type: "person"
+    tagline: "Environmental Data Scientist / Spatial Analyst"
+    description: "Ciencia de datos, análisis espacial, ecología y medio ambiente. Publicaciones, proyectos y tutoriales de Julián Cabezas."
+    social:
+      twitter: "juliancabezasp"
+  theme:
+    mode: "system"
+    pack: "default"
+    colors:
+      primary: "teal"
+  typography:
+    pack: "academic"
+  layout:
+    radius: "md"
+    spacing: "comfortable"
+    avatar_shape: "circle"
+  header:
+    enable: true
+    style: "navbar"
+    sticky: true
+    align: "right"
+    search: true
+    theme_toggle: true
+    theme_picker: false
+    language_switcher: false
+  footer:
+    style: "minimal"
+    language_switcher: false
+  copyright:
+    notice: "© {year} Julián Cabezas Peña"
+  content:
+    math:
+      enable: true
+    toc:
+      enable: true
+    reading_time:
+      enable: true
+    citations:
+      style: "apa"
+  search:
+    enable: true
+    suggestions:
+      - "R"
+      - "SQLite"
+      - "Teledetección"
+  comments:
+    enable: true
+    provider: "disqus"
+    disqus:
+      shortname: "www-juliancabezas-com"
+  analytics:
+    google:
+      measurement_id: ""
+  locale:
+    date_format: "02-01-2006"
+    time_format: "15:04"
+    address_format: "es"
+  repository:
+    enable: false
+    url: "https://github.com/juliancabezas/webpage"
+    branch: "migration/hugo-netlify"
+    content_dir: "content"

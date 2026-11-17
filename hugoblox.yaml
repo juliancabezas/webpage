@@ -1,0 +1,7 @@
+build:
+  hugo_version: "0.170.1"
+deploy:
+  host: "netlify"
+template:
+  id: "academic-cv"
+  name: "Academic CV"

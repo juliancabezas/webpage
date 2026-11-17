@@ -1,0 +1,96 @@
+schema: "hugoblox/author/v1"
+slug: "me"
+is_owner: true
+name:
+  display: "Julián Cabezas Peña"
+  given: "Julián"
+  family: "Cabezas Peña"
+role: "Environmental Data Scientist / Spatial Analyst"
+bio: "Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando modelos de machine learning, analisis estadisticos y algoritmos de análisis de información geoespacial.\n\nMi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:"
+links:
+  -
+    icon: "at-symbol"
+    url: "mailto:juliancabezas@gmail.com"
+    label: "Correo electrónico"
+  -
+    icon: "academicons/google-scholar"
+    url: "https://scholar.google.com/citations?user=SzsXwHQAAAAJ&hl=es"
+    label: "Google Scholar"
+  -
+    icon: "brands/github"
+    url: "https://github.com/juliancabezas"
+    label: "GitHub"
+  -
+    icon: "brands/linkedin"
+    url: "https://www.linkedin.com/in/juliancabezas"
+    label: "LinkedIn"
+  -
+    icon: "academicons/cv"
+    url: "/files/cv.pdf"
+    label: "Currículum"
+interests:
+  - "Data science"
+  - "Estadística"
+  - "Análisis espacial"
+  - "Ecología"
+education:
+  -
+    degree: "Ingeniería en Recursos Naturales Renovables"
+    institution: "Universidad de Chile, Chile"
+    end: "2015-12-31"
+  -
+    degree: "Master of Data Science (Estudiante)"
+    institution: "University of Adelaide, Australia"
+    end: "2020-12-31"
+experience:
+  -
+    role: "Consultor"
+    org: "The Mullion Group"
+    start: "2020-02-01"
+    summary: "* Modelamiento de emissiones de CO2 en Chile utilizando el modelo GCBM"
+  -
+    role: "Profesional de apoyo - Unidad de Cambio Climatico y Servicios Ambientales - CONAF"
+    org: "Food and Agriculture Organization (FAO)"
+    start: "2019-02-01"
+    summary: "* Apoyo en la implementación de la Estrategia nacional de Cambio CLimatico y Recursos vegetacionales (ENCCRV)\n  * Contribución tecnica en la mejora del sistema de monitoreo forestal de la ENCCRV"
+    end: "2019-11-01"
+  -
+    role: "Analísta Estadístico"
+    org: "Instituto Nacional de Estadística"
+    start: "2018-05-01"
+    summary: "* Análisis de encuestas y diseños de muestreo\n  * Implementación y optimización de algoritmos en R"
+    end: "2019-02-01"
+  -
+    role: "Remote Sensing Scientist"
+    org: "Karlsruhe Institut for Technology (KIT)"
+    start: "2016-05-01"
+    summary: "* Proyecto SaMovar: Detección de perturbaciones en la vegetación natural utilizando información satelital\n  * Implementación y optimización de algoritmo BFAST para analisis de series de tiempo\n  * Conducción y analisis de imágenes de UAV (drones)"
+    end: "2017-10-31"
+  -
+    role: "Asistente en SIG"
+    org: "Universidad de Chile"
+    start: "2015-06-01"
+    summary: "* Proyecto PNUD: \"Estudio para la definición de áreas de protección natural y/o patrimonial en el piedemonte del sector oriente\""
+    end: "2015-12-31"
+skills:
+  -
+    name: "Habilidades e intereses"
+    items:
+      -
+        label: "Programacion en Python"
+        description: "Uso Python para implementar modelos de machine learning (scikit-learn) y deep learning (Pytorch) "
+      -
+        label: "Programacion en R"
+        description: "Nivel alto, ¡esta pagina web la hice usando R!"
+      -
+        label: "Estadísticas y Data science"
+        description: "Analisis y limpieza de datos, machine learning, diseños muestrales"
+      -
+        label: "Análisis Espacial"
+        description: "SIG y Teledetección, manejo ArcGis, QGis, Photoscan y UAV"
+      -
+        label: "Ecología y Medio Ambiente"
+        description: "Analisis del medioambiente a través de datos"
+      -
+        label: "Idiomas"
+        description: "Hablo y escribo en ingles (nivel alto), balbuceo alemán también"

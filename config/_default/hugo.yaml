@@ -1,0 +1,58 @@
+title: "Julián Cabezas Peña"
+baseURL: "https://www.juliancabezas.com/"
+defaultContentLanguage: "es"
+defaultContentLanguageInSubdir: false
+enableEmoji: true
+enableRobotsTXT: true
+enableGitInfo: false
+pagination:
+  pagerSize: 10
+summaryLength: 30
+build:
+  writeStats: true
+ignoreFiles:
+  - "\\.Rmd$"
+  - "\\.Rmarkdown$"
+  - "_cache$"
+disableAliases: false
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "headers"
+    - "redirects"
+    - "backlinks"
+  section:
+    - "HTML"
+    - "RSS"
+taxonomies:
+  author: "authors"
+  tag: "tags"
+  category: "categories"
+  publication_type: "publication_types"
+markup:
+  _merge: "deep"
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    lineNos: false
+security:
+  _merge: "deep"
+  exec:
+    allow:
+      - '^go$'
+      - '^git$'
+      - '^node$'
+      - '^tailwindcss$'
+sitemap:
+  _merge: "deep"
+timeout: "300s"
+cascade:
+  -
+    target:
+      path: "/slides/**"
+      kind: "page"
+    outputs:
+      - "HTML"
+      - "present"
