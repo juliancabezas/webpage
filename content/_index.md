@@ -68,11 +68,10 @@ sections:
       view: "card"
       columns: 2
   -
-    block: "markdown"
+    block: "contact-form"
     id: "contact"
     content:
       title: "Contacto"
-      text: "¡Contáctame para colaborar o conversar sobre oportunidades de trabajo!\n\n[Correo electrónico](mailto:juliancabezas@gmail.com) · [LinkedIn](https://www.linkedin.com/in/juliancabezas) · [GitHub](https://github.com/juliancabezas)"
-    design:
-      columns: "1"
+      text: "¿Tienes una propuesta de colaboración, una consulta o una oportunidad de trabajo? Envíame un mensaje."
+      email: "juliancabezas@gmail.com"
 ---

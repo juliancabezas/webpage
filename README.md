@@ -101,6 +101,34 @@ El contenido incrustado de Power BI, Disqus, el sitio en inglés y las imágenes
 externas dependen de sus respectivos servicios. La compilación local no verifica
 su disponibilidad ni modifica la configuración de la cuenta de Netlify o el DNS.
 
+## Formulario de contacto y correo
+
+El widget de inicio usa **Netlify Forms**, con campos de nombre, correo, asunto y
+mensaje, validación del navegador y un campo trampa para filtrar bots. El formulario
+está en el HTML generado, funciona sin JavaScript y redirige a `/gracias/` después
+de un envío aceptado por Netlify. El campo `email` permite responder al remitente
+desde la notificación recibida.
+
+La recepción por correo requiere una configuración en la cuenta de Netlify:
+
+1. En el proyecto, abrir **Forms** y activar **Enable form detection** si todavía
+   no está habilitado. Desplegar de nuevo la rama con este formulario.
+2. Comprobar que aparece el formulario **contact**.
+3. En **Forms > Submission notifications > Add notification**, agregar una
+   notificación por correo para el formulario `contact`, con destinatario
+   **juliancabezas@gmail.com**. Si Netlify envía una solicitud de confirmación al
+   destinatario, aceptarla para habilitar las notificaciones.
+4. Desde el sitio desplegado, enviar un mensaje de prueba y confirmar que aparece
+   en Netlify Forms y llega al correo, incluida la carpeta de spam.
+
+Estas notificaciones no se crean mediante `.env` o `netlify.toml`; se configuran
+en la cuenta de Netlify. La compilación verifica la presencia del formulario y
+la ruta de confirmación, pero no prueba la entrega de correo. Un servidor local
+de archivos o `hugo server` no procesa envíos de Netlify Forms.
+
+Referencias: [configuración de formularios](https://docs.netlify.com/manage/forms/setup/)
+y [notificaciones por correo](https://docs.netlify.com/manage/forms/notifications/).
+
 ## Referencias
 
 - [Configuración de Hugo en Netlify](https://docs.netlify.com/build/frameworks/framework-setup-guides/hugo/)
