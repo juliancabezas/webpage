@@ -48,6 +48,8 @@ education:
 experience:
   - role: "Científico de datos y coordinador del equipo de Ciencia de Datos"
     org: "Superintendencia del Medio Ambiente (SMA)"
+    location: "Santiago, Chile"
+    summary_short: "Coordinación de equipo, automatización y validación de datos para el seguimiento y la fiscalización ambiental con R, Python y SQL."
     start: "2022-02-01"
     summary: |
       Santiago, Chile.
@@ -57,6 +59,8 @@ experience:
       - Desarrollo en Python de algoritmos de validación para los sistemas de reporte de la SMA, mejorando la calidad de los datos y la automatización de procesos.
   - role: "Machine Learning Engineer (jornada parcial)"
     org: "Flux Robotics"
+    location: "Adelaide, Australia"
+    summary_short: "Desarrollo e implementación de modelos de visión por computador con Detectron2 y PyTorch para robótica agrícola."
     start: "2021-03-01"
     end: "2021-11-01"
     summary: |
@@ -66,6 +70,8 @@ experience:
       - Implementación del modelo en un prototipo de aspersor autónomo de pesticidas con procesamiento en tiempo real, probado en campo para su comercialización.
   - role: "Profesional en modelamiento de emisiones forestales (jornada parcial)"
     org: "The Mullion Group"
+    location: "Canberra, Australia"
+    summary_short: "Implementación del modelo GCBM para estimar emisiones forestales en Chile con R, Python y SQL."
     start: "2020-03-01"
     end: "2022-02-01"
     summary: |
@@ -75,6 +81,8 @@ experience:
       - Preprocesamiento de datos en R e implementación con Python y SQL.
   - role: "Profesional de apoyo (National Project Personnel)"
     org: "Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO)"
+    location: "Santiago, Chile"
+    summary_short: "Análisis espacial para la ENCCRV, apoyo al Anexo Técnico de Resultados REDD+ y a la postulación al Fondo Verde del Clima."
     start: "2019-02-01"
     end: "2019-11-01"
     summary: |
@@ -85,6 +93,8 @@ experience:
       - Apoyo a la postulación al Fondo Verde del Clima, adjudicada por USD 63,6 millones.
   - role: "Analista estadístico"
     org: "Instituto Nacional de Estadísticas · Departamento de Innovación y Desarrollo"
+    location: "Santiago, Chile"
+    summary_short: "Análisis de encuestas con R y SAS y clasificación automática de textos de la Encuesta Nacional de Empleo."
     start: "2018-03-01"
     end: "2019-01-01"
     summary: |
@@ -94,6 +104,8 @@ experience:
       - Implementación de algoritmos de minería de texto para clasificar automáticamente las glosas de la Encuesta Nacional de Empleo.
   - role: "Remote Sensing Scientist"
     org: "Karlsruhe Institute of Technology (KIT)"
+    location: "Karlsruhe, Alemania"
+    summary_short: "Detección de perturbaciones de la vegetación con series de tiempo Landsat, BFAST y LandTrendR en el proyecto SaMovar."
     start: "2016-04-01"
     end: "2017-10-01"
     summary: |

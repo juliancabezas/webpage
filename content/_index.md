@@ -24,40 +24,13 @@ sections:
         size: "medium"
         shape: "circle"
   -
-    block: "markdown"
+    block: "experience-summary"
     id: "experience-summary"
     content:
       title: "Experiencia profesional"
-      text: |
-        Mi trayectoria combina ciencia de datos, inteligencia artificial y análisis geoespacial en Chile, Australia y Alemania.
-
-        - **Científico de datos y coordinador del equipo de Ciencia de Datos · Superintendencia del Medio Ambiente (SMA)**
-
-          *Febrero de 2022–actualidad · Santiago, Chile.* Coordinación de equipo, automatización y validación de datos para el seguimiento y la fiscalización ambiental con R, Python y SQL.
-
-        - **Machine Learning Engineer · Flux Robotics**
-
-          *Marzo–noviembre de 2021 · Adelaide, Australia · Jornada parcial.* Desarrollo e implementación de modelos de visión por computador con Detectron2 y PyTorch para robótica agrícola.
-
-        - **Profesional en modelamiento de emisiones forestales · The Mullion Group**
-
-          *Marzo de 2020–febrero de 2022 · Canberra, Australia · Jornada parcial.* Implementación del modelo GCBM para estimar emisiones forestales en Chile con R, Python y SQL.
-
-        - **Profesional de apoyo (National Project Personnel) · FAO**
-
-          *Febrero–noviembre de 2019 · Santiago, Chile.* Análisis espacial para la ENCCRV, apoyo al Anexo Técnico de Resultados REDD+ y a la postulación al Fondo Verde del Clima.
-
-        - **Analista estadístico · Instituto Nacional de Estadísticas**
-
-          *Marzo de 2018–enero de 2019 · Santiago, Chile.* Análisis de encuestas con R y SAS y clasificación automática de textos de la Encuesta Nacional de Empleo.
-
-        - **Remote Sensing Scientist · Karlsruhe Institute of Technology (KIT)**
-
-          *Abril de 2016–octubre de 2017 · Karlsruhe, Alemania.* Detección de perturbaciones de la vegetación con series de tiempo Landsat, BFAST y LandTrendR en el proyecto SaMovar.
-
-        El detalle de mis cargos, responsabilidades y consultorías está en la [sección de Experiencia](/experience/).
-    design:
-      columns: "1"
+      username: "me"
+      text: "Mi trayectoria combina ciencia de datos, inteligencia artificial y análisis geoespacial en Chile, Australia y Alemania."
+      detail: "El detalle de mis cargos, responsabilidades y consultorías está en la [sección de Experiencia](/experience/)."
   -
     block: "collection"
     id: "publications"
