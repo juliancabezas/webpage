@@ -24,6 +24,21 @@ sections:
         size: "medium"
         shape: "circle"
   -
+    block: "markdown"
+    id: "experience-summary"
+    content:
+      title: "Experiencia profesional"
+      text: |
+        Mi trayectoria combina **ciencia de datos, inteligencia artificial y análisis geoespacial** aplicados al medio ambiente, con experiencia en instituciones públicas, investigación y empresas de Chile, Australia y Alemania.
+
+        Desde 2022 coordino el equipo de Ciencia de Datos de la **Superintendencia del Medio Ambiente (SMA)**, donde desarrollo soluciones de automatización, análisis y validación de datos para el seguimiento y la fiscalización ambiental con R, Python y SQL.
+
+        Anteriormente trabajé en visión por computador para robótica agrícola en **Flux Robotics**, modelamiento de carbono forestal en **The Mullion Group**, análisis espacial y cambio climático en la **FAO**, estadística y minería de texto en el **Instituto Nacional de Estadísticas**, y teledetección de la vegetación en el **Karlsruhe Institute of Technology (KIT)**.
+
+        El detalle de mis cargos, responsabilidades y consultorías está en la [sección de Experiencia](/experience/).
+    design:
+      columns: "1"
+  -
     block: "collection"
     id: "publications"
     content:
