@@ -61,14 +61,15 @@ Las vistas previas usan su propia URL, llevan `noindex` y bloquean el rastreo en
   duplicado que debe integrarse antes de compilar.
 - `content/project/GCBM/`: dos proyectos con informes externos de Power BI.
 - `static/img/` y `static/files/`: imágenes y documentos con sus rutas originales.
-  `static/files/cv.pdf` es una copia del CV español de abril de 2019, usada para
+  `static/files/cv.pdf` contiene el CV de ciencia de datos de noviembre de 2026 y usa un nombre estable para
   evitar diferencias de mayúsculas en los enlaces del tema.
 - `layouts/`: compatibilidad para HTML incrustado y cabeceras de Netlify.
 - `scripts/`: compilación y validaciones de la migración.
 
 Se conservan los slugs de artículos y publicaciones, los PDF y las imágenes. Las
-fichas del perfil mantienen la información histórica del sitio original, incluido
-el estado de los estudios y de los empleos; no se han inferido actualizaciones.
+fichas de inicio, formación y experiencia se actualizaron a partir de
+`CV_Julian_Cabezas_Spanish_112026_DataScience.pdf`. Los períodos de formación
+conservan la precisión anual del CV; los empleos se muestran por mes y año.
 Se retiraron el tema antiguo, su caché y las páginas de demostración (charla,
 diapositivas y tutorial de ejemplo). Pueden recuperarse del historial de Git.
 

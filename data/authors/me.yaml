@@ -5,92 +5,118 @@ name:
   display: "Julián Cabezas Peña"
   given: "Julián"
   family: "Cabezas Peña"
-role: "Environmental Data Scientist / Spatial Analyst"
-bio: "Mi modo de trabajar se basa en la capacidad de enfrentar desafíos que incluyan el análisis de datos de variadas fuentes, generando modelos de machine learning, analisis estadisticos y algoritmos de análisis de información geoespacial.\n\nMi vocación de investigación me ha permitido generar productos de alta calidad, que se han traducido en publicaciones en revistas internacionales y presentaciones en congresos. Además de mi vida profesional, soy entusiasta en la música como trompetista amateur :trumpet:"
+role: "Científico de datos · Análisis estadístico y medio ambiente"
+bio: |
+  Soy científico de datos e ingeniero en Recursos Naturales Renovables de la Universidad de Chile, con un Master of Data Science de la University of Adelaide. Integro ciencia de datos, análisis estadístico, machine learning y análisis geoespacial para abordar desafíos ambientales.
+
+  Desde febrero de 2022 coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente (SMA). Desarrollo soluciones de automatización, validación de datos y análisis para el seguimiento y la fiscalización ambiental, utilizando R, Python y SQL. La automatización del seguimiento de la producción salmonera ha contribuido a generar más del 15 % de los informes de fiscalización de la SMA y más de 1.000 notificaciones a titulares.
+
+  Mi experiencia también incluye visión por computador y deep learning para robótica agrícola, modelamiento de carbono forestal, teledetección y análisis de encuestas. He trabajado en Chile, Australia y Alemania, combinando investigación aplicada, desarrollo de algoritmos y coordinación de equipos interdisciplinarios.
 links:
-  -
-    icon: "at-symbol"
+  - icon: "at-symbol"
     url: "mailto:juliancabezas@gmail.com"
     label: "Correo electrónico"
-  -
-    icon: "academicons/google-scholar"
+  - icon: "academicons/google-scholar"
     url: "https://scholar.google.com/citations?user=SzsXwHQAAAAJ&hl=es"
     label: "Google Scholar"
-  -
-    icon: "brands/github"
+  - icon: "brands/github"
     url: "https://github.com/juliancabezas"
     label: "GitHub"
-  -
-    icon: "brands/linkedin"
+  - icon: "brands/linkedin"
     url: "https://www.linkedin.com/in/juliancabezas"
     label: "LinkedIn"
-  -
-    icon: "academicons/cv"
+  - icon: "academicons/cv"
     url: "/files/cv.pdf"
-    label: "Currículum"
+    label: "Currículum actualizado · noviembre de 2026"
 interests:
-  - "Data science"
-  - "Estadística"
-  - "Análisis espacial"
-  - "Ecología"
+  - "Ciencia de datos y análisis estadístico"
+  - "Inteligencia artificial y machine learning"
+  - "Automatización y calidad de datos"
+  - "Análisis geoespacial y teledetección"
+  - "Medio ambiente y cambio climático"
 education:
-  -
-    degree: "Ingeniería en Recursos Naturales Renovables"
-    institution: "Universidad de Chile, Chile"
-    end: "2015-12-31"
-  -
-    degree: "Master of Data Science (Estudiante)"
+  - degree: "Master of Data Science"
     institution: "University of Adelaide, Australia"
-    end: "2020-12-31"
+    start: "2020"
+    end: "2021"
+    year: "2020–2021"
+  - degree: "Ingeniería en Recursos Naturales Renovables"
+    institution: "Universidad de Chile, Chile"
+    start: "2010"
+    end: "2015"
+    year: "2010–2015"
 experience:
-  -
-    role: "Consultor"
+  - role: "Científico de datos y coordinador del equipo de Ciencia de Datos"
+    org: "Superintendencia del Medio Ambiente (SMA)"
+    start: "2022-02-01"
+    summary: |
+      Santiago, Chile.
+
+      - Coordinación del equipo de Ciencia de Datos, responsable de paneles, mantenimiento de bases de datos SQL, automatización de procesos y algoritmos de análisis para el seguimiento y la fiscalización ambiental.
+      - Automatización del seguimiento y la fiscalización de la producción salmonera con R y bases de datos SQL, generando más del 15 % de los informes de fiscalización de la SMA y más de 1.000 notificaciones a titulares.
+      - Desarrollo en Python de algoritmos de validación para los sistemas de reporte de la SMA, mejorando la calidad de los datos y la automatización de procesos.
+  - role: "Machine Learning Engineer (jornada parcial)"
+    org: "Flux Robotics"
+    start: "2021-03-01"
+    end: "2021-11-01"
+    summary: |
+      Adelaide, Australia.
+
+      - Desarrollo de un modelo de visión por computador basado en deep learning para detectar malezas y cultivos, utilizando Detectron2 y PyTorch en Python.
+      - Implementación del modelo en un prototipo de aspersor autónomo de pesticidas con procesamiento en tiempo real, probado en campo para su comercialización.
+  - role: "Profesional en modelamiento de emisiones forestales (jornada parcial)"
     org: "The Mullion Group"
-    start: "2020-02-01"
-    summary: "* Modelamiento de emissiones de CO2 en Chile utilizando el modelo GCBM"
-  -
-    role: "Profesional de apoyo - Unidad de Cambio Climatico y Servicios Ambientales - CONAF"
-    org: "Food and Agriculture Organization (FAO)"
+    start: "2020-03-01"
+    end: "2022-02-01"
+    summary: |
+      Canberra, Australia.
+
+      - Implementación del modelo de carbono forestal GCBM para estimar emisiones forestales en Chile.
+      - Preprocesamiento de datos en R e implementación con Python y SQL.
+  - role: "Profesional de apoyo (National Project Personnel)"
+    org: "Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO)"
     start: "2019-02-01"
-    summary: "* Apoyo en la implementación de la Estrategia nacional de Cambio CLimatico y Recursos vegetacionales (ENCCRV)\n  * Contribución tecnica en la mejora del sistema de monitoreo forestal de la ENCCRV"
     end: "2019-11-01"
-  -
-    role: "Analísta Estadístico"
-    org: "Instituto Nacional de Estadística"
-    start: "2018-05-01"
-    summary: "* Análisis de encuestas y diseños de muestreo\n  * Implementación y optimización de algoritmos en R"
-    end: "2019-02-01"
-  -
-    role: "Remote Sensing Scientist"
-    org: "Karlsruhe Institut for Technology (KIT)"
-    start: "2016-05-01"
-    summary: "* Proyecto SaMovar: Detección de perturbaciones en la vegetación natural utilizando información satelital\n  * Implementación y optimización de algoritmo BFAST para analisis de series de tiempo\n  * Conducción y analisis de imágenes de UAV (drones)"
-    end: "2017-10-31"
-  -
-    role: "Asistente en SIG"
-    org: "Universidad de Chile"
-    start: "2015-06-01"
-    summary: "* Proyecto PNUD: \"Estudio para la definición de áreas de protección natural y/o patrimonial en el piedemonte del sector oriente\""
-    end: "2015-12-31"
+    summary: |
+      Santiago, Chile.
+
+      - Análisis de datos espaciales con R y ArcGIS para crear índices de priorización de acciones de la Estrategia Nacional de Cambio Climático y Recursos Vegetacionales (ENCCRV).
+      - Elaboración y revisión del Anexo Técnico de Resultados REDD+ de Chile.
+      - Apoyo a la postulación al Fondo Verde del Clima, adjudicada por USD 63,6 millones.
+  - role: "Analista estadístico"
+    org: "Instituto Nacional de Estadísticas · Departamento de Innovación y Desarrollo"
+    start: "2018-03-01"
+    end: "2019-01-01"
+    summary: |
+      Santiago, Chile.
+
+      - Desarrollo de algoritmos de análisis estadístico de encuestas con R y SAS.
+      - Implementación de algoritmos de minería de texto para clasificar automáticamente las glosas de la Encuesta Nacional de Empleo.
+  - role: "Remote Sensing Scientist"
+    org: "Karlsruhe Institute of Technology (KIT)"
+    start: "2016-04-01"
+    end: "2017-10-01"
+    summary: |
+      Karlsruhe, Alemania.
+
+      - Implementación de algoritmos BFAST y LandTrendR sobre series de tiempo Landsat para detectar perturbaciones en la vegetación natural de Chile, en el proyecto SaMovar.
 skills:
-  -
-    name: "Habilidades e intereses"
+  - name: "Programación y datos"
     items:
-      -
-        label: "Programacion en Python"
-        description: "Uso Python para implementar modelos de machine learning (scikit-learn) y deep learning (Pytorch) "
-      -
-        label: "Programacion en R"
-        description: "Nivel alto, ¡esta pagina web la hice usando R!"
-      -
-        label: "Estadísticas y Data science"
-        description: "Analisis y limpieza de datos, machine learning, diseños muestrales"
-      -
-        label: "Análisis Espacial"
-        description: "SIG y Teledetección, manejo ArcGis, QGis, Photoscan y UAV"
-      -
-        label: "Ecología y Medio Ambiente"
-        description: "Analisis del medioambiente a través de datos"
-      -
-        label: "Idiomas"
-        description: "Hablo y escribo en ingles (nivel alto), balbuceo alemán también"
+      - label: "R y Python"
+        description: "Manejo avanzado para ciencia de datos y análisis estadístico."
+      - label: "SQL"
+        description: "Consultas, modelado y mantenimiento de bases de datos."
+      - label: "Machine learning y deep learning"
+        description: "Visión por computador con Detectron2 y PyTorch."
+  - name: "Análisis espacial y coordinación"
+    items:
+      - label: "SIG y teledetección"
+        description: "ArcGIS, ENVI y QGIS; análisis de series de tiempo Landsat con BFAST y LandTrendR."
+      - label: "Coordinación de equipos"
+        description: "Coordinación de equipos interdisciplinarios y automatización de procesos."
+languages:
+  - name: "Inglés"
+    label: "Avanzado · IELTS 7,5/9"
+  - name: "Alemán"
+    label: "Básico · A1, certificado en KIT"

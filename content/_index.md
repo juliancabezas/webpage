@@ -8,7 +8,7 @@ sections:
     content:
       username: "me"
       button:
-        text: "Descargar CV"
+        text: "Descargar CV · noviembre 2026"
         url: "/files/cv.pdf"
       headings:
         about: "Perfil profesional"
