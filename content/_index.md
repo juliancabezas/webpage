@@ -68,10 +68,29 @@ sections:
       view: "card"
       columns: 2
   -
-    block: "contact-form"
+    block: "contact-info"
     id: "contact"
     content:
       title: "Contacto"
+      subtitle: "¿Tienes una propuesta de colaboración, una consulta o una oportunidad de trabajo?"
+      username: "me"
+      visit_title: "Ubicación"
+      address:
+        lines:
+          - "Santiago, Chile"
+      connect_title: "Conversemos"
       text: "¿Tienes una propuesta de colaboración, una consulta o una oportunidad de trabajo? Envíame un mensaje."
       email: "juliancabezas@gmail.com"
+      social:
+        - icon: "brands/linkedin"
+          url: "https://www.linkedin.com/in/juliancabezas"
+          label: "LinkedIn"
+        - icon: "brands/github"
+          url: "https://github.com/juliancabezas"
+          label: "GitHub"
+        - icon: "academicons/google-scholar"
+          url: "https://scholar.google.com/citations?user=SzsXwHQAAAAJ&hl=es"
+          label: "Google Scholar"
+      show_form: true
+      form_action: "https://formsubmit.co/juliancabezas@gmail.com"
 ---

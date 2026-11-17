@@ -8,7 +8,6 @@ const preview = ['deploy-preview', 'branch-deploy'].includes(process.env.CONTEXT
 const origin = new URL(preview ? process.env.DEPLOY_PRIME_URL : 'https://www.juliancabezas.com/').origin;
 const required = [
   'index.html', 'experience/index.html', 'publication/index.html', 'post/index.html', 'project/index.html',
-  'gracias/index.html',
   'publication/igars-samovar/index.html',
   'publication/lecs-carbono/index.html',
   'publication/lecs-respiracion/index.html',
@@ -40,12 +39,11 @@ for (const id of ['about', 'publications', 'posts', 'projects', 'contact']) {
 }
 assert(home.includes('Julián Cabezas'), 'Falta la identidad del autor');
 assert(!home.includes('Dr. Alex Johnson'), 'La portada conserva el perfil de demostración');
-const contactForm = home.match(/<form\b[^>]*\bname=["']?contact["'\s>][\s\S]*?<\/form>/i)?.[0];
+const contactForm = home.match(/<form\b[^>]*\baction=["']?https:\/\/formsubmit\.co\/juliancabezas@gmail\.com["'\s>][\s\S]*?<\/form>/i)?.[0];
 assert(contactForm, 'Falta el formulario de contacto en el HTML estático');
 assert(/\bmethod=["']?POST["'\s>]/i.test(contactForm), 'El formulario debe enviar por POST');
-assert(/\bdata-netlify=["']?true["'\s>]/i.test(contactForm), 'Falta la detección de Netlify Forms');
-assert(/\baction=["']?\/gracias\/["'\s>]/i.test(contactForm), 'Falta la página de confirmación');
-for (const field of ['form-name', 'bot-field', 'name', 'email', 'topic', 'message']) {
+assert(!/\bdata-netlify\b|\bnetlify-honeypot\b/i.test(home), 'El contacto no debe usar Netlify Forms');
+for (const field of ['name', 'email', 'subject', 'message']) {
   assert(new RegExp(`\\bname=["']?${field}["'\\s>]`).test(contactForm), `Falta el campo ${field}`);
 }
 
