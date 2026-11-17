@@ -8,6 +8,7 @@ const preview = ['deploy-preview', 'branch-deploy'].includes(process.env.CONTEXT
 const origin = new URL(preview ? process.env.DEPLOY_PRIME_URL : 'https://www.juliancabezas.com/').origin;
 const required = [
   'index.html', 'experience/index.html', 'publication/index.html', 'post/index.html', 'project/index.html',
+  'gracias/index.html',
   'publication/igars-samovar/index.html',
   'publication/lecs-carbono/index.html',
   'publication/lecs-respiracion/index.html',

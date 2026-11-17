@@ -114,6 +114,11 @@ lo conectan con **FormSubmit**, sin usar Netlify Forms, claves API ni variables
 secretas. Los datos se envían directamente a FormSubmit por HTTPS, y el servicio
 gestiona la comprobación antispam y la página de confirmación.
 
+Un script pequeño añade el campo `_next` del servicio con la URL absoluta
+`/gracias/` del dominio actual. Así el retorno funciona en el dominio de prueba,
+las vistas previas y producción. La página de confirmación no se indexa. Si el
+navegador no ejecuta JavaScript, FormSubmit utiliza su propia confirmación.
+
 Para activar la recepción:
 
 1. Desplegar la rama con el widget y enviar un primer mensaje desde el sitio

@@ -1,0 +1,5 @@
+{{ if .IsHome }}
+  {{ with resources.Get "js/contact-form.js" | minify | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end }}
+{{ end }}
