@@ -29,3 +29,8 @@ mounts:
     target: layouts
   - source: assets
     target: assets
+  # Keep shared downloads available for theme links resolved within /en/.
+  - source: static
+    target: static
+  - source: static
+    target: static/en

@@ -50,6 +50,9 @@ Las vistas previas usan su propia URL, llevan `noindex` y bloquean el rastreo en
 
 ## Estructura y edición
 
+- `content/`: versión española, publicada en las direcciones originales.
+- `content-en/`: traducción completa de las páginas en inglés, publicada en `/en/`.
+- `data/en/authors/me.yaml`: perfil, formación y experiencia traducidos al inglés.
 - `config/_default/`: configuración de Hugo, identidad, navegación y módulos.
 - `data/authors/me.yaml`: biografía, estudios, experiencia y enlaces del autor.
 - `assets/media/authors/me.jpg`: fotografía de perfil.
@@ -133,6 +136,27 @@ mensajes ni verifica la entrega. Para cambiar de receptor, actualizar `form_acti
 con la URL válida del servicio elegido. No habilitar Netlify Forms para este widget.
 
 Referencia del servicio: [documentación de FormSubmit](https://formsubmit.co/documentation).
+
+## Idiomas
+
+El español continúa siendo el idioma predeterminado y conserva sus archivos y
+direcciones. El enlace **English site** abre `/en/` en el mismo dominio. La versión
+inglesa tiene menú propio y un selector para regresar a la página equivalente en
+español. Hugo enlaza las traducciones por su ruta relativa dentro de `content/`
+y `content-en/`, aunque algunos artículos tengan un slug inglés diferente.
+
+Para editar traducciones, modificar `content-en/` y `data/en/authors/me.yaml`.
+Al actualizar un texto español, actualizar también su traducción. Los proyectos
+y resúmenes científicos que ya estaban en inglés se conservan, con sus leyendas
+traducidas. Los tutoriales incluyen texto y comentarios traducidos; los ejemplos
+de código mantienen sus identificadores, datos y resultados numéricos.
+
+Las imágenes y documentos se comparten entre idiomas; los PDF originales no se
+traducen automáticamente. El CV actualizado está rotulado como **CV (Spanish)**
+en la versión inglesa. Los montajes estáticos permiten descargarlo desde ambos
+idiomas sin duplicar su archivo fuente. Pagefind genera un índice para cada idioma.
+El retorno del formulario utiliza `/gracias/` en español y `/en/thank-you/` en inglés.
+La compilación comprueba ambas versiones y sus enlaces locales.
 
 ## Referencias
 

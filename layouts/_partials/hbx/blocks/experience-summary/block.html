@@ -1,7 +1,8 @@
 {{/* Compact experience cards using the same author data and styling as resume-experience. */}}
 {{ $page := .wcPage }}
 {{ $content := .wcBlock.content }}
-{{ $profile := index hugo.Data.authors ($content.username | default "me") }}
+{{ $authors := partialCached "functions/get_authors_data" $page site.Language.Lang }}
+{{ $profile := index $authors ($content.username | default "me") }}
 
 <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
   <h2 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white text-center">{{ $content.title }}</h2>
@@ -23,7 +24,7 @@
             {{ with .end }}
               <time datetime="{{ . }}">{{ time.Format "01-2006" . }}</time>
             {{ else }}
-              <span class="text-primary-600 dark:text-primary-400 font-medium">Actualmente</span>
+              <span class="text-primary-600 dark:text-primary-400 font-medium">{{ i18n "present" }}</span>
             {{ end }}
           </p>
         </div>

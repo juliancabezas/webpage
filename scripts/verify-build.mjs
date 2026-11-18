@@ -20,6 +20,14 @@ const required = [
   'files/CV_Julian_Cabezas_Spanish_04_2019.pdf',
   'files/cv.pdf',
   'sitemap.xml', 'robots.txt', '_headers', '_redirects', 'pagefind/pagefind.js',
+  'en/index.html', 'en/experience/index.html', 'en/publication/index.html',
+  'en/post/index.html', 'en/project/index.html', 'en/thank-you/index.html',
+  'en/publication/igars-samovar/index.html', 'en/publication/lecs-carbono/index.html',
+  'en/publication/lecs-respiracion/index.html', 'en/publication/lecs-riqueza/index.html',
+  'en/post/parallel-r-windows/index.html', 'en/post/parallel-cluster-function/index.html',
+  'en/post/large-datasets-r-sqlite/index.html',
+  'en/project/gcbm/pilot_losrios_v02/index.html', 'en/project/gcbm/pilot_losrios_v0_6_4/index.html',
+  'en/files/cv.pdf', 'en/index.xml', 'en/sitemap.xml',
 ];
 
 // Compare path segments exactly, even on Windows, to catch Linux hosting errors.
@@ -40,6 +48,16 @@ for (const id of ['about', 'publications', 'posts', 'projects', 'contact']) {
 }
 assert(home.includes('Julián Cabezas'), 'Falta la identidad del autor');
 assert(!home.includes('Dr. Alex Johnson'), 'La portada conserva el perfil de demostración');
+const english = readFileSync(path.join(root, 'en/index.html'), 'utf8');
+assert(/href=["']?\/en\/["'\s>]/.test(home), 'English site debe enlazar a /en/');
+assert(!home.includes('https://en.juliancabezas.com'), 'El enlace inglés apunta al sitio antiguo');
+assert(/<html\b[^>]*lang=["']?en-US["'\s>]/i.test(english), 'Idioma incorrecto en /en/');
+assert(english.includes('I am a data scientist') && english.includes('AI and the environment'), 'Falta el perfil en inglés');
+assert(!english.includes('Soy científico de datos') && !english.includes('Coordinación de equipo'), 'Perfil o tarjetas sin traducir');
+assert.equal(english.split('experience-summary-card').length - 1, 6, 'Deben aparecer seis trabajos en inglés');
+assert(/href=["']?\/["'\s>][^>]*hreflang=["']?es["'\s>]/.test(english), 'Falta el regreso local al sitio español');
+assert(english.includes(`${origin}/en/`), 'Canonical inglés incorrecto');
+assert(english.includes('https://formsubmit.co/juliancabezas@gmail.com'), 'Falta el formulario inglés');
 const contactForm = home.match(/<form\b[^>]*\baction=["']?https:\/\/formsubmit\.co\/juliancabezas@gmail\.com["'\s>][\s\S]*?<\/form>/i)?.[0];
 assert(contactForm, 'Falta el formulario de contacto en el HTML estático');
 assert(/\bmethod=["']?POST["'\s>]/i.test(contactForm), 'El formulario debe enviar por POST');
@@ -52,6 +70,11 @@ let checked = 0;
 const failures = [];
 for (const file of required.filter(file => file.endsWith('.html'))) {
   const html = readFileSync(path.join(root, file), 'utf8');
+  if (file.startsWith('en/')) {
+    for (const link of html.matchAll(/<a\b[^>]*href=["']?\/(?:experience|post|publication|project)\/[^>]*>/g)) {
+      assert(/hreflang=["']?es["'\s>]/.test(link[0]), `Enlace de inglés a contenido español fuera del selector: ${file}`);
+    }
+  }
   const pageURL = new URL(file.replace(/index\.html$/, ''), `${origin}/`);
   const markup = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<!--[^]*?-->/g, '');
   for (const match of markup.matchAll(/\s(?:href|src)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`=]+))/gi)) {

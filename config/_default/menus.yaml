@@ -29,5 +29,5 @@ main:
     weight: 7
   -
     name: "English site"
-    url: "https://en.juliancabezas.com"
+    url: "/en/"
     weight: 8

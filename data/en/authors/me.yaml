@@ -1,0 +1,134 @@
+schema: "hugoblox/author/v1"
+slug: "me"
+is_owner: true
+name:
+  display: "Julián Cabezas Peña"
+  given: "Julián"
+  family: "Cabezas Peña"
+role: "AI and the environment"
+bio: |
+  I am a data scientist and Natural Resources Engineer from Universidad de Chile, with a Master of Data Science from the University of Adelaide. I combine artificial intelligence, data science, statistical analysis and geospatial analysis to tackle environmental challenges.
+
+  Since February 2022, I have coordinated the Data Science team at Chile's Superintendence of the Environment (SMA). I develop automation, data validation and analytical solutions for environmental monitoring and enforcement, using R, Python and SQL.
+
+  My experience also includes computer vision and deep learning for agricultural robotics, forest carbon modelling, remote sensing and survey data analysis. I have worked in Chile, Australia and Germany, combining applied research, algorithm development and interdisciplinary team coordination.
+links:
+  - icon: "at-symbol"
+    url: "mailto:juliancabezas@gmail.com"
+    label: "Email"
+  - icon: "academicons/google-scholar"
+    url: "https://scholar.google.com/citations?user=SzsXwHQAAAAJ&hl=en"
+    label: "Google Scholar"
+  - icon: "brands/github"
+    url: "https://github.com/juliancabezas"
+    label: "GitHub"
+  - icon: "brands/linkedin"
+    url: "https://www.linkedin.com/in/juliancabezas"
+    label: "LinkedIn"
+  - icon: "academicons/cv"
+    url: "/en/files/cv.pdf"
+    label: "CV in Spanish · updated November 2026"
+interests:
+  - "Data science and statistical analysis"
+  - "Artificial intelligence and machine learning"
+  - "Automation and data quality"
+  - "Geospatial analysis and remote sensing"
+  - "The environment and climate change"
+education:
+  - degree: "Master of Data Science"
+    institution: "University of Adelaide, Australia"
+    start: "2020"
+    end: "2021"
+    year: "2020–2021"
+  - degree: "Natural Resources Engineering"
+    institution: "Universidad de Chile, Chile"
+    start: "2010"
+    end: "2015"
+    year: "2010–2015"
+experience:
+  - role: "Data Scientist and Data Science Team Coordinator"
+    org: "Superintendence of the Environment (SMA)"
+    location: "Santiago, Chile"
+    summary_short: "Team coordination, automation and data validation for environmental monitoring and enforcement using R, Python and SQL."
+    start: "2022-02-01"
+    summary: |
+      Santiago, Chile.
+
+      - Coordinating the Data Science team, responsible for dashboards, SQL database maintenance, process automation and analytical algorithms for environmental monitoring and enforcement.
+      - Automating the monitoring and inspection of salmon production using R and SQL databases, generating more than 15% of SMA inspection reports and over 1,000 notifications to regulated operators.
+      - Developing Python validation algorithms for SMA reporting systems, improving data quality and process automation.
+  - role: "Machine Learning Engineer (part-time)"
+    org: "Flux Robotics"
+    location: "Adelaide, Australia"
+    summary_short: "Developing and deploying computer vision models with Detectron2 and PyTorch for agricultural robotics."
+    start: "2021-03-01"
+    end: "2021-11-01"
+    summary: |
+      Adelaide, Australia.
+
+      - Developing a deep learning computer vision model to detect weeds and crops using Detectron2 and PyTorch in Python.
+      - Deploying the model on an autonomous pesticide sprayer prototype with real-time processing, field-tested for commercialisation.
+  - role: "Forest Emissions Modelling Specialist (part-time)"
+    org: "The Mullion Group"
+    location: "Canberra, Australia"
+    summary_short: "Implementing the GCBM forest carbon model to estimate forest emissions in Chile using R, Python and SQL."
+    start: "2020-03-01"
+    end: "2022-02-01"
+    summary: |
+      Canberra, Australia.
+
+      - Implementing the GCBM forest carbon model to estimate forest emissions in Chile.
+      - Preprocessing data in R and implementing workflows with Python and SQL.
+  - role: "Project Support Specialist (National Project Personnel)"
+    org: "Food and Agriculture Organization of the United Nations (FAO)"
+    location: "Santiago, Chile"
+    summary_short: "Spatial analysis for the ENCCRV, contributions to Chile's REDD+ Technical Annex and support for a Green Climate Fund application."
+    start: "2019-02-01"
+    end: "2019-11-01"
+    summary: |
+      Santiago, Chile.
+
+      - Analysing spatial data with R and ArcGIS to create action-prioritisation indices for Chile's National Strategy on Climate Change and Vegetation Resources (ENCCRV).
+      - Preparing and reviewing Chile's REDD+ Results Technical Annex.
+      - Supporting a successful Green Climate Fund application awarded USD 63.6 million.
+  - role: "Statistical Analyst"
+    org: "National Statistics Institute · Innovation and Development Department"
+    location: "Santiago, Chile"
+    summary_short: "Survey analysis using R and SAS, and automated text classification for the National Employment Survey."
+    start: "2018-03-01"
+    end: "2019-01-01"
+    summary: |
+      Santiago, Chile.
+
+      - Developing statistical algorithms for survey data analysis using R and SAS.
+      - Implementing text-mining algorithms to automatically classify responses in the National Employment Survey.
+  - role: "Remote Sensing Scientist"
+    org: "Karlsruhe Institute of Technology (KIT)"
+    location: "Karlsruhe, Germany"
+    summary_short: "Detecting vegetation disturbances using Landsat time series, BFAST and LandTrendR in the SaMovar project."
+    start: "2016-04-01"
+    end: "2017-10-01"
+    summary: |
+      Karlsruhe, Germany.
+
+      - Implementing BFAST and LandTrendR algorithms on Landsat time series to detect disturbances in Chile's natural vegetation as part of the SaMovar project.
+skills:
+  - name: "Programming and data"
+    items:
+      - label: "R and Python"
+        description: "Advanced skills in data science and statistical analysis."
+      - label: "SQL"
+        description: "Database queries, modelling and maintenance."
+      - label: "Machine learning and deep learning"
+        description: "Computer vision with Detectron2 and PyTorch."
+  - name: "Spatial analysis and coordination"
+    items:
+      - label: "GIS and remote sensing"
+        description: "ArcGIS, ENVI and QGIS; Landsat time-series analysis with BFAST and LandTrendR."
+      - label: "Team coordination"
+        description: "Coordinating interdisciplinary teams and automating processes."
+languages:
+  - name: "English"
+    label: "Advanced · IELTS 7.5/9"
+  - name: "German"
+    label: "Basic · A1, certified at KIT"

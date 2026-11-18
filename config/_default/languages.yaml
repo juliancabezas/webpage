@@ -1,3 +1,46 @@
 es:
   label: "Español"
   locale: "es-CL"
+  contentDir: "content"
+  weight: 1
+en:
+  label: "English"
+  locale: "en-US"
+  contentDir: "content-en"
+  weight: 2
+  params:
+    hugoblox:
+      identity:
+        tagline: "AI and the environment"
+        description: "Julián Cabezas Peña, data scientist and coordinator of the SMA Data Science team. R, Python, SQL, machine learning and geospatial analysis for the environment."
+      header:
+        language_switcher: true
+      locale:
+        date_format: "Jan 2, 2006"
+        time_format: "15:04"
+        address_format: "en-us"
+      search:
+        suggestions: ["R", "SQLite", "Remote sensing"]
+  menus:
+    main:
+      - name: "Home"
+        url: "/en/#about"
+        weight: 1
+      - name: "Experience"
+        url: "/en/experience/"
+        weight: 2
+      - name: "Publications"
+        url: "/en/#publications"
+        weight: 3
+      - name: "Posts and tutorials"
+        url: "/en/#posts"
+        weight: 4
+      - name: "Projects"
+        url: "/en/project/"
+        weight: 5
+      - name: "Contact"
+        url: "/en/#contact"
+        weight: 6
+      - name: "CV (Spanish)"
+        url: "/en/files/cv.pdf"
+        weight: 7

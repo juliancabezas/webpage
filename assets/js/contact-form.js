@@ -11,5 +11,8 @@ for (const form of document.querySelectorAll('form[action]')) {
     next.name = '_next';
     form.append(next);
   }
-  next.value = new URL('/gracias/', window.location.origin).href;
+  const destination = document.documentElement.lang.toLowerCase().startsWith('en')
+    ? '/en/thank-you/'
+    : '/gracias/';
+  next.value = new URL(destination, window.location.origin).href;
 }
