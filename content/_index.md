@@ -16,8 +16,13 @@ sections:
         interests: "Intereses"
     design:
       background:
-        gradient_mesh:
-          enable: true
+        text_color_light: true
+        image:
+          filename: "satelite4.jpg"
+          size: "cover"
+          position: "center"
+          filters:
+            brightness: 0.35
       name:
         size: "md"
       avatar:
