@@ -7,7 +7,8 @@ categories: []
 tags: []
 image:
   caption: ''
-  focal_point: ''
+  focal_point: 'Left'
+  filename: 'satelite4.jpg'
 ---
 
 **Disclaimer**: This is not an offitial release and is only meant for development and feed-back purposes

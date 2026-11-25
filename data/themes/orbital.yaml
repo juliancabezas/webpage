@@ -1,0 +1,42 @@
+# HugoBlox Theme Pack — Orbital
+# Paleta extraída de static/img/headers/satelite4.jpg: abismo oceánico, cian de red de datos, arrecife y bosque.
+
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "Orbital"
+    vendor: "juliancabezas"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Tierra vista desde órbita: azul abismo, cian de datos y verde bosque"
+
+  type: "dual"
+
+  dark:
+    colors:
+      primary: "#22d3ee"   # cian de la red de nodos
+      secondary: "#34d399" # verde bosque
+      neutral: "#071a2e"
+    surfaces:
+      background: "#030b1a"
+      foreground: "#e6f6fb"
+      header:
+        background: "#030b1a"
+        foreground: "#e6f6fb"
+      footer:
+        background: "#020814"
+        foreground: "#9fc6d4"
+
+  light:
+    colors:
+      primary: "#0891b2"
+      secondary: "#059669"
+    surfaces:
+      background: "#f4fbfb"
+      foreground: "#06283d"
+      header:
+        background: "#e9f6f8"
+        foreground: "#06283d"
+      footer:
+        background: "#e9f6f8"
+        foreground: "#0b3b52"

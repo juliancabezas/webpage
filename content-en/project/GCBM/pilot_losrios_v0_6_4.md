@@ -9,7 +9,8 @@ toc: true
 toc_depth: 4
 image:
   caption: ''
-  focal_point: ''
+  focal_point: 'Center'
+  filename: 'satelite4.jpg'
 ---
 
 **Disclaimer**: This is not an official release and is only meant for development and feed-back purposes

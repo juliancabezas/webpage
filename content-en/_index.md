@@ -3,6 +3,32 @@ title: ""
 type: "landing"
 sections:
   -
+    block: "hero-orbital"
+    id: "hero"
+    content:
+      username: "me"
+      eyebrow: "Earth observation · Data science"
+      tagline: "Artificial intelligence and data science for the environment"
+      text: "I turn satellite, environmental and regulatory data into models, automation and decisions. I lead the Data Science team at Chile's Superintendency of the Environment."
+      scroll_label: "Go to profile"
+      buttons:
+        - text: "View profile"
+          url: "#about"
+          primary: true
+        - text: "Download CV"
+          url: "/en/files/cv.pdf"
+        - text: "Contact"
+          url: "#contact"
+      telemetry:
+        - label: "Base"
+          value: "Santiago, Chile"
+        - label: "Focus"
+          value: "AI · Environment"
+        - label: "Stack"
+          value: "R · Python · SQL"
+        - label: "Territories"
+          value: "CL · AU · DE"
+  -
     block: "resume-biography-3"
     id: "about"
     content:
@@ -17,7 +43,7 @@ sections:
     design:
       background:
         gradient_mesh:
-          enable: true
+          enable: false
       name:
         size: "md"
       avatar:

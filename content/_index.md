@@ -3,6 +3,32 @@ title: ""
 type: "landing"
 sections:
   -
+    block: "hero-orbital"
+    id: "hero"
+    content:
+      username: "me"
+      eyebrow: "Observación de la Tierra · Ciencia de datos"
+      tagline: "Inteligencia artificial y ciencia de datos para el medio ambiente"
+      text: "Convierto datos satelitales, ambientales y regulatorios en modelos, automatizaciones y decisiones. Coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente de Chile."
+      scroll_label: "Ir al perfil"
+      buttons:
+        - text: "Ver perfil"
+          url: "#about"
+          primary: true
+        - text: "Descargar CV"
+          url: "/files/cv.pdf"
+        - text: "Contacto"
+          url: "#contact"
+      telemetry:
+        - label: "Base"
+          value: "Santiago, Chile"
+        - label: "Foco"
+          value: "IA · Medio ambiente"
+        - label: "Stack"
+          value: "R · Python · SQL"
+        - label: "Territorios"
+          value: "CL · AU · DE"
+  -
     block: "resume-biography-3"
     id: "about"
     content:
@@ -17,7 +43,7 @@ sections:
     design:
       background:
         gradient_mesh:
-          enable: true
+          enable: false
       name:
         size: "md"
       avatar:

@@ -1,0 +1,73 @@
+{{/*
+  Hero orbital: imagen satelital (assets/media/satelite4.jpg) con overlay, red de nodos y telemetría.
+  content: eyebrow, title, tagline, text, telemetry (lista), buttons (lista de {text, url, primary}), image
+*/}}
+{{ $page := .wcPage }}
+{{ $content := .wcBlock.content }}
+{{ $authors := partialCached "functions/get_authors_data" $page site.Language.Lang }}
+{{ $profile := index $authors ($content.username | default "me") }}
+{{ $title := $content.title | default $profile.name.display | default site.Title }}
+{{ $src := resources.Get (printf "media/%s" ($content.image | default "satelite4.jpg")) }}
+
+<div class="orbital-hero" role="banner">
+  {{ with $src }}
+    {{ $sm := .Resize "640x webp q78" }}
+    {{ $md := .Resize (printf "%dx webp q80" (int (math.Min 1920 .Width))) }}
+    <img class="orbital-hero__img"
+      src="{{ $md.RelPermalink }}"
+      srcset="{{ $sm.RelPermalink }} 640w, {{ $md.RelPermalink }} {{ $md.Width }}w"
+      sizes="100vw" width="{{ $md.Width }}" height="{{ $md.Height }}"
+      alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  {{ end }}
+  <div class="orbital-hero__shade" aria-hidden="true"></div>
+  <div class="orbital-hero__scan" aria-hidden="true"></div>
+
+  <svg class="orbital-hero__net" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    {{ $nodes := slice
+      (slice 80 120) (slice 230 60) (slice 340 210) (slice 180 330) (slice 470 110)
+      (slice 610 260) (slice 520 420) (slice 760 140) (slice 880 330) (slice 1010 200)
+      (slice 1120 90) (slice 1080 430) (slice 820 520) (slice 360 520) (slice 660 40) }}
+    {{ $edges := slice
+      (slice 0 1) (slice 0 2) (slice 1 4) (slice 2 3) (slice 2 4) (slice 2 5) (slice 3 13)
+      (slice 4 7) (slice 4 14) (slice 5 6) (slice 5 7) (slice 5 8) (slice 6 13) (slice 6 12)
+      (slice 7 9) (slice 7 14) (slice 8 9) (slice 8 11) (slice 8 12) (slice 9 10) (slice 9 11) }}
+    <g class="orbital-hero__edges">
+      {{ range $edges }}
+        {{ $a := index $nodes (index . 0) }}{{ $b := index $nodes (index . 1) }}
+        <line x1="{{ index $a 0 }}" y1="{{ index $a 1 }}" x2="{{ index $b 0 }}" y2="{{ index $b 1 }}" />
+      {{ end }}
+    </g>
+    <g class="orbital-hero__nodes">
+      {{ range $i, $n := $nodes }}
+        <circle cx="{{ index $n 0 }}" cy="{{ index $n 1 }}" r="{{ cond (eq (mod $i 3) 0) 4 2.5 }}" style="animation-delay: {{ mul (mod $i 5) 0.7 }}s" />
+      {{ end }}
+    </g>
+  </svg>
+
+  <div class="orbital-hero__inner">
+    {{ with $content.eyebrow }}<p class="hud-label orbital-hero__eyebrow"><span class="hud-dot" aria-hidden="true"></span>{{ . }}</p>{{ end }}
+    <p class="orbital-hero__title">{{ $title }}</p>
+    {{ with $content.tagline | default $profile.role }}<p class="orbital-hero__tagline">{{ . }}</p>{{ end }}
+    {{ with $content.text }}<div class="orbital-hero__text">{{ $page.RenderString . }}</div>{{ end }}
+
+    {{ with $content.buttons }}
+      <div class="orbital-hero__actions">
+        {{ range . }}
+          <a class="orbital-btn {{ if .primary }}orbital-btn--primary{{ else }}orbital-btn--ghost{{ end }}" href="{{ .url }}">{{ .text }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ with $content.telemetry }}
+      <dl class="orbital-hero__telemetry">
+        {{ range . }}
+          <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+        {{ end }}
+      </dl>
+    {{ end }}
+  </div>
+
+  <a class="orbital-hero__scroll" href="#about" aria-label="{{ $content.scroll_label | default "Ir al perfil" }}">
+    <span aria-hidden="true"></span>
+  </a>
+</div>

@@ -9,13 +9,13 @@ hugoblox:
       twitter: "juliancabezasp"
   theme:
     mode: "dark"
-    pack: "default"
-    colors:
-      primary: "teal"
+    # Tema propio en data/themes/orbital.yaml (paleta de satelite4.jpg).
+    pack: "orbital"
   typography:
-    pack: "academic"
+    # Fuentes propias en data/fonts/orbital.yaml.
+    pack: "orbital"
   layout:
-    radius: "md"
+    radius: "lg"
     spacing: "comfortable"
     avatar_shape: "circle"
   header:
@@ -26,7 +26,7 @@ hugoblox:
     search: true
     theme_toggle: true
     theme_picker: false
-    language_switcher: false
+    language_switcher: true
   footer:
     style: "minimal"
     language_switcher: false
@@ -48,7 +48,8 @@ hugoblox:
       - "SQLite"
       - "Teledetección"
   comments:
-    enable: true
+    # Desactivado: peso y rastreo de terceros para pocos posts antiguos.
+    enable: false
     provider: "disqus"
     disqus:
       shortname: "www-juliancabezas-com"
@@ -62,5 +63,5 @@ hugoblox:
   repository:
     enable: false
     url: "https://github.com/juliancabezas/webpage"
-    branch: "migration/hugo-netlify"
+    branch: "master"
     content_dir: "content"

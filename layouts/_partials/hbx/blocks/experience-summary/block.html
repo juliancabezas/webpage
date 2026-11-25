@@ -10,7 +10,7 @@
     <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 mb-10 text-center">{{ $page.RenderString . }}</div>
   {{ end }}
 
-  <div class="space-y-6">
+  <div class="orb-timeline space-y-6">
     {{ range $profile.experience }}
       <article class="experience-summary-card group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/[0.06] p-6 hover:bg-gray-50 dark:hover:bg-white/[0.04] hover:border-primary-300 dark:hover:border-primary-500/30 transition-all duration-300 shadow-sm dark:shadow-none">
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
@@ -18,13 +18,13 @@
             <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ .role }}</h3>
             <p class="text-primary-600 dark:text-primary-400 font-medium mt-1">{{ .org }}</p>
           </div>
-          <p class="text-sm text-gray-500 dark:text-gray-400 shrink-0">
+          <p class="orb-date shrink-0">
             <time datetime="{{ .start }}">{{ time.Format "01-2006" .start }}</time>
             <span aria-hidden="true"> – </span>
             {{ with .end }}
               <time datetime="{{ . }}">{{ time.Format "01-2006" . }}</time>
             {{ else }}
-              <span class="text-primary-600 dark:text-primary-400 font-medium">{{ i18n "present" }}</span>
+              <span class="orb-now">{{ i18n "present" }}</span>
             {{ end }}
           </p>
         </div>

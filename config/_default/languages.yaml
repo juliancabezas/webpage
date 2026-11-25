@@ -24,7 +24,7 @@ en:
   menus:
     main:
       - name: "Home"
-        url: "/en/#about"
+        url: "/en/"
         weight: 1
       - name: "Experience"
         url: "/en/experience/"
