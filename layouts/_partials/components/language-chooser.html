@@ -7,7 +7,7 @@
       type="button" aria-label="{{ T "languages" }}">
       <div class="flex items-center gap-2 capitalize">
         {{ partial "functions/get_icon" (dict "name" "globe-alt" "attributes" "height=18") }}
-        <span>{{ $page.Language.Label }}</span>
+        <span class="orb-lang-code" aria-hidden="true">{{ upper $page.Language.Lang }}</span><span class="orb-sr">{{ $page.Language.Label }}</span>
       </div>
     </button>
     <ul class="fixed m-0 min-w-[100px] hidden z-20 max-h-64 overflow-auto rounded-md ring-1 ring-black/5 bg-white py-1 text-sm shadow-lg dark:ring-white/20 dark:bg-neutral-800" style="inset: auto auto 0 0;">

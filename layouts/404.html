@@ -1,0 +1,28 @@
+{{/* 404 propio (override de blox/layouts/404.html): mensaje claro, rutas de salida y últimas publicaciones. */}}
+{{- define "main" -}}
+{{- $en := eq site.Language.Lang "en" -}}
+{{- $home := site.Home.RelPermalink -}}
+<div data-pagefind-ignore class="orb-404">
+  <p class="orb-404__code" aria-hidden="true">404</p>
+  <h1 class="orb-404__title">{{ if $en }}This page isn’t here{{ else }}Esta página no existe{{ end }}</h1>
+  <p class="orb-404__lead">
+    {{ if $en }}The link may be old or mistyped. These are good places to continue:{{ else }}Puede que el enlace sea antiguo o tenga un error. Puedes seguir por aquí:{{ end }}
+  </p>
+  <ul class="orb-404__paths">
+    <li><a href="{{ $home }}">{{ if $en }}Home{{ else }}Inicio{{ end }}</a></li>
+    <li><a href="{{ $home }}#posts">{{ if $en }}Posts and tutorials{{ else }}Posts y tutoriales{{ end }}</a></li>
+    <li><a href="{{ $home }}#publications">{{ if $en }}Publications{{ else }}Publicaciones{{ end }}</a></li>
+    <li><a href="{{ $home }}#contact">{{ if $en }}Contact{{ else }}Contacto{{ end }}</a></li>
+  </ul>
+
+  {{ $query := where (where (where site.RegularPages.ByDate.Reverse "Title" "!=" "") "Params.private" "!=" true) "Section" "in" (slice "post" "publication" "project") }}
+  {{ with first 5 $query }}
+    <h2 class="orb-404__subtitle">{{ if $en }}Latest{{ else }}Lo más reciente{{ end }}</h2>
+    <ul class="orb-404__recent">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006" }}</time></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</div>
+{{- end -}}

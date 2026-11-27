@@ -7,34 +7,61 @@ sections:
     id: "hero"
     content:
       username: "me"
-      eyebrow: "Observación de la Tierra · Ciencia de datos"
+      eyebrow: "Observación de la Tierra y ciencia de datos"
       tagline: "Inteligencia artificial y ciencia de datos para el medio ambiente"
       text: "Convierto datos satelitales, ambientales y regulatorios en modelos, automatizaciones y decisiones. Coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente de Chile."
-      scroll_label: "Ir al perfil"
       buttons:
-        - text: "Ver perfil"
-          url: "#about"
-          primary: true
         - text: "Descargar CV"
           url: "/files/cv.pdf"
-        - text: "Contacto"
+          primary: true
+        - text: "Escribirme"
           url: "#contact"
-      telemetry:
-        - label: "Base"
-          value: "Santiago, Chile"
-        - label: "Foco"
-          value: "IA · Medio ambiente"
-        - label: "Stack"
-          value: "R · Python · SQL"
-        - label: "Territorios"
-          value: "CL · AU · DE"
+      # Trayectoria en orden cronológico; dibuja la red del hero (label: posición de la etiqueta n|s|e|w).
+      route_title: "Trayectoria"
+      route:
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2010"
+          note: "Ingeniería en Recursos Naturales, Universidad de Chile"
+          label: "e"
+        - place: "Karlsruhe"
+          lat: 49.01
+          lon: 8.40
+          year: "2016"
+          note: "Teledetección en el Karlsruhe Institute of Technology"
+          label: "e"
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2018"
+          arc: 0.12
+          note: "Estadística en el INE y la FAO"
+        - place: "Adelaide"
+          lat: -34.93
+          lon: 138.60
+          year: "2020"
+          note: "Máster en Ciencia de Datos y visión por computador"
+          label: "w"
+        - place: "Canberra"
+          lat: -35.28
+          lon: 149.13
+          year: "2020"
+          note: "Modelamiento de carbono forestal con The Mullion Group"
+          label: "n"
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2022"
+          arc: 0.14
+          note: "Ciencia de datos en la Superintendencia del Medio Ambiente"
   -
     block: "resume-biography-3"
     id: "about"
     content:
       username: "me"
       button:
-        text: "Descargar CV · noviembre 2026"
+        text: "Descargar CV (noviembre 2026)"
         url: "/files/cv.pdf"
       headings:
         about: "Perfil profesional"
@@ -62,7 +89,7 @@ sections:
     id: "publications"
     content:
       title: "Publicaciones seleccionadas"
-      text: "Algo de mi trabajo científico"
+      text: "Artículos y presentaciones sobre teledetección, humedales y dinámica de la vegetación."
       count: 10
       filters:
         folders:
@@ -86,6 +113,7 @@ sections:
     id: "projects"
     content:
       title: "Proyectos"
+      text: "Documentación técnica en inglés."
       count: 10
       filters:
         folders:

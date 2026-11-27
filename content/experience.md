@@ -14,19 +14,27 @@ sections:
     content:
       title: "Consultorías"
       text: |
-        ### Modelamiento de carbono · 2021–2022
+        ### Modelamiento de carbono
+
+        <p class="orb-year"><time>2021–2022</time></p>
 
         Desarrollo de un módulo de estimación de materia orgánica muerta para el modelo FLINT, para la Convención Marco de las Naciones Unidas sobre el Cambio Climático.
 
-        ### Análisis del incendio Nilahue-Barahona · 2017–2018
+        ### Análisis del incendio Nilahue-Barahona
+
+        <p class="orb-year"><time>2017–2018</time></p>
 
         Elaboración de un informe y declaración como testigo experto en el caso D-33-2017 del Tribunal Ambiental de Santiago, con un análisis espaciotemporal de causalidad y efectos del incendio de enero de 2017.
 
-        ### Teledetección de cursos de agua · 2017
+        ### Teledetección de cursos de agua
+
+        <p class="orb-year"><time>2017</time></p>
 
         Asesoría al Instituto Forestal de Chile (INFOR) para la delineación y clasificación de cursos de agua en cuencas forestales del sur de Chile, en la línea de investigación «Bosque y Agua».
 
-        ### Sistemas de información geográfica · 2014
+        ### Sistemas de información geográfica
+
+        <p class="orb-year"><time>2014</time></p>
 
         Asesoría en SIG para el diagnóstico del sistema agropecuario y suelo del área de influencia del embalse Carén, con elaboración de mapas y análisis de usos de suelo para Ambiente Seguro–CODELCO El Teniente.
     design:

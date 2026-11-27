@@ -37,7 +37,6 @@ output:
     toc_depth: 4
 ---
 
-
 <div id="TOC">
 <ul>
 <li><a href="#el-problema-del-maldito-ram-y-las-bases-de-datos-enormes">El problema del maldito RAM y las bases de datos enormes</a></li>
@@ -63,8 +62,15 @@ output:
 <div id="primero-lo-primero-cuanta-memoria-tengo-disponible" class="section level3">
 <h3>Primero lo primero: ¿Cuanta memoria tengo disponible?</h3>
 <p>Para ver cuanta memoria tiene R disponible vamos a usar el comando memory.size()</p>
-<pre class="r"><code>memory.limit()</code></pre>
-<pre><code>## [1] 16269</code></pre>
+
+```r
+memory.limit()
+```
+
+```text
+## [1] 16269
+```
+
 <p>Como podemos ver, tengo un total de 16 Gb de memoria disponible (aprox. 16000 Mb), que es lo que tiene el computador que estoy utilizando.</p>
 <p><strong>Nota:</strong> Si estas ocupando un sistema operativo de 32 bits, tu limite de memoria no podrá exceder los 2-3 Gb, no importa cuanto RAM tengas instalado.</p>
 </div>
@@ -85,96 +91,128 @@ output:
 <li><strong>DBI, RSQLite</strong>: Para comunicarnos con las bases de datos y usar SQLite</li>
 <li><strong>dplyr y dbplyr</strong>: Para sacar información de la base de datos</li>
 </ul>
-<pre class="r"><code>library(readr)
+
+```r
+library(readr)
 library(DBI)
 library(RSQLite)
 library(dplyr)
-library(dbplyr)</code></pre>
+library(dbplyr)
+```
+
 </div>
 <div id="que-tan-grande-es-mi-base-de-datos-cuales-son-sus-caracteristicas" class="section level4">
 <h4>¿Que tan grande es mi base de datos? ¿Cuales son sus características?</h4>
 <p>Primero definimos la ruta de nuestra base de datos, le vamos a poner delim_file:</p>
-<pre class="r"><code>delim_file &lt;- &quot;C:/Censo/Microdato_Censo2017-Personas.csv&quot;</code></pre>
+
+```r
+delim_file <- "C:/Censo/Microdato_Censo2017-Personas.csv"
+```
+
 <p>Para ver sus características vamos a leer sus primeras 2 lineas, para eso vamos a usar la función <strong>readLines</strong></p>
-<pre class="r"><code>readLines(delim_file, n=2)</code></pre>
-<pre><code>## [1] &quot;REGION;PROVINCIA;COMUNA;DC;AREA;ZC_LOC;ID_ZONA_LOC;NVIV;NHOGAR;PERSONAN;P07;P08;P09;P10;P10COMUNA;P10PAIS;P11;P11COMUNA;P11PAIS;P12;P12COMUNA;P12PAIS;P12A_LLEGADA;P12A_TRAMO;P13;P14;P15;P15A;P16;P16A;P16A_OTRO;P17;P18;P19;P20;P21M;P21A;P10PAIS_GRUPO;P11PAIS_GRUPO;P12PAIS_GRUPO;ESCOLARIDAD;P16A_GRUPO;REGION_15R;PROVINCIA_15R;COMUNA_15R;P10COMUNA_15R;P11COMUNA_15R;P12COMUNA_15R&quot;
-## [2] &quot;15;152;15202;1;2;6;13225;1;1;1;1;1;73;1;98;998;3;15101;998;1;98;998;9998;98;2;4;6;2;1;2;98;7;98;98;98;98;9998;998;998;998;4;2;15;152;15202;98;15101;98&quot;</code></pre>
+
+```r
+readLines(delim_file, n=2)
+```
+
+```text
+## [1] "REGION;PROVINCIA;COMUNA;DC;AREA;ZC_LOC;ID_ZONA_LOC;NVIV;NHOGAR;PERSONAN;P07;P08;P09;P10;P10COMUNA;P10PAIS;P11;P11COMUNA;P11PAIS;P12;P12COMUNA;P12PAIS;P12A_LLEGADA;P12A_TRAMO;P13;P14;P15;P15A;P16;P16A;P16A_OTRO;P17;P18;P19;P20;P21M;P21A;P10PAIS_GRUPO;P11PAIS_GRUPO;P12PAIS_GRUPO;ESCOLARIDAD;P16A_GRUPO;REGION_15R;PROVINCIA_15R;COMUNA_15R;P10COMUNA_15R;P11COMUNA_15R;P12COMUNA_15R"
+## [2] "15;152;15202;1;2;6;13225;1;1;1;1;1;73;1;98;998;3;15101;998;1;98;998;9998;98;2;4;6;2;1;2;98;7;98;98;98;98;9998;998;998;998;4;2;15;152;15202;98;15101;98"
+```
+
 <p>Ya con esta información podemos ver los nombres de los encabezados y ver que el separador (delim) es un punto y coma (;)</p>
 <p>Para obtener el número de filas de una base de datos grande R no nos va a servir, ya que no la vamos a poder cargar, así que utilizaremos un comando de Powershell (get content) en el caso de estar en Windows o un comando de sistema (wc) en el caso de estar en Linux.</p>
 <p>Para saber cuantas filas tiene mi archivo (esto se demora un poco):</p>
 <p>En Windows:</p>
-<pre class="r"><code>total_records &lt;- system2(&quot;powershell&quot;, args = c(&quot;Get-content&quot;, delim_file, &quot;|&quot;, &quot;Measure-Object&quot;, &quot;–Line&quot;),
+
+```r
+total_records <- system2("powershell", args = c("Get-content", delim_file, "|", "Measure-Object", "–Line"),
                          stdout = TRUE)
-total_records &lt;- as.numeric(gsub(&quot;[^0-9]&quot;, &quot;&quot;, paste(total_records, collapse = &quot;&quot;))) - 1
-total_records</code></pre>
-<pre><code>## [1] 17574003</code></pre>
+total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = ""))) - 1
+total_records
+```
+
+```text
+## [1] 17574003
+```
+
 <p>17574003 registros o lineas (dejando fuera el encabezado), ese el numero de personas que registró el censo del año 2017, así que estamos bien.</p>
 <p>Nota: Si tienes Windows 10 no debería haber problemas, pero si tienes Windows 7 u 8 te recomiendo ver que versión de powershell tienes instalada <a href="https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1">estas instrucciones de Microsoft</a> e instalar powershell 5.1 siguiendo <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-6">este link tambien de Microsoft</a></p>
 <p>En Linux sería algo así:</p>
-<pre class="r"><code> total_records &lt;- system2(&quot;wc&quot;, args = c(&quot;-l&quot;, delim_file), stdout = TRUE) %&gt;%
- sub(normalizePath(delim_file), &quot;&quot;, .) %&gt;%
- as.integer() %&gt;%
+
+```r
+ total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
+ sub(normalizePath(delim_file), "", .) %>%
+ as.integer() %>%
        {
          . - 1
-       }</code></pre>
+       }
+```
+
 </div>
 <div id="crear-la-ruta-a-la-base-de-datos" class="section level4">
 <h4>Crear la ruta a la base de datos</h4>
 <p>Para crear la base de datos vamos a generar una ruta a un futuro archivo de extensión .sqlite3,</p>
 <p>Definimos la ruta y el nombre de la tabla dentro de la base de datos, necesitaremos este nombre para extraer datos en el futuro, otra gracia de estas bases de datos es que pueden contener varias tablas dentro de ellas.</p>
-<pre class="r"><code>table_name_censo &lt;- &quot;censo2017&quot;
-sqlite_file_censo &lt;- &quot;C:/Censo/censo2017.sqlite3&quot;</code></pre>
+
+```r
+table_name_censo <- "censo2017"
+sqlite_file_censo <- "C:/Censo/censo2017.sqlite3"
+```
+
 </div>
 <div id="la-prometida-funcion" class="section level4">
 <h4>La prometida funcion</h4>
 <p>Teniendo el numero total de filas del archivo, las rutas definidas y el delimitador (coma, punto y coma, espacio etc), podremos usar la siguiente función:</p>
-<pre class="r"><code>read_delim2sqlite &lt;- function(delim_file, delim, sqlite_file, table_name, batch_size = 10000, OS = &quot;Windows&quot;) {
+
+```r
+read_delim2sqlite <- function(delim_file, delim, sqlite_file, table_name, batch_size = 10000, OS = "Windows") {
 
   ## establish a connection to the database
-  condb &lt;- dbConnect(SQLite(), sqlite_file)
+  condb <- dbConnect(SQLite(), sqlite_file)
 
   ## get the total number of records in the file
   # in Unix
-  if (OS == &quot;Unix&quot;) {
-    total_records &lt;- system2(&quot;wc&quot;, args = c(&quot;-l&quot;, delim_file), stdout = TRUE) %&gt;%
-      sub(normalizePath(delim_file), &quot;&quot;, .) %&gt;%
-      as.integer() %&gt;%
+  if (OS == "Unix") {
+    total_records <- system2("wc", args = c("-l", delim_file), stdout = TRUE) %>%
+      sub(normalizePath(delim_file), "", .) %>%
+      as.integer() %>%
       {
         . - 1
       }
   } else {
     # In windows
-    total_records &lt;- system2(&quot;powershell&quot;, args = c(&quot;Get-content&quot;, delim_file, &quot;|&quot;, &quot;Measure-Object&quot;, &quot;–Line&quot;), stdout = TRUE)
-    total_records &lt;- as.numeric(gsub(&quot;[^0-9]&quot;, &quot;&quot;, paste(total_records, collapse = &quot;&quot;))) - 1
+    total_records <- system2("powershell", args = c("Get-content", delim_file, "|", "Measure-Object", "–Line"), stdout = TRUE)
+    total_records <- as.numeric(gsub("[^0-9]", "", paste(total_records, collapse = ""))) - 1
   }
 
-  message(&quot;Total records: &quot;, total_records)
+  message("Total records: ", total_records)
 
   ## find the number of passes needed based on size of each batch
-  passes &lt;- total_records %/% batch_size
-  remaining &lt;- total_records %% batch_size
+  passes <- total_records %/% batch_size
+  remaining <- total_records %% batch_size
 
-  message(&quot;Total Passes to complete: &quot;, passes)
+  message("Total Passes to complete: ", passes)
 
   ## first pass determines header and column types
-  dat &lt;- read_delim(delim_file, delim, n_max = batch_size, progress = FALSE) %&gt;% as.data.frame()
-  if (nrow(problems(dat)) &gt; 0) print(problems(dat))
-  col_names &lt;- colnames(dat)
-  col_types &lt;- c(character = &quot;c&quot;, numeric = &quot;d&quot;, integer = &quot;i&quot;, logical = &quot;l&quot;, Date = &quot;c&quot;) %&gt;%
-    .[sapply(dat, class)] %&gt;%
-    paste0(collapse = &quot;&quot;)
+  dat <- read_delim(delim_file, delim, n_max = batch_size, progress = FALSE) %>% as.data.frame()
+  if (nrow(problems(dat)) > 0) print(problems(dat))
+  col_names <- colnames(dat)
+  col_types <- c(character = "c", numeric = "d", integer = "i", logical = "l", Date = "c") %>%
+    .[sapply(dat, class)] %>%
+    paste0(collapse = "")
 
   ## write to database table
   dbWriteTable(condb, table_name, dat, overwrite = TRUE)
 
   ## multiple passes
   for (p in 2:passes) {
-    message(&quot;Pass number: &quot;, p, &quot;, Progress:&quot;, round(p / passes, 2) * 100, &quot;%&quot;)
+    message("Pass number: ", p, ", Progress:", round(p / passes, 2) * 100, "%")
     read_delim(delim_file, delim,
       col_names = col_names, col_types = col_types,
       skip = (p - 1) * batch_size + 1, n_max = batch_size, progress = FALSE
-    ) %&gt;%
-      as.data.frame() %&gt;%
+    ) %>%
+      as.data.frame() %>%
       dbWriteTable(condb, table_name, ., append = TRUE)
   }
 
@@ -182,14 +220,16 @@ sqlite_file_censo &lt;- &quot;C:/Censo/censo2017.sqlite3&quot;</code></pre>
     read_delim(delim_file, delim,
       col_names = col_names, col_types = col_types,
       skip = p * batch_size + 1, n_max = remaining, progress = FALSE
-    ) %&gt;%
-      as.data.frame() %&gt;%
+    ) %>%
+      as.data.frame() %>%
       dbWriteTable(condb, table_name, ., append = TRUE)
   }
 
   ## close the database connection
   dbDisconnect(condb)
-}</code></pre>
+}
+```
+
 <p>Se ve algo intimidante la función, pero la verdad no es tan compleja, lo que hace es leer el archivo por partes de cierto tamaño (batch_size), utilizando la función read_delim del paquete “readr” para leer rápidamente el archivo, luego inserta la parte leída en la base de datos SQLite, y repite el proceso hasta la ultima linea del archivo.</p>
 <p>Los argumentos de la función son los siguientes:</p>
 <p><strong>delim file</strong>: Ruta al archivo delimitado (en este caso la BD del censo). <strong>delim</strong>: Caracter delimitador, en este caso un punto y coma. <strong>sqlite_file</strong>: Ruta a la base de datos de SQLite, debe terminar con “.sqlite3”. <strong>table_name</strong>: Nombre de la tabla dentro de la base de datos de SQLite. <strong>batch_size</strong>: Numero de registros que va a leer en cada iteración. <strong>OS</strong>: Sistema operativo que estamos utilizando, puede ser “Windows” o “Unix” (Solo probado en Linux, no en Mac).</p>
@@ -198,32 +238,96 @@ sqlite_file_censo &lt;- &quot;C:/Censo/censo2017.sqlite3&quot;</code></pre>
 <h4>Mover la csv o txt a la base de datos SQLlite</h4>
 <p>Con lo que ya tenemos preparado podemos usar la función, en este caso, para asegurarme de no quedarme sin RAM, voy a pasar la base de datos en conjuntos de un millon de lineas (batch_size), por lo que debería terminarse en 18 iteraciones.</p>
 <p><strong>Advertencia, esto tardará unos cuantos minutos, vayan a cebarse un mate</strong></p>
-<pre class="r"><code>read_delim2sqlite(delim_file, delim=&quot;;&quot;, sqlite_file = sqlite_file_censo, 
-                  table_name = table_name_censo, batch_size=1000000)</code></pre>
-<pre><code>## Total records: 17574003</code></pre>
-<pre><code>## Total Passes to complete: 17</code></pre>
-<pre><code>## Parsed with column specification:
+
+```r
+read_delim2sqlite(delim_file, delim=";", sqlite_file = sqlite_file_censo, 
+                  table_name = table_name_censo, batch_size=1000000)
+```
+
+```text
+## Total records: 17574003
+```
+
+```text
+## Total Passes to complete: 17
+```
+
+```text
+## Parsed with column specification:
 ## cols(
 ##   .default = col_integer(),
 ##   P18 = col_character()
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<pre><code>## Pass number: 2, Progress:12%</code></pre>
-<pre><code>## Pass number: 3, Progress:18%</code></pre>
-<pre><code>## Pass number: 4, Progress:24%</code></pre>
-<pre><code>## Pass number: 5, Progress:29%</code></pre>
-<pre><code>## Pass number: 6, Progress:35%</code></pre>
-<pre><code>## Pass number: 7, Progress:41%</code></pre>
-<pre><code>## Pass number: 8, Progress:47%</code></pre>
-<pre><code>## Pass number: 9, Progress:53%</code></pre>
-<pre><code>## Pass number: 10, Progress:59%</code></pre>
-<pre><code>## Pass number: 11, Progress:65%</code></pre>
-<pre><code>## Pass number: 12, Progress:71%</code></pre>
-<pre><code>## Pass number: 13, Progress:76%</code></pre>
-<pre><code>## Pass number: 14, Progress:82%</code></pre>
-<pre><code>## Pass number: 15, Progress:88%</code></pre>
-<pre><code>## Pass number: 16, Progress:94%</code></pre>
-<pre><code>## Pass number: 17, Progress:100%</code></pre>
+## )
+```
+
+```text
+## See spec(...) for full column specifications.
+```
+
+```text
+## Pass number: 2, Progress:12%
+```
+
+```text
+## Pass number: 3, Progress:18%
+```
+
+```text
+## Pass number: 4, Progress:24%
+```
+
+```text
+## Pass number: 5, Progress:29%
+```
+
+```text
+## Pass number: 6, Progress:35%
+```
+
+```text
+## Pass number: 7, Progress:41%
+```
+
+```text
+## Pass number: 8, Progress:47%
+```
+
+```text
+## Pass number: 9, Progress:53%
+```
+
+```text
+## Pass number: 10, Progress:59%
+```
+
+```text
+## Pass number: 11, Progress:65%
+```
+
+```text
+## Pass number: 12, Progress:71%
+```
+
+```text
+## Pass number: 13, Progress:76%
+```
+
+```text
+## Pass number: 14, Progress:82%
+```
+
+```text
+## Pass number: 15, Progress:88%
+```
+
+```text
+## Pass number: 16, Progress:94%
+```
+
+```text
+## Pass number: 17, Progress:100%
+```
+
 <p>Este proceso tan demoroso solo lo haremos una vez. Como podemos ver se crea un archivo .sqlite3, que incluso es un poco más pequeño que nuestro .csv</p>
 <div class="figure">
 <img src="/img/archivo_censo_sqlite.JPG" alt="Archivo SQLite creado" />
@@ -234,21 +338,40 @@ sqlite_file_censo &lt;- &quot;C:/Censo/censo2017.sqlite3&quot;</code></pre>
 <div id="analizar-y-recoger-datos-con-dplyr" class="section level3">
 <h3>Analizar y recoger datos con dplyr</h3>
 <p>Para empezar a colectar datos de la tabla en primer lugar tengo que hacer una conexión con la base de datos</p>
-<pre class="r"><code>con &lt;- dbConnect(SQLite(), sqlite_file_censo)
-con</code></pre>
-<pre><code>## &lt;SQLiteConnection&gt;
+
+```r
+con <- dbConnect(SQLite(), sqlite_file_censo)
+con
+```
+
+```text
+## <SQLiteConnection>
 ##   Path: C:\Censo\censo2017.sqlite3
-##   Extensions: TRUE</code></pre>
+##   Extensions: TRUE
+```
+
 <p>Podemos ver las características de la conexión y el nombre que le asignamos a la base de datos</p>
-<pre class="r"><code>dbListTables(con)</code></pre>
-<pre><code>## [1] &quot;censo2017&quot;</code></pre>
+
+```r
+dbListTables(con)
+```
+
+```text
+## [1] "censo2017"
+```
+
 <p>Creamos un objeto que va a representar a los datos, este objeto no está en nuestro RAM, es solo una conexión, por eso no salen las filas de la base de datos.</p>
-<pre class="r"><code>datos_db &lt;- tbl(con, &quot;censo2017&quot;)
-datos_db</code></pre>
-<pre><code>## # Source:   table&lt;censo2017&gt; [?? x 48]
+
+```r
+datos_db <- tbl(con, "censo2017")
+datos_db
+```
+
+```text
+## # Source:   table<censo2017> [?? x 48]
 ## # Database: sqlite 3.22.0 [C:\Censo\censo2017.sqlite3]
 ##    REGION PROVINCIA COMUNA    DC  AREA ZC_LOC ID_ZONA_LOC  NVIV NHOGAR
-##     &lt;int&gt;     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;       &lt;int&gt; &lt;int&gt;  &lt;int&gt;
+##     <int>     <int>  <int> <int> <int>  <int>       <int> <int>  <int>
 ##  1     15       152  15202     1     2      6       13225     1      1
 ##  2     15       152  15202     1     2      6       13225     3      1
 ##  3     15       152  15202     1     2      6       13225     3      1
@@ -259,25 +382,32 @@ datos_db</code></pre>
 ##  8     15       152  15202     1     2      6       13225     9      1
 ##  9     15       152  15202     1     2      6       13225     9      1
 ## 10     15       152  15202     1     2      6       13225    10      1
-## # ... with more rows, and 39 more variables: PERSONAN &lt;int&gt;, P07 &lt;int&gt;,
-## #   P08 &lt;int&gt;, P09 &lt;int&gt;, P10 &lt;int&gt;, P10COMUNA &lt;int&gt;, P10PAIS &lt;int&gt;,
-## #   P11 &lt;int&gt;, P11COMUNA &lt;int&gt;, P11PAIS &lt;int&gt;, P12 &lt;int&gt;, P12COMUNA &lt;int&gt;,
-## #   P12PAIS &lt;int&gt;, P12A_LLEGADA &lt;int&gt;, P12A_TRAMO &lt;int&gt;, P13 &lt;int&gt;,
-## #   P14 &lt;int&gt;, P15 &lt;int&gt;, P15A &lt;int&gt;, P16 &lt;int&gt;, P16A &lt;int&gt;,
-## #   P16A_OTRO &lt;int&gt;, P17 &lt;int&gt;, P18 &lt;chr&gt;, P19 &lt;int&gt;, P20 &lt;int&gt;,
-## #   P21M &lt;int&gt;, P21A &lt;int&gt;, P10PAIS_GRUPO &lt;int&gt;, P11PAIS_GRUPO &lt;int&gt;,
-## #   P12PAIS_GRUPO &lt;int&gt;, ESCOLARIDAD &lt;int&gt;, P16A_GRUPO &lt;int&gt;,
-## #   REGION_15R &lt;int&gt;, PROVINCIA_15R &lt;int&gt;, COMUNA_15R &lt;int&gt;,
-## #   P10COMUNA_15R &lt;int&gt;, P11COMUNA_15R &lt;int&gt;, P12COMUNA_15R &lt;int&gt;</code></pre>
+## # ... with more rows, and 39 more variables: PERSONAN <int>, P07 <int>,
+## #   P08 <int>, P09 <int>, P10 <int>, P10COMUNA <int>, P10PAIS <int>,
+## #   P11 <int>, P11COMUNA <int>, P11PAIS <int>, P12 <int>, P12COMUNA <int>,
+## #   P12PAIS <int>, P12A_LLEGADA <int>, P12A_TRAMO <int>, P13 <int>,
+## #   P14 <int>, P15 <int>, P15A <int>, P16 <int>, P16A <int>,
+## #   P16A_OTRO <int>, P17 <int>, P18 <chr>, P19 <int>, P20 <int>,
+## #   P21M <int>, P21A <int>, P10PAIS_GRUPO <int>, P11PAIS_GRUPO <int>,
+## #   P12PAIS_GRUPO <int>, ESCOLARIDAD <int>, P16A_GRUPO <int>,
+## #   REGION_15R <int>, PROVINCIA_15R <int>, COMUNA_15R <int>,
+## #   P10COMUNA_15R <int>, P11COMUNA_15R <int>, P12COMUNA_15R <int>
+```
+
 <p>Ahora podemos ocupar los verbos de dplyr!, por ejemplo, digamos que queremos obtener un vector con las edades simples para hacer un histograma o algo así (la edad en la base de datos del censo es el campo P09).</p>
-<pre class="r"><code>edades &lt;- datos_db %&gt;%
+
+```r
+edades <- datos_db %>%
   select(P09)
 
-edades</code></pre>
-<pre><code>## # Source:   lazy query [?? x 1]
+edades
+```
+
+```text
+## # Source:   lazy query [?? x 1]
 ## # Database: sqlite 3.22.0 [C:\Censo\censo2017.sqlite3]
 ##      P09
-##    &lt;int&gt;
+##    <int>
 ##  1    73
 ##  2    78
 ##  3    78
@@ -288,7 +418,9 @@ edades</code></pre>
 ##  8    13
 ##  9    12
 ## 10    65
-## # ... with more rows</code></pre>
+## # ... with more rows
+```
+
 <p>Pareciera que todo estuviera bien, sin embargo, el objeto sigue siendo una “conexión”, lo que hace R es un “lazy loading” (lazy de perezoso o flojo), es decir, solo realiza una parte de la operación para no demorarse mucho.</p>
 <p>Lo podemos confirmar en el environment también:</p>
 <div class="figure">
@@ -296,17 +428,35 @@ edades</code></pre>
 
 </div>
 <p>Como podemos ver, el numero de filas ni siquiera esta disponible:</p>
-<pre class="r"><code>nrow(edades)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>Para traer esta columna a nuestro RAM necesitamos usar la función <strong>collect</strong>, recomiendo utilizar esta función <strong>siempre</strong>, para asegurarnos que estamos trabajando con objetos completos y no con conexiones</p>
-<pre class="r"><code>edades&lt;-collect(edades)
 
-nrow(edades)</code></pre>
-<pre><code>## [1] 17574003</code></pre>
-<pre class="r"><code>edades</code></pre>
-<pre><code>## # A tibble: 17,574,003 x 1
+```r
+nrow(edades)
+```
+
+```text
+## [1] NA
+```
+
+<p>Para traer esta columna a nuestro RAM necesitamos usar la función <strong>collect</strong>, recomiendo utilizar esta función <strong>siempre</strong>, para asegurarnos que estamos trabajando con objetos completos y no con conexiones</p>
+
+```r
+edades<-collect(edades)
+
+nrow(edades)
+```
+
+```text
+## [1] 17574003
+```
+
+```r
+edades
+```
+
+```text
+## # A tibble: 17,574,003 x 1
 ##      P09
-##    &lt;int&gt;
+##    <int>
 ##  1    73
 ##  2    78
 ##  3    78
@@ -317,21 +467,34 @@ nrow(edades)</code></pre>
 ##  8    13
 ##  9    12
 ## 10    65
-## # ... with 17,573,993 more rows</code></pre>
+## # ... with 17,573,993 more rows
+```
+
 <p>Ahora si!</p>
 <p>Otro ejemplo, el campo “P09” se refiere a la edad y el campo “P08” al sexo, supongamos que queremos saber la edad promedio por región de los hombres (Sexo=1). ¡No nos olvidemos del <strong>collect</strong>!</p>
-<pre class="r"><code>hombres_edad &lt;- datos_db %&gt;%
-  filter(P08==1) %&gt;%
-  group_by(REGION) %&gt;%
+
+```r
+hombres_edad <- datos_db %>%
+  filter(P08==1) %>%
+  group_by(REGION) %>%
   summarise(Edad_media = mean(P09))
 
-hombres_edad &lt;- collect(hombres_edad)</code></pre>
-<pre><code>## Warning: Missing values are always removed in SQL.
-## Use `AVG(x, na.rm = TRUE)` to silence this warning</code></pre>
-<pre class="r"><code>hombres_edad</code></pre>
-<pre><code>## # A tibble: 16 x 2
+hombres_edad <- collect(hombres_edad)
+```
+
+```text
+## Warning: Missing values are always removed in SQL.
+## Use `AVG(x, na.rm = TRUE)` to silence this warning
+```
+
+```r
+hombres_edad
+```
+
+```text
+## # A tibble: 16 x 2
 ##    REGION Edad_media
-##     &lt;int&gt;      &lt;dbl&gt;
+##     <int>      <dbl>
 ##  1      1       32.1
 ##  2      2       33.0
 ##  3      3       33.7
@@ -347,7 +510,9 @@ hombres_edad &lt;- collect(hombres_edad)</code></pre>
 ## 13     13       34.2
 ## 14     14       35.7
 ## 15     15       33.5
-## 16     16       36.8</code></pre>
+## 16     16       36.8
+```
+
 <p>Listo, ya podemos trabajar con gran parte de las base de datos estructuradas, extraer datos y realizar análisis.</p>
 <p>¡Ojala les haya gustado el tutorial, no duden en contactarme!</p>
 <div class="figure">

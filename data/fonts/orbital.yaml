@@ -1,17 +1,18 @@
 # HugoBlox Font Pack — Orbital
+# Una sola superfamilia (IBM Plex): Sans para títulos y lectura, Mono solo para datos (fechas, coordenadas, código).
 hugoblox:
   meta:
     format: "hugoblox-font@1"
     name: "Orbital"
     vendor: "juliancabezas"
-    version: "1.0.0"
+    version: "2.0.0"
     license: "MIT"
-    description: "Space Grotesk para títulos, Inter para lectura y JetBrains Mono para datos"
+    description: "IBM Plex Sans para títulos y lectura, IBM Plex Mono para datos"
 
   families:
-    heading: "Space Grotesk"
-    body: "Inter"
-    code: "JetBrains Mono"
+    heading: "IBM Plex Sans"
+    body: "IBM Plex Sans"
+    code: "IBM Plex Mono"
 
   weights:
     heading: [500, 600, 700]
@@ -19,10 +20,10 @@ hugoblox:
     code: [400, 500]
 
   leading:
-    heading: 1.12
+    heading: 1.15
     body: 1.65
     code: 1.5
 
   tracking:
-    heading: "-0.02em"
+    heading: "-0.015em"
     body: "0"

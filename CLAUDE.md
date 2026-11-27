@@ -17,10 +17,14 @@ la Tierra vista desde órbita, aguas turquesa sobre azul profundo, una red de no
 - **Paleta** (tema `data/themes/orbital.yaml`, tokens en `assets/css/futuristic.css`):
   - Oscuro: fondo abismo `#030b1a`, superficie `#071a2e`, texto `#e6f6fb`.
   - Claro: fondo `#f4fbfb`, superficie `#ffffff`, texto `#06283d`.
-  - Primario cian `#22d3ee` (claro: `#0e7490`), secundario arrecife `#2dd4bf`, acento bosque `#34d399`.
-- **Tipografía** (`data/fonts/orbital.yaml`): títulos *Space Grotesk*, cuerpo *Inter*, datos/fechas *JetBrains Mono*.
-- **Motivos**: red de nodos SVG sutil, bordes con brillo cian tipo HUD, etiquetas monoespaciadas tipo
-  telemetría (`// 01 · Perfil`, coordenadas), vidrio moderado en tarjetas.
+  - Primario cian `#22d3ee` (claro: `#0e7490`), acento bosque `#34d399` (claro: `#047857`). Todo texto en claro ≥ 4,5:1.
+- **Tipografía** (`data/fonts/orbital.yaml`): *IBM Plex Sans* para títulos y lectura, *IBM Plex Mono* solo para datos
+  reales (fechas, coordenadas, código). Escala 1,25 en tokens `--orb-step-*`.
+- **Elemento memorable**: el hero con la trayectoria como red geográfica (front matter `route`), que se dibuja una vez
+  al cargar. Lo llamativo vive ahí; el resto es sobrio.
+- **Contención** (revisión con la skill `frontend-design`, ver `DIAGNOSTICO.md`): sin numeración `// 0N` en secciones
+  (no son secuencia), sin mayúsculas con tracking en etiquetas, sin metadatos unidos con `·`, sin texto con degradado,
+  sin animaciones infinitas. Brillo y esquinas HUD solo en lo que es "actual" (cargo vigente). Vidrio moderado en tarjetas.
 - **Modo**: oscuro por defecto, con modo claro conservado y cuidado. El hero es siempre oscuro (es una foto).
 - **Legibilidad primero**: la imagen satelital va solo en el hero con overlay degradado; nunca detrás de
   texto largo (un intento así fue revertido, ver `Memory.md`).

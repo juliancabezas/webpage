@@ -32,7 +32,6 @@ output:
 image_preview: "headers/parallel.png"
 ---
 
-
 <div id="TOC">
 <ul>
 <li><a href="#el-problema-crear-clusters-es-tedioso">El problema: Crear clusters es tedioso</a></li>
@@ -51,23 +50,25 @@ image_preview: "headers/parallel.png"
 <p>así que cree una función, que mantengo en esta <a href="https://github.com/juliancabezas/random_functions/blob/master/create_cluster">Carpeta en Github</a>, para ser justo, la función esta inspirada en el paquete <a href="https://github.com/nathanvan/parallelsugar">parallelsugar</a>, pero con algunas modificaciones</p>
 <p>La función crea un cluster de <em>n</em> nodos (argumento <em>nnodes</em>)</p>
 <p>create_cluster esta diseñada para funcionar en servidores, ya que en general estos no tienen conexión a Internet es posible instalar los paquetes en una carpeta compartida local y usarlos dentro de nuestra función. en <em>libroute</em> podemos especificar la ruta a la librería de nuestra conveniencia.</p>
-<pre class="r"><code>create_cluster &lt;- function(nnodes, libroute = NULL) {
+
+```r
+create_cluster <- function(nnodes, libroute = NULL) {
 
   # nnodes: Number of nodes
   # libroute: Provided library route (different of the default library)
 
   tryCatch({
-    cl &lt;- parallel::makeCluster(nnodes) # Create an empty cluster with n nodes
+    cl <- parallel::makeCluster(nnodes) # Create an empty cluster with n nodes
 
-    loaded.package.names &lt;- c( # Find the loaded packages in the session
+    loaded.package.names <- c( # Find the loaded packages in the session
       sessionInfo()$basePkgs, # base packages
       names(sessionInfo()$otherPkgs)
     ) # aditional loaded packages
     # Send the packages and the complete environment to the cluster
     parallel::clusterExport(cl,
-      &quot;loaded.package.names&quot;, # loaded packages
+      "loaded.package.names", # loaded packages
       envir = environment()
-    ) # &quot;Environment&quot;
+    ) # "Environment"
 
     ## Charge the packages in all nodes
     if (is.null(libroute)) { # Use default library location
@@ -86,49 +87,62 @@ image_preview: "headers/parallel.png"
     }
   })
   return(cl) # The result is the cluster
-}</code></pre>
+}
+```
+
 </div>
 <div id="un-pequeno-y-reciclado-ejemplo" class="section level2">
 <h2>Un pequeño y reciclado ejemplo</h2>
 <p>Para ejemplificar, en este problema (sacado del tutorial anterior), teníamos que ocupar <em>clusterCall</em> para llamar al paquete <em>randomForest</em>, acá, si ya tenemos el paquete cargado en la sesión (y varios paquetes más, los exportamos a los nodos todo de una sola vez</p>
 <p>Cargo el paquete y creo la función:</p>
-<pre class="r"><code>library(randomForest)
 
-rf_boot_fun &lt;- function(iter, data, n_sample) {
-  ind &lt;- sample(1:nrow(data), size = n_sample)
-  data_sample &lt;- data[ind, ]
+```r
+library(randomForest)
+
+rf_boot_fun <- function(iter, data, n_sample) {
+  ind <- sample(1:nrow(data), size = n_sample)
+  data_sample <- data[ind, ]
   # Ejecuto el modelo Random Forest
-  model1 &lt;- randomForest(Sepal.Length ~ Petal.Length, data = data_sample)
+  model1 <- randomForest(Sepal.Length ~ Petal.Length, data = data_sample)
   # Extraigo el pseudo-R2
-  R2 &lt;- model1$rsq[length(model1$rsq)]
+  R2 <- model1$rsq[length(model1$rsq)]
   # Extraigo el MSE
-  MSE &lt;- model1$mse[length(model1$mse)]
-  results &lt;- c(&quot;R2&quot; = R2, &quot;MSE&quot; = MSE)
+  MSE <- model1$mse[length(model1$mse)]
+  results <- c("R2" = R2, "MSE" = MSE)
   return(results)
-}</code></pre>
+}
+```
+
 <p>Ahora puedo aplicar esta función con <em>parLapply</em></p>
-<pre class="r"><code>library(parallel)
+
+```r
+library(parallel)
 
 # Defino una ruta para mi libreria (opcional)
-ruta_libreria &lt;- &quot;C:/Users/Julian/Documents/R/win-library/3.5&quot;
+ruta_libreria <- "C:/Users/Julian/Documents/R/win-library/3.5"
 
-# Esto puede ser simplemente nuevoclus&lt;-create_cluster(4)
-nuevoclus &lt;- create_cluster(4, ruta_libreria)
+# Esto puede ser simplemente nuevoclus<-create_cluster(4)
+nuevoclus <- create_cluster(4, ruta_libreria)
 
-# 10000 iteraciones de nuestra funcion con la base de datos &quot;iris&quot;
-results &lt;- parLapply(nuevoclus, 1:10000, rf_boot_fun, data = iris, n_sample = 100)
+# 10000 iteraciones de nuestra funcion con la base de datos "iris"
+results <- parLapply(nuevoclus, 1:10000, rf_boot_fun, data = iris, n_sample = 100)
 
 stopCluster(nuevoclus) # Cerramos el cluster, NO OLVIDAR
 
 # Los primeros dos resultados
-head(results, n = 2)</code></pre>
-<pre><code>## [[1]]
+head(results, n = 2)
+```
+
+```text
+## [[1]]
 ##       R2      MSE 
 ## 0.778244 0.174310 
 ## 
 ## [[2]]
 ##        R2       MSE 
-## 0.6912495 0.1865890</code></pre>
+## 0.6912495 0.1865890
+```
+
 <p>¡Listo, paralelizamos mucho mas fácil!</p>
 <div class="figure">
 <img src="https://media.giphy.com/media/uTuLngvL9p0Xe/giphy.gif" />

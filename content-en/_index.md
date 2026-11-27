@@ -7,27 +7,54 @@ sections:
     id: "hero"
     content:
       username: "me"
-      eyebrow: "Earth observation · Data science"
+      eyebrow: "Earth observation and data science"
       tagline: "Artificial intelligence and data science for the environment"
       text: "I turn satellite, environmental and regulatory data into models, automation and decisions. I lead the Data Science team at Chile's Superintendency of the Environment."
-      scroll_label: "Go to profile"
       buttons:
-        - text: "View profile"
-          url: "#about"
-          primary: true
         - text: "Download CV"
           url: "/en/files/cv.pdf"
-        - text: "Contact"
+          primary: true
+        - text: "Write to me"
           url: "#contact"
-      telemetry:
-        - label: "Base"
-          value: "Santiago, Chile"
-        - label: "Focus"
-          value: "AI · Environment"
-        - label: "Stack"
-          value: "R · Python · SQL"
-        - label: "Territories"
-          value: "CL · AU · DE"
+      # Career path in chronological order; draws the hero network (label: label position n|s|e|w).
+      route_title: "Career path"
+      route:
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2010"
+          note: "Natural Resources Engineering, Universidad de Chile"
+          label: "e"
+        - place: "Karlsruhe"
+          lat: 49.01
+          lon: 8.40
+          year: "2016"
+          note: "Remote sensing at the Karlsruhe Institute of Technology"
+          label: "e"
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2018"
+          arc: 0.12
+          note: "Statistics at INE and FAO"
+        - place: "Adelaide"
+          lat: -34.93
+          lon: 138.60
+          year: "2020"
+          note: "Master of Data Science and computer vision"
+          label: "w"
+        - place: "Canberra"
+          lat: -35.28
+          lon: 149.13
+          year: "2020"
+          note: "Forest carbon modelling with The Mullion Group"
+          label: "n"
+        - place: "Santiago"
+          lat: -33.45
+          lon: -70.66
+          year: "2022"
+          arc: 0.14
+          note: "Data science at the Superintendency of the Environment"
   -
     block: "resume-biography-3"
     id: "about"
@@ -62,7 +89,7 @@ sections:
     id: "publications"
     content:
       title: "Selected publications"
-      text: "Some of my scientific work"
+      text: "Papers and conference work on remote sensing, wetlands and vegetation dynamics."
       count: 10
       filters:
         folders:

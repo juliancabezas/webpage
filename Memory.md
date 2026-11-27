@@ -32,6 +32,29 @@ Bitácora de lo aprendido trabajando en el sitio. Entradas fechadas; lo más rec
 - El modo oscuro de HugoBlox es la clase `.dark` en `<html>` (hb-head.js); los tokens `--orb-*` se redefinen ahí.
 - Disqus desactivado (`comments.enable: false`), selector de idioma en la cabecera, "Inicio" apunta a `/`.
 
+## Skill frontend-design (2026-11-27)
+- Plugin `frontend-design:frontend-design` (instalado por el usuario). Criterios clave: audacia en **un solo lugar**
+  y el resto sobrio; una o dos familias tipográficas; números `01/02` solo para secuencias reales; una animación
+  orquestada en vez de efectos infinitos dispersos; CTAs que dicen qué hacen; el brief del cliente manda sobre la skill.
+- Rasgos que la skill marca como "diseño generado" y que el rediseño Orbital usa: etiquetas mono en MAYÚSCULAS con
+  tracking, metadatos unidos con `·`, `// 0N` en secciones no secuenciales, titular con degradado, tarjetas idénticas
+  con brillo. Varios los pidió el brief (`// 01`, telemetría mono): tratarlos como decisión del usuario, no corregirlos solos.
+- Propuestas priorizadas (P0–P4) en `DIAGNOSTICO.md` → "Revisión con la skill frontend-design".
+- Trampa encontrada: los posts de blogdown usan `<pre class="r"><code>` en HTML crudo; Goldmark corta el bloque en la
+  primera línea vacía y los comentarios `# …` de R salen como `<h1>`. Solución: bloques de código Markdown.
+- Contraste medido en claro: `#0891b2` sobre `#f4fbfb` = 3,5:1 (falla AA); `#0e7490` = 5,1:1. El tema usa `#0891b2`
+  aunque CLAUDE.md dice `#0e7490`.
+- 2026-11-27 · **Google Fonts de HugoBlox estaba roto**: `functions/typography.html` del módulo pedía
+  `wght@500,600,700` (comas) y repetía la familia por rol → la API css2 responde **400** y la fuente no carga
+  (Space Grotesk nunca se vio). Override en `layouts/_partials/functions/typography.html`: pesos agrupados por familia y
+  separados con `;`. Verificar con `curl -A "<UA de navegador>"` (sin UA también da 400) o `document.fonts` tras `fonts.ready`.
+- 2026-11-27 · Implementación en rama `design/frontend-review`: hero con `route` (lat/lon → viewBox 520×224,
+  `x=(lon+95)*2`, `y=(62-lat)*2`; `arc` por parada evita que ida y vuelta se superpongan). No usar `lang.FormatNumber`
+  para coordenadas SVG: en `es` sale con coma decimal; usar `printf "%.1f"`.
+- 2026-11-27 · Copiar archivos desde la caché de módulos los deja de solo lectura: `chmod u+w` antes de editarlos.
+- 2026-11-27 · Bloques de código de los posts de blogdown convertidos a Markdown (script Node con desescapado de entidades,
+  línea en blanco antes y después de cada bloque porque están entre bloques HTML).
+
 ## HugoBlox (módulo `blox`)
 - Caché de módulos: `%LOCALAPPDATA%\hugo_cache\modules\filecache\modules\pkg\mod\github.com\!hugo!blox\kit\modules\blox@v0.0.0-20260527025321-61f41d3667f1\`.
   Los bloques viven en `blox/<id>/block.html` y se montan en `layouts/_partials/hbx/blocks/<id>/block.html`.
