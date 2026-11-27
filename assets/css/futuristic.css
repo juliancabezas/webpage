@@ -80,7 +80,7 @@ html { scrollbar-color: var(--orb-line-strong) transparent; }
   #site-header .navbar { flex-wrap: nowrap; }
   #site-header #nav-menu { margin-right: .75rem; }
   #site-header #nav-menu > li + li { margin-left: 0 !important; }
-  #site-header .nav-link { font-size: .85rem; padding-left: .45rem !important; padding-right: .45rem !important; }
+  #site-header .nav-link { font-size: .85rem; white-space: nowrap; padding-left: .45rem !important; padding-right: .45rem !important; }
   #site-header .navbar > div.order-1 > * { padding-left: .4rem; padding-right: .4rem; margin-right: 0; }
 }
 /* Móvil: una sola fila (marca + controles) */

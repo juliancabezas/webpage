@@ -51,6 +51,9 @@ Bitácora de lo aprendido trabajando en el sitio. Entradas fechadas; lo más rec
 - 2026-11-27 · Implementación en rama `design/frontend-review`: hero con `route` (lat/lon → viewBox 520×224,
   `x=(lon+95)*2`, `y=(62-lat)*2`; `arc` por parada evita que ida y vuelta se superpongan). No usar `lang.FormatNumber`
   para coordenadas SVG: en `es` sale con coma decimal; usar `printf "%.1f"`.
+- 2026-11-27 · Foto de perfil: `assets/media/authors/me.jpg` (el bloque de biografía la recorta con `Fill … Center`).
+  Para fotos verticales, recortar antes a cuadrado centrado en el rostro (se hizo con System.Drawing en PowerShell:
+  760×760 desde x=110, y=60 de la foto 960×1280); no hay ImageMagick y `convert` es la utilidad de discos de Windows.
 - 2026-11-27 · Copiar archivos desde la caché de módulos los deja de solo lectura: `chmod u+w` antes de editarlos.
 - 2026-11-27 · Bloques de código de los posts de blogdown convertidos a Markdown (script Node con desescapado de entidades,
   línea en blanco antes y después de cada bloque porque están entre bloques HTML).
