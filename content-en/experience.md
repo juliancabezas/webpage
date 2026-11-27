@@ -26,7 +26,7 @@ sections:
 
         Preparation of a report and expert witness testimony in case D-33-2017 before the Santiago Environmental Court, using a spatiotemporal analysis of the causes and impacts of the January 2017 wildfire.
 
-        ### Remote sensing of watercourses
+        ### Watercourse classification
 
         <p class="orb-year"><time>2017</time></p>
 
@@ -44,21 +44,21 @@ sections:
     content:
       title: "Professional skills"
       text: |
-        ### Programming and data analysis
-
-        Advanced **R and Python** skills for data science and statistical analysis. Database queries and modelling with **SQL**; experience analysing survey data with **SAS**.
-
         ### Artificial intelligence and machine learning
 
-        Implementation of machine learning and deep learning models, including computer vision with **Detectron2 and PyTorch**, and automated text classification using text mining.
+        Developing and deploying machine learning and deep learning models: computer vision with **Detectron2 and PyTorch** taken to a field-tested prototype, and automated text classification using text mining.
 
-        ### Spatial analysis and the environment
+        ### Data science and programming
 
-        Advanced use of **ArcGIS, ENVI and QGIS**. Remote sensing and Landsat time-series analysis with **BFAST and LandTrendR**; forest carbon modelling with **GCBM**.
+        Advanced **R and Python** skills for data science, modelling and statistical analysis. Database queries and modelling with **SQL**; survey analysis with **SAS**.
 
-        ### Coordination and automation
+        ### Automation and coordination
 
-        Interdisciplinary team coordination, dashboard development, process automation and data validation for environmental monitoring and enforcement.
+        Interdisciplinary team coordination, dashboard development, process automation and data validation algorithms for environmental monitoring and enforcement.
+
+        ### Environmental and geospatial data
+
+        Spatial data analysis with **R, QGIS and ArcGIS**; time-series algorithms (**BFAST and LandTrendR**) and forest carbon modelling with **GCBM**.
 
         ### Languages
 

@@ -26,7 +26,7 @@ sections:
 
         Elaboración de un informe y declaración como testigo experto en el caso D-33-2017 del Tribunal Ambiental de Santiago, con un análisis espaciotemporal de causalidad y efectos del incendio de enero de 2017.
 
-        ### Teledetección de cursos de agua
+        ### Clasificación de cursos de agua
 
         <p class="orb-year"><time>2017</time></p>
 
@@ -44,21 +44,21 @@ sections:
     content:
       title: "Habilidades profesionales"
       text: |
-        ### Programación y análisis de datos
-
-        Manejo avanzado de **R y Python** para ciencia de datos y análisis estadístico. Consultas y modelado de bases de datos con **SQL**; experiencia en análisis de encuestas con **SAS**.
-
         ### Inteligencia artificial y machine learning
 
-        Implementación de modelos de machine learning y deep learning, incluidos modelos de visión por computador con **Detectron2 y PyTorch**, y clasificación automática de textos mediante minería de texto.
+        Desarrollo e implementación de modelos de machine learning y deep learning: visión por computador con **Detectron2 y PyTorch** llevada a un prototipo en terreno, y clasificación automática de textos mediante minería de texto.
 
-        ### Análisis espacial y medio ambiente
+        ### Ciencia de datos y programación
 
-        Manejo avanzado de **ArcGIS, ENVI y QGIS**. Teledetección y análisis de series de tiempo Landsat con **BFAST y LandTrendR**; modelamiento de carbono forestal con **GCBM**.
+        Manejo avanzado de **R y Python** para ciencia de datos, modelamiento y análisis estadístico. Consultas y modelado de bases de datos con **SQL**; análisis de encuestas con **SAS**.
 
-        ### Coordinación y automatización
+        ### Automatización y coordinación
 
-        Coordinación de equipos interdisciplinarios, desarrollo de paneles, automatización de procesos y validación de datos para el seguimiento y la fiscalización ambiental.
+        Coordinación de equipos interdisciplinarios, desarrollo de paneles, automatización de procesos y algoritmos de validación de datos para el seguimiento y la fiscalización ambiental.
+
+        ### Datos ambientales y geoespaciales
+
+        Análisis de datos espaciales con **R, QGIS y ArcGIS**; algoritmos de series de tiempo (**BFAST y LandTrendR**) y modelamiento de carbono forestal con **GCBM**.
 
         ### Idiomas
 

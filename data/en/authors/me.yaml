@@ -5,13 +5,13 @@ name:
   display: "Julián Cabezas Peña"
   given: "Julián"
   family: "Cabezas Peña"
-role: "AI and the environment"
+role: "Artificial intelligence and data science"
 bio: |
-  I am a data scientist and Natural Resources Engineer from Universidad de Chile, with a Master of Data Science from the University of Adelaide. I combine artificial intelligence, data science, statistical analysis and geospatial analysis to tackle environmental challenges.
+  I am a data scientist with a Master of Data Science from the University of Adelaide and a background in Natural Resources Engineering from Universidad de Chile. I use artificial intelligence, machine learning and statistics to solve real-world problems, with a focus on the environment.
 
-  Since February 2022, I have coordinated the Data Science team at Chile's Superintendence of the Environment (SMA). I develop automation, data validation and analytical solutions for environmental monitoring and enforcement, using R, Python and SQL.
+  Since February 2022, I have coordinated the Data Science team at Chile's Superintendence of the Environment (SMA). We build automation, data validation algorithms, dashboards and analyses that support environmental monitoring and enforcement, using R, Python and SQL.
 
-  My experience also includes computer vision and deep learning for agricultural robotics, forest carbon modelling, remote sensing and survey data analysis. I have worked in Chile, Australia and Germany, combining applied research, algorithm development and interdisciplinary team coordination.
+  Previously, I developed deep learning and computer vision models for agricultural robotics, text mining algorithms to classify national survey responses, and forest carbon models. I have worked in Chile, Australia and Germany, across applied research, algorithm development and interdisciplinary team coordination.
 links:
   - icon: "at-symbol"
     url: "mailto:juliancabezas@gmail.com"
@@ -29,11 +29,11 @@ links:
     url: "/en/files/cv.pdf"
     label: "CV in Spanish · updated November 2026"
 interests:
-  - "Data science and statistical analysis"
   - "Artificial intelligence and machine learning"
+  - "Data science and statistics"
+  - "Computer vision and text processing"
   - "Automation and data quality"
-  - "Geospatial analysis and remote sensing"
-  - "The environment and climate change"
+  - "Data for the environment and climate change"
 education:
   - degree: "Master of Data Science"
     institution: "University of Adelaide, Australia"
@@ -49,7 +49,7 @@ experience:
   - role: "Data Scientist and Data Science Team Coordinator"
     org: "Superintendence of the Environment (SMA)"
     location: "Santiago, Chile"
-    summary_short: "Team coordination, automation and data validation for environmental monitoring and enforcement using R, Python and SQL."
+    summary_short: "Leading the Data Science team: automation, validation algorithms and analytics for environmental enforcement using R, Python and SQL."
     start: "2022-02-01"
     summary: |
       Santiago, Chile.
@@ -82,7 +82,7 @@ experience:
   - role: "Project Support Specialist (National Project Personnel)"
     org: "Food and Agriculture Organization of the United Nations (FAO)"
     location: "Santiago, Chile"
-    summary_short: "Spatial analysis for the ENCCRV, contributions to Chile's REDD+ Technical Annex and support for a Green Climate Fund application."
+    summary_short: "Data analysis to prioritise ENCCRV actions, contributions to Chile's REDD+ Technical Annex and support for a Green Climate Fund application."
     start: "2019-02-01"
     end: "2019-11-01"
     summary: |
@@ -105,7 +105,7 @@ experience:
   - role: "Remote Sensing Scientist"
     org: "Karlsruhe Institute of Technology (KIT)"
     location: "Karlsruhe, Germany"
-    summary_short: "Detecting vegetation disturbances using Landsat time series, BFAST and LandTrendR in the SaMovar project."
+    summary_short: "Change-detection algorithms for time series (BFAST and LandTrendR) to identify vegetation disturbances in the SaMovar project."
     start: "2016-04-01"
     end: "2017-10-01"
     summary: |
@@ -113,20 +113,22 @@ experience:
 
       - Implementing BFAST and LandTrendR algorithms on Landsat time series to detect disturbances in Chile's natural vegetation as part of the SaMovar project.
 skills:
-  - name: "Programming and data"
+  - name: "Artificial intelligence and data"
     items:
+      - label: "Machine learning and deep learning"
+        description: "Computer vision with Detectron2 and PyTorch; automated text classification with text mining."
       - label: "R and Python"
-        description: "Advanced skills in data science and statistical analysis."
+        description: "Advanced skills in data science, modelling and statistical analysis."
       - label: "SQL"
         description: "Database queries, modelling and maintenance."
-      - label: "Machine learning and deep learning"
-        description: "Computer vision with Detectron2 and PyTorch."
-  - name: "Spatial analysis and coordination"
+  - name: "Automation and coordination"
     items:
-      - label: "GIS and remote sensing"
-        description: "ArcGIS, ENVI and QGIS; Landsat time-series analysis with BFAST and LandTrendR."
+      - label: "Automation and data quality"
+        description: "Validation algorithms, dashboards and automated processes for environmental enforcement."
       - label: "Team coordination"
-        description: "Coordinating interdisciplinary teams and automating processes."
+        description: "Coordinating interdisciplinary data science teams."
+      - label: "Environmental and geospatial data"
+        description: "R, QGIS and ArcGIS; time series with BFAST and LandTrendR; carbon modelling with GCBM."
 languages:
   - name: "English"
     label: "Advanced · IELTS 7.5/9"

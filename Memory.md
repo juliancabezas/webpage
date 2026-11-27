@@ -3,11 +3,15 @@
 Bitácora de lo aprendido trabajando en el sitio. Entradas fechadas; lo más reciente arriba dentro de cada sección.
 
 ## Decisiones del usuario
+- 2026-11-27 · Textos: más énfasis en IA, machine learning y ciencia de datos; la teledetección y los datos satelitales
+  pasan a segundo plano (sin borrar hechos de la trayectoria). Propuesta en la rama `texts/ia-datos`.
 - 2026-11-25 · Rediseño futurista/ambiental completo con `satelite4.jpg` como referencia.
 - 2026-11-25 · La imagen satelital va en un **hero dedicado** arriba de la portada; la biografía queda debajo sobre fondo limpio.
 - 2026-11-25 · **Oscuro por defecto** pero se conserva el modo claro y el selector de tema.
 
 ## Historia y trampas
+- 2026-11-27 · `scripts/verify-build.mjs` comprueba textos literales del perfil EN (rol, "I am a data scientist") y
+  del resumen ES ("Coordinación del equipo"): al cambiar esos textos hay que actualizar el script.
 - 2026-11-18 · Se intentó usar `satelite4.jpg` como fondo de la sección biografía (`resume-biography-3`) y se revirtió
   (commit c8e0214): la foto detrás de texto largo y avatar resta legibilidad. No repetir.
 - El Hugo del PATH (WinGet) es 0.145; el build exige 0.170.1 (`.hugo-version`). Herramientas portables verificadas en

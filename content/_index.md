@@ -7,9 +7,9 @@ sections:
     id: "hero"
     content:
       username: "me"
-      eyebrow: "Observación de la Tierra y ciencia de datos"
-      tagline: "Inteligencia artificial y ciencia de datos para el medio ambiente"
-      text: "Convierto datos satelitales, ambientales y regulatorios en modelos, automatizaciones y decisiones. Coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente de Chile."
+      eyebrow: "Científico de datos en la Superintendencia del Medio Ambiente"
+      tagline: "Inteligencia artificial y ciencia de datos aplicadas al medio ambiente"
+      text: "Diseño modelos de machine learning, automatizaciones y algoritmos de validación que convierten datos en decisiones. Coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente de Chile."
       buttons:
         - text: "Descargar CV"
           url: "/files/cv.pdf"
@@ -29,19 +29,19 @@ sections:
           lat: 49.01
           lon: 8.40
           year: "2016"
-          note: "Teledetección en el Karlsruhe Institute of Technology"
+          note: "Algoritmos de series de tiempo en el Karlsruhe Institute of Technology"
           label: "e"
         - place: "Santiago"
           lat: -33.45
           lon: -70.66
           year: "2018"
           arc: 0.12
-          note: "Estadística en el INE y la FAO"
+          note: "Estadística y minería de texto en el INE; análisis de datos para la FAO"
         - place: "Adelaide"
           lat: -34.93
           lon: 138.60
           year: "2020"
-          note: "Máster en Ciencia de Datos y visión por computador"
+          note: "Máster en Ciencia de Datos; deep learning y visión por computador"
           label: "w"
         - place: "Canberra"
           lat: -35.28
@@ -82,14 +82,14 @@ sections:
     content:
       title: "Experiencia profesional"
       username: "me"
-      text: "Mi trayectoria combina ciencia de datos, inteligencia artificial y análisis geoespacial en Chile, Australia y Alemania."
+      text: "Mi trayectoria combina inteligencia artificial, ciencia de datos y estadística aplicadas a problemas ambientales, en Chile, Australia y Alemania."
       detail: "El detalle de mis cargos, responsabilidades y consultorías está en la [sección de Experiencia](/experience/)."
   -
     block: "collection"
     id: "publications"
     content:
       title: "Publicaciones seleccionadas"
-      text: "Artículos y presentaciones sobre teledetección, humedales y dinámica de la vegetación."
+      text: "Investigación con modelos estadísticos y machine learning sobre humedales, carbono y dinámica de la vegetación."
       count: 10
       filters:
         folders:
@@ -101,6 +101,7 @@ sections:
     id: "posts"
     content:
       title: "Posts y tutoriales"
+      text: "Tutoriales de R para trabajar con bases de datos más grandes que la memoria y paralelizar cálculos."
       count: 10
       filters:
         folders:

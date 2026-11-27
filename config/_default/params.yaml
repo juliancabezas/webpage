@@ -3,8 +3,8 @@ hugoblox:
   identity:
     name: "Julián Cabezas Peña"
     type: "person"
-    tagline: "IA y medio ambiente"
-    description: "Julián Cabezas Peña, científico de datos y coordinador del equipo de Ciencia de Datos de la SMA. R, Python, SQL, machine learning y análisis geoespacial para el medio ambiente."
+    tagline: "Inteligencia artificial y ciencia de datos"
+    description: "Julián Cabezas Peña, científico de datos y coordinador del equipo de Ciencia de Datos de la SMA. Inteligencia artificial, machine learning, automatización y análisis de datos con R, Python y SQL para el medio ambiente."
     social:
       twitter: "juliancabezasp"
   theme:

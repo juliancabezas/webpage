@@ -5,13 +5,13 @@ name:
   display: "Julián Cabezas Peña"
   given: "Julián"
   family: "Cabezas Peña"
-role: "IA y medio ambiente"
+role: "Inteligencia artificial y ciencia de datos"
 bio: |
-  Soy científico de datos e ingeniero en Recursos Naturales Renovables de la Universidad de Chile, con un Master of Data Science de la University of Adelaide. Integro inteligencia artifical, ciencia de datos, análisis estadístico, y análisis geoespacial para abordar desafíos ambientales.
+  Soy científico de datos, con un Master of Data Science de la University of Adelaide y formación de base como ingeniero en Recursos Naturales Renovables de la Universidad de Chile. Uso inteligencia artificial, machine learning y estadística para resolver problemas reales, con foco en el medio ambiente.
 
-  Desde febrero de 2022 coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente (SMA). Desarrollo soluciones de automatización, validación de datos y análisis para el seguimiento y la fiscalización ambiental, utilizando R, Python y SQL.
+  Desde febrero de 2022 coordino el equipo de Ciencia de Datos de la Superintendencia del Medio Ambiente (SMA). Construimos automatizaciones, algoritmos de validación de datos, paneles y análisis que apoyan el seguimiento y la fiscalización ambiental, con R, Python y SQL.
 
-  Mi experiencia también incluye computer vision y deep learning para robótica agrícola, modelamiento de carbono forestal, teledetección y análisis de datos de encuestas. He trabajado en Chile, Australia y Alemania, combinando investigación aplicada, desarrollo de algoritmos y coordinación de equipos interdisciplinarios.
+  Antes desarrollé modelos de deep learning y visión por computador para robótica agrícola, algoritmos de minería de texto para clasificar respuestas de encuestas nacionales y modelos de carbono forestal. He trabajado en Chile, Australia y Alemania, entre la investigación aplicada, el desarrollo de algoritmos y la coordinación de equipos interdisciplinarios.
 links:
   - icon: "at-symbol"
     url: "mailto:juliancabezas@gmail.com"
@@ -29,11 +29,11 @@ links:
     url: "/files/cv.pdf"
     label: "Currículum actualizado · noviembre de 2026"
 interests:
-  - "Ciencia de datos y análisis estadístico"
   - "Inteligencia artificial y machine learning"
+  - "Ciencia de datos y estadística"
+  - "Visión por computador y procesamiento de texto"
   - "Automatización y calidad de datos"
-  - "Análisis geoespacial y teledetección"
-  - "Medio ambiente y cambio climático"
+  - "Datos para el medio ambiente y el cambio climático"
 education:
   - degree: "Master of Data Science"
     institution: "University of Adelaide, Australia"
@@ -49,7 +49,7 @@ experience:
   - role: "Científico de datos y coordinador del equipo de Ciencia de Datos"
     org: "Superintendencia del Medio Ambiente (SMA)"
     location: "Santiago, Chile"
-    summary_short: "Coordinación de equipo, automatización y validación de datos para el seguimiento y la fiscalización ambiental con R, Python y SQL."
+    summary_short: "Coordinación del equipo de Ciencia de Datos: automatización, algoritmos de validación y análisis para la fiscalización ambiental con R, Python y SQL."
     start: "2022-02-01"
     summary: |
       Santiago, Chile.
@@ -82,7 +82,7 @@ experience:
   - role: "Profesional de apoyo (National Project Personnel)"
     org: "Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO)"
     location: "Santiago, Chile"
-    summary_short: "Análisis espacial para la ENCCRV, apoyo al Anexo Técnico de Resultados REDD+ y a la postulación al Fondo Verde del Clima."
+    summary_short: "Análisis de datos para priorizar acciones de la ENCCRV, apoyo al Anexo Técnico de Resultados REDD+ y a la postulación al Fondo Verde del Clima."
     start: "2019-02-01"
     end: "2019-11-01"
     summary: |
@@ -105,7 +105,7 @@ experience:
   - role: "Remote Sensing Scientist"
     org: "Karlsruhe Institute of Technology (KIT)"
     location: "Karlsruhe, Alemania"
-    summary_short: "Detección de perturbaciones de la vegetación con series de tiempo Landsat, BFAST y LandTrendR en el proyecto SaMovar."
+    summary_short: "Algoritmos de detección de cambios en series de tiempo (BFAST y LandTrendR) para identificar perturbaciones en la vegetación, proyecto SaMovar."
     start: "2016-04-01"
     end: "2017-10-01"
     summary: |
@@ -113,20 +113,22 @@ experience:
 
       - Implementación de algoritmos BFAST y LandTrendR sobre series de tiempo Landsat para detectar perturbaciones en la vegetación natural de Chile, en el proyecto SaMovar.
 skills:
-  - name: "Programación y datos"
+  - name: "Inteligencia artificial y datos"
     items:
+      - label: "Machine learning y deep learning"
+        description: "Visión por computador con Detectron2 y PyTorch; clasificación automática de textos con minería de texto."
       - label: "R y Python"
-        description: "Manejo avanzado para ciencia de datos y análisis estadístico."
+        description: "Manejo avanzado para ciencia de datos, modelamiento y análisis estadístico."
       - label: "SQL"
         description: "Consultas, modelado y mantenimiento de bases de datos."
-      - label: "Machine learning y deep learning"
-        description: "Visión por computador con Detectron2 y PyTorch."
-  - name: "Análisis espacial y coordinación"
+  - name: "Automatización y coordinación"
     items:
-      - label: "SIG y teledetección"
-        description: "ArcGIS, ENVI y QGIS; análisis de series de tiempo Landsat con BFAST y LandTrendR."
+      - label: "Automatización y calidad de datos"
+        description: "Algoritmos de validación, paneles y procesos automáticos para la fiscalización ambiental."
       - label: "Coordinación de equipos"
-        description: "Coordinación de equipos interdisciplinarios y automatización de procesos."
+        description: "Coordinación de equipos interdisciplinarios de ciencia de datos."
+      - label: "Datos ambientales y geoespaciales"
+        description: "R, QGIS y ArcGIS; series de tiempo con BFAST y LandTrendR; modelamiento de carbono con GCBM."
 languages:
   - name: "Inglés"
     label: "Avanzado · IELTS 7,5/9"

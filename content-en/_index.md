@@ -7,9 +7,9 @@ sections:
     id: "hero"
     content:
       username: "me"
-      eyebrow: "Earth observation and data science"
-      tagline: "Artificial intelligence and data science for the environment"
-      text: "I turn satellite, environmental and regulatory data into models, automation and decisions. I lead the Data Science team at Chile's Superintendency of the Environment."
+      eyebrow: "Data scientist at Chile's Superintendency of the Environment"
+      tagline: "Artificial intelligence and data science applied to the environment"
+      text: "I design machine learning models, automation and validation algorithms that turn data into decisions. I lead the Data Science team at Chile's Superintendency of the Environment."
       buttons:
         - text: "Download CV"
           url: "/en/files/cv.pdf"
@@ -29,19 +29,19 @@ sections:
           lat: 49.01
           lon: 8.40
           year: "2016"
-          note: "Remote sensing at the Karlsruhe Institute of Technology"
+          note: "Time-series algorithms at the Karlsruhe Institute of Technology"
           label: "e"
         - place: "Santiago"
           lat: -33.45
           lon: -70.66
           year: "2018"
           arc: 0.12
-          note: "Statistics at INE and FAO"
+          note: "Statistics and text mining at INE; data analysis for FAO"
         - place: "Adelaide"
           lat: -34.93
           lon: 138.60
           year: "2020"
-          note: "Master of Data Science and computer vision"
+          note: "Master of Data Science; deep learning and computer vision"
           label: "w"
         - place: "Canberra"
           lat: -35.28
@@ -82,14 +82,14 @@ sections:
     content:
       title: "Professional experience"
       username: "me"
-      text: "My career combines data science, artificial intelligence and geospatial analysis in Chile, Australia and Germany."
+      text: "My career combines artificial intelligence, data science and statistics applied to environmental problems, in Chile, Australia and Germany."
       detail: "Full details of my roles, responsibilities and consultancy work are available in the [Experience section](/en/experience/)."
   -
     block: "collection"
     id: "publications"
     content:
       title: "Selected publications"
-      text: "Papers and conference work on remote sensing, wetlands and vegetation dynamics."
+      text: "Research using statistical models and machine learning on wetlands, carbon and vegetation dynamics."
       count: 10
       filters:
         folders:
@@ -101,6 +101,7 @@ sections:
     id: "posts"
     content:
       title: "Posts and tutorials"
+      text: "R tutorials on handling datasets larger than memory and parallelising computations."
       count: 10
       filters:
         folders:

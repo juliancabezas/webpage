@@ -11,8 +11,8 @@ en:
   params:
     hugoblox:
       identity:
-        tagline: "AI and the environment"
-        description: "Julián Cabezas Peña, data scientist and coordinator of the SMA Data Science team. R, Python, SQL, machine learning and geospatial analysis for the environment."
+        tagline: "Artificial intelligence and data science"
+        description: "Julián Cabezas Peña, data scientist and coordinator of the SMA Data Science team. Artificial intelligence, machine learning, automation and data analysis with R, Python and SQL for the environment."
       header:
         language_switcher: true
       locale:
